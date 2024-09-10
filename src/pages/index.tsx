@@ -1,4 +1,4 @@
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import Head from "next/head";
 
 export default function Home() {
