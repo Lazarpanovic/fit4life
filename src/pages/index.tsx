@@ -16,11 +16,11 @@ export default function Home() {
         justifyContent="center"
         alignItems="center"
         bg="linear-gradient(to right, #ff9966, #ff5e62)"
-        h="100vh"
-        w="100vw"
+        minH="100dvh"
+        w="100dvw"
       > 
-        <Text color="white" fontSize={96} fontFamily='montserrat'>COMING SOON</Text>
-        <Text color="white" opacity={0.8} fontSize={20} fontFamily="montserrat">Our website is under construction, stay tuned!</Text>
+        <Text color="white" fontSize={{base: 40, xl: 96}} fontFamily='montserrat'>COMING SOON</Text>
+        <Text color="white" opacity={0.8} fontSize={{base: 14, xl: 20}} fontFamily="montserrat">Our website is under construction, stay tuned!</Text>
       </Box>
     </>
   );
