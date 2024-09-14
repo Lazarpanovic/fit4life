@@ -15,7 +15,8 @@ export default function Home() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        bg="linear-gradient(to right, #ff9966, #ff5e62)"
+        bg="linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+"
         minH="100dvh"
         w="100dvw"
       > 
