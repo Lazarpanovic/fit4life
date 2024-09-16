@@ -1,28 +1,34 @@
-import { Box, Text } from "@chakra-ui/react";
 import Head from "next/head";
+import { HeaderDesktop } from "../components/header/header-desktop";
+import { useBreakpoints } from "../hooks/use-breakpoints.hook";
+import { HeaderMobile } from "../components/header/header-mobile";
+import { Layout } from "../components/layout/layout";
+import { HeroSectionView } from "../views/home/hero-section.view";
 
 export default function Home() {
+  const { isMobile } = useBreakpoints();
   return (
     <>
       <Head>
-        <title>Fit4Life</title>
-        <meta name="description" content="Fit4Life" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>
+          Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness
+          Center
+        </title>
+        <meta
+          property="og:title"
+          content="Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness Center"
+        />
+        <link rel="canonical" href="https://www.fit4lifebelgrade.com/" />
+        <meta
+          name="description"
+          property="og:description"
+          content="Experience a full range of fitness services, including sauna, wellness, spa, gym, and personal training, tailored to help you achieve your health and wellness goals!"
+        />
       </Head>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        bg="linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
-"
-        minH="100dvh"
-        w="100dvw"
-      > 
-        <Text color="white" fontSize={{base: 40, xl: 96}} fontFamily='montserrat'>COMING SOON</Text>
-        <Text color="white" opacity={0.8} fontSize={{base: 14, xl: 20}} fontFamily="montserrat">Our website is under construction, stay tuned!</Text>
-      </Box>
+      {isMobile ? <HeaderMobile /> : <HeaderDesktop />}
+      <Layout>
+        <HeroSectionView />
+      </Layout>
     </>
   );
 }
