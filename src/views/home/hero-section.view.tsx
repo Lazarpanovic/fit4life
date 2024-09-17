@@ -15,9 +15,10 @@ export const HeroSectionView = () => {
       overflow="hidden"
       pos="relative"
       align="flex-start"
+      justify={{ base: "flex-start", lg: "center" }}
     >
       <VStack
-        mt={{ base: 20, lg: 52 }}
+        mt={{ base: 20, lg: 0 }}
         align="flex-start"
         w={{ base: "100%", md: "50%" }}
         lineHeight={{ base: 1, md: 1.5 }}
@@ -45,14 +46,14 @@ export const HeroSectionView = () => {
           ml={{ base: -0.5, md: -1 }}
           mt={{ base: 5, md: -2 }}
         >
-          BE STRONG
+          BE FIT
         </Text>
         <Text
           fontSize={{ base: 30, md: 40 }}
           fontWeight={700}
           mt={{ base: 5, md: -5 }}
         >
-          20% FOR YEARLY MEMBERSHIP
+          EXPLORE ALL OUR FITNESS & SPORTS PROGRAMS TODAY
         </Text>
         <Text
           color="rgb(0, 0, 0, 0.6)"
@@ -60,9 +61,12 @@ export const HeroSectionView = () => {
           lineHeight={1.5}
           fontSize={{ base: 16, md: 18 }}
         >
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat ultrices
-          quis a dis elementum scelerisque convallis dolor. Vestibulum laoreet
-          class gravida eros risus turpis lorem.
+          Our programs focus on professional sports, the development of young
+          athletes, and improving overall health for people of all ages. We
+          promote a balanced, healthy lifestyle in both personal and business
+          environments, cultivate a deep connection with nature, and strive to
+          inspire well-being through regular physical activity, mindfulness, and
+          holistic wellness practices.
         </Text>
         <Button
           colorScheme="red"
@@ -83,7 +87,7 @@ export const HeroSectionView = () => {
         style={{
           position: isMobile ? "relative" : "absolute",
           top: isMobile ? 40 : 50,
-          right: isMobile ? 0 : 30,
+          right: 0,
         }}
       />
     </Stack>
