@@ -1,9 +1,15 @@
-import { Button, HStack, Stack, Text, VStack } from "@chakra-ui/react";
-import { GAP_10, GAP_5, HEADER_HEIGHT } from "../../constants/layout.constants";
+import { Box, Button, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import {
+  GAP_10,
+  GAP_5,
+  HEADER_HEIGHT,
+  PADDING_10,
+  PADDING_20,
+} from "../../constants/layout.constants";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { BlackSquareIcon } from "../../components/icons/black-square.icon";
 import Image from "next/image";
-import HERO_SECTION_IMAGE from "../../../public/hero-section.png";
+import HERO_SECTION_IMAGE from "../../../public/hero-section.jpg";
 
 export const HeroSectionView = () => {
   const { isMobile } = useBreakpoints();
@@ -15,13 +21,15 @@ export const HeroSectionView = () => {
       overflow="hidden"
       pos="relative"
       align="flex-start"
+      mt={{ base: 20, lg: 0 }}
       justify={{ base: "flex-start", lg: "center" }}
     >
       <VStack
-        mt={{ base: 20, lg: 0 }}
         align="flex-start"
         w={{ base: "100%", md: "50%" }}
         lineHeight={{ base: 1, md: 1.5 }}
+        pl={{ base: PADDING_10, lg: PADDING_20 }}
+        pr={{ base: PADDING_10, lg: 0 }}
       >
         <HStack spacing={isMobile ? GAP_5 : GAP_10}>
           <BlackSquareIcon
@@ -80,16 +88,25 @@ export const HeroSectionView = () => {
           PROGRAMS
         </Button>
       </VStack>
-      <Image
-        src={HERO_SECTION_IMAGE}
-        alt="hero-section"
-        width={700}
+      <Box
+        mt={{ base: 10, lg: 0 }}
+        pos={{ base: "relative", lg: "absolute" }}
+        right={0}
+        w={{ base: "100%", lg: "48%" }}
+        h={{ base: "300px", lg: "100%" }}
         style={{
-          position: isMobile ? "relative" : "absolute",
-          top: isMobile ? 40 : 50,
-          right: 0,
+          clipPath: isMobile
+            ? "none"
+            : "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)",
         }}
-      />
+      >
+        <Image
+          src={HERO_SECTION_IMAGE}
+          alt="hero-section"
+          fill
+          objectFit="cover"
+        />
+      </Box>
     </Stack>
   );
 };
