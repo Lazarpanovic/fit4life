@@ -6,7 +6,7 @@ import { Layout } from "../components/layout/layout";
 import { HeroSectionView } from "../views/home/hero-section.view";
 
 export default function Home() {
-  const { isMobile } = useBreakpoints();
+  const { isMobile, isTablet } = useBreakpoints();
   return (
     <>
       <Head>
@@ -25,7 +25,7 @@ export default function Home() {
           content="Experience a full range of fitness services, including sauna, wellness, spa, gym, and personal training, tailored to help you achieve your health and wellness goals!"
         />
       </Head>
-      {isMobile ? <HeaderMobile /> : <HeaderDesktop />}
+      {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
       <Layout>
         <HeroSectionView />
       </Layout>

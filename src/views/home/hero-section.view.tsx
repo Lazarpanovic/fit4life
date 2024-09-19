@@ -12,11 +12,11 @@ import Image from "next/image";
 import HERO_SECTION_IMAGE from "../../../public/hero-section.jpg";
 
 export const HeroSectionView = () => {
-  const { isMobile } = useBreakpoints();
+  const { isMobile, isTablet } = useBreakpoints();
   return (
     <Stack
       w="100%"
-      h={{ base: "auto", md: `calc(100dvh - ${HEADER_HEIGHT}px)` }}
+      minH={{ base: "auto", md: `calc(100dvh - ${HEADER_HEIGHT}px)` }}
       fontFamily="montserrat"
       overflow="hidden"
       pos="relative"
@@ -26,7 +26,7 @@ export const HeroSectionView = () => {
     >
       <VStack
         align="flex-start"
-        w={{ base: "100%", md: "50%" }}
+        w={{ base: "100%", lg: "50%" }}
         lineHeight={{ base: 1, md: 1.5 }}
         pl={{ base: PADDING_10, lg: PADDING_20 }}
         pr={{ base: PADDING_10, lg: 0 }}
@@ -83,7 +83,7 @@ export const HeroSectionView = () => {
           w={250}
           h={50}
           mt={10}
-          alignSelf={{ base: "center", md: "auto" }}
+          alignSelf={{ base: "center", lg: "auto" }}
         >
           PROGRAMS
         </Button>
@@ -95,9 +95,10 @@ export const HeroSectionView = () => {
         w={{ base: "100%", lg: "48%" }}
         h={{ base: "300px", lg: "100%" }}
         style={{
-          clipPath: isMobile
-            ? "none"
-            : "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)",
+          clipPath:
+            isMobile || isTablet
+              ? "none"
+              : "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)",
         }}
       >
         <Image

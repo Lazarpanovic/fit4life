@@ -36,12 +36,12 @@ export const HeaderMobile = () => {
       {openMenu && (
         <VStack
           gap={GAP_10}
-          position="absolute"
           w="100%"
           bg="white"
           py={PADDING_20}
           boxShadow="0px 4px 10px 0px rgba(51, 51, 51, 0.2)"
           zIndex={1}
+          pos="absolute"
         >
           <Link
             _hover={{
