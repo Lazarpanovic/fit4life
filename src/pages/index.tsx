@@ -26,6 +26,15 @@ export default function Home() {
           property="og:description"
           content="Experience a full range of fitness services, including sauna, wellness, spa, gym, and personal training, tailored to help you achieve your health and wellness goals!"
         />
+        {/* Add Open Graph image for link preview */}
+        <meta property="og:image" content="/hero-section.jpg" />
+        <meta property="og:url" content="https://www.fit4lifebelgrade.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        {/* Twitter meta tags (optional) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/hero-section.jpg" />
       </Head>
       {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
       <Layout>
