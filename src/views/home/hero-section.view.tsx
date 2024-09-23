@@ -7,9 +7,10 @@ import {
   PADDING_20,
 } from "../../constants/layout.constants";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
-import { BlackSquareIcon } from "../../components/icons/black-square.icon";
+import { ShapeIcon } from "../../components/icons/shape.icon";
 import Image from "next/image";
 import HERO_SECTION_IMAGE from "../../../public/hero-section.jpg";
+import { scrollToPrograms } from "../../utils/navigation.utils";
 
 export const HeroSectionView = () => {
   const { isMobile, isTablet } = useBreakpoints();
@@ -32,20 +33,26 @@ export const HeroSectionView = () => {
         pr={{ base: PADDING_10, lg: 0 }}
       >
         <HStack spacing={isMobile ? GAP_5 : GAP_10}>
-          <BlackSquareIcon
+          <ShapeIcon
             color="black"
+            opacity={0.8}
             width={isMobile ? 22 : 30}
             height={isMobile ? 22 : 30}
-          />
-          <BlackSquareIcon
+            borderRadius={2}
+            />
+          <ShapeIcon
             color="black"
+            opacity={0.8}
             width={isMobile ? 22 : 30}
             height={isMobile ? 22 : 30}
-          />
-          <BlackSquareIcon
+            borderRadius={2}
+            />
+          <ShapeIcon
             color="black"
+            opacity={0.8}
             width={isMobile ? 22 : 30}
             height={isMobile ? 22 : 30}
+            borderRadius={2}
           />
         </HStack>
         <Text
@@ -53,6 +60,8 @@ export const HeroSectionView = () => {
           fontWeight={900}
           ml={{ base: -0.5, md: -1 }}
           mt={{ base: 5, md: -2 }}
+          color="black"
+          opacity={0.8}
         >
           BE FIT
         </Text>
@@ -60,6 +69,8 @@ export const HeroSectionView = () => {
           fontSize={{ base: 30, md: 40 }}
           fontWeight={700}
           mt={{ base: 5, md: -5 }}
+          color="black"
+          opacity={0.8}
         >
           EXPLORE ALL OUR FITNESS & SPORTS PROGRAMS TODAY
         </Text>
@@ -84,6 +95,7 @@ export const HeroSectionView = () => {
           h={50}
           mt={10}
           alignSelf={{ base: "center", lg: "auto" }}
+          onClick={scrollToPrograms}
         >
           PROGRAMS
         </Button>

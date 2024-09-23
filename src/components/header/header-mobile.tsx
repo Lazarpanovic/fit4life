@@ -13,6 +13,14 @@ export const HeaderMobile = () => {
   const toggleOpenMenu = () => {
     setOpenMenu((prev) => !prev);
   };
+
+  const handleNav = (section: string) => {
+    const programsSection = document.getElementById(section);
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpenMenu(false);
+  };
   return (
     <>
       <HStack
@@ -47,6 +55,7 @@ export const HeaderMobile = () => {
             _hover={{
               color: "red.500",
             }}
+            onClick={() => handleNav("about-us")}
           >
             About Us
           </Link>
@@ -54,6 +63,7 @@ export const HeaderMobile = () => {
             _hover={{
               color: "red.500",
             }}
+            onClick={() => handleNav("trainers")}
           >
             Trainers
           </Link>
@@ -71,7 +81,11 @@ export const HeaderMobile = () => {
           >
             Contact
           </Link>
-          <Button colorScheme="red" borderRadius={20}>
+          <Button
+            colorScheme="red"
+            borderRadius={20}
+            onClick={() => handleNav("programs")}
+          >
             Programs
           </Button>
         </VStack>

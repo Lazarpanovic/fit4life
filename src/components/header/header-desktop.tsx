@@ -4,6 +4,7 @@ import {
   HEADER_HEIGHT,
   PADDING_20,
 } from "../../constants/layout.constants";
+import { scrollToPrograms } from "../../utils/navigation.utils";
 
 export const HeaderDesktop = () => {
   return (
@@ -25,6 +26,7 @@ export const HeaderDesktop = () => {
             _hover={{
               color: "red.500",
             }}
+            href="#about-us"
           >
             About Us
           </Link>
@@ -32,6 +34,7 @@ export const HeaderDesktop = () => {
             _hover={{
               color: "red.500",
             }}
+            href="#trainers"
           >
             Trainers
           </Link>
@@ -50,7 +53,7 @@ export const HeaderDesktop = () => {
             Contact
           </Link>
         </HStack>
-        <Button colorScheme="red" borderRadius={20}>
+        <Button colorScheme="red" borderRadius={20} onClick={scrollToPrograms}>
           Programs
         </Button>
       </HStack>

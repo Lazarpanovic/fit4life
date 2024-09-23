@@ -4,6 +4,8 @@ import { useBreakpoints } from "../hooks/use-breakpoints.hook";
 import { HeaderMobile } from "../components/header/header-mobile";
 import { Layout } from "../components/layout/layout";
 import { HeroSectionView } from "../views/home/hero-section.view";
+import { AboutUsView } from "../views/home/about-us.view";
+import { ProgramsAndTrainersView } from "../views/home/programs-and-trainers.view";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
@@ -28,6 +30,8 @@ export default function Home() {
       {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
       <Layout>
         <HeroSectionView />
+        <AboutUsView />
+        <ProgramsAndTrainersView />
       </Layout>
     </>
   );
