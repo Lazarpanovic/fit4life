@@ -118,6 +118,7 @@ export const HeroSectionView = () => {
           alt="hero-section"
           fill
           objectFit="cover"
+          priority
         />
       </Box>
     </Stack>
