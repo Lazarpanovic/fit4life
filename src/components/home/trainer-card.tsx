@@ -17,7 +17,7 @@ export const trainers = [
     marginTop: -0.5,
   },
   {
-    name: "BRIAN MATTHEWS",
+    name: "RACHEL ADAMS",
     specialty: "FITNESS",
     imageSrc: TRAINER_4_IMAGE,
     imageWidth: 213,
