@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { Montserrat, Roboto } from "@next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 const roboto = Roboto({

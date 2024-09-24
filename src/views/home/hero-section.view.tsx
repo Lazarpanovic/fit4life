@@ -39,14 +39,14 @@ export const HeroSectionView = () => {
             width={isMobile ? 22 : 30}
             height={isMobile ? 22 : 30}
             borderRadius={2}
-            />
+          />
           <ShapeIcon
             color="black"
             opacity={0.8}
             width={isMobile ? 22 : 30}
             height={isMobile ? 22 : 30}
             borderRadius={2}
-            />
+          />
           <ShapeIcon
             color="black"
             opacity={0.8}
@@ -117,8 +117,10 @@ export const HeroSectionView = () => {
           src={HERO_SECTION_IMAGE}
           alt="hero-section"
           fill
-          objectFit="cover"
           priority
+          style={{
+            objectFit: "cover",
+          }}
         />
       </Box>
     </Stack>
