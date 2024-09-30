@@ -8,6 +8,7 @@ import { Box, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import { resources } from "../../data/data";
 import { PADDING_10, PADDING_20 } from "../../constants/layout.constants";
+import { Footer } from "../../components/footer/footer";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
@@ -84,6 +85,7 @@ export default function Home() {
           ></Box>
         </VStack>
       </Layout>
+      <Footer />
     </>
   );
 }
