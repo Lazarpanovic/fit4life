@@ -7,11 +7,8 @@ import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { Text, VStack } from "@chakra-ui/react";
 import {
   GAP_10,
-  GAP_20,
   PADDING_10,
-  PADDING_20,
 } from "../../constants/layout.constants";
-import { ContactView } from "../../views/home/contact.view";
 import { ContactInfoView } from "../../views/contact/contact-info.view";
 import { ContactFormView } from "../../views/contact/contact-form.view";
 
@@ -71,7 +68,7 @@ export default function Home() {
                 w={{ base: "100%", lg: "60%" }}
                 textAlign="center"
               >
-                Ready to take the next step toward your fitness goals? We're
+                Ready to take the next step toward your fitness goals? We are
                 here to support you every step of the way. Reach out with any
                 inquiries, feedback, or just to say hello. Our team is excited
                 to assist you and will respond promptly!

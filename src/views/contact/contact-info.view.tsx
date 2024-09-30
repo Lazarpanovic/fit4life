@@ -54,8 +54,8 @@ export const ContactInfoView = () => {
         </Text>
         <Text opacity={0.8}>
           Have questions, suggestions, or need more information about our
-          services? Whether you're looking to kickstart your fitness journey or
-          just want to chat, we’re here for you. Drop us a message, and we’ll
+          services? Whether you are looking to kickstart your fitness journey or
+          just want to chat, we are here for you. Drop us a message, and we will
           get back to you as soon as possible!
         </Text>
         <StackDivider w="100%" h="1px" bg="#ced4da" />
