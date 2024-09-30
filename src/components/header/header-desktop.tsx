@@ -26,15 +26,15 @@ export const HeaderDesktop = () => {
             _hover={{
               color: "red.500",
             }}
-            href="#about-us"
+            href="/"
           >
-            About Us
+            Home
           </Link>
           <Link
             _hover={{
               color: "red.500",
             }}
-            href="#trainers"
+            href="/trainers"
           >
             Trainers
           </Link>
@@ -42,6 +42,7 @@ export const HeaderDesktop = () => {
             _hover={{
               color: "red.500",
             }}
+            href="/resources"
           >
             Resources
           </Link>
@@ -49,11 +50,22 @@ export const HeaderDesktop = () => {
             _hover={{
               color: "red.500",
             }}
+            href="/contact"
           >
             Contact
           </Link>
         </HStack>
-        <Button colorScheme="red" borderRadius={20} onClick={scrollToPrograms}>
+        <Button
+          colorScheme="red"
+          borderRadius={20}
+          onClick={scrollToPrograms}
+          border="1px solid #C73131"
+          _hover={{
+            bg: "white",
+            color: "red.500",
+            border: "1px solid #C73131",
+          }}
+        >
           Programs
         </Button>
       </HStack>

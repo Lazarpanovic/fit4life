@@ -16,14 +16,13 @@ export const ProgramsView = () => {
   return (
     <>
       <Text
-        mt={20}
-        fontSize={{ base: 30, md: 50 }}
+        fontSize={{ base: 30, md: 48 }}
         fontWeight={700}
         color="white"
         opacity={0.7}
         textAlign="center"
       >
-        EXPLORE OUR PROGRAMS
+        CHOOSE YOUR PROGRAM
       </Text>
       {isMobile || isTablet ? (
         <ProgramsCarousel />
@@ -42,11 +41,17 @@ export const ProgramsView = () => {
       )}
       <Button
         colorScheme="red"
-        fontSize={20}
+        fontSize={{ base: 16, lg: 20 }}
         borderRadius={25}
-        w={250}
+        w={{ base: 200, lg: 250 }}
         h={50}
         rightIcon={<ArrowForwardIcon />}
+        border="1px solid #C73131"
+        _hover={{
+          bg: "white",
+          color: "red.500",
+          border: "1px solid #C73131",
+        }}
       >
         ALL PROGRAMS
       </Button>

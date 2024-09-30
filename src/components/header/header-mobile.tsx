@@ -52,32 +52,38 @@ export const HeaderMobile = () => {
           pos="absolute"
         >
           <Link
+            fontSize={20}
             _hover={{
               color: "red.500",
             }}
-            onClick={() => handleNav("about-us")}
+            href="/"
           >
-            About Us
+            Home
           </Link>
           <Link
+            fontSize={20}
             _hover={{
               color: "red.500",
             }}
-            onClick={() => handleNav("trainers")}
+            href="/trainers"
           >
             Trainers
           </Link>
           <Link
+            fontSize={20}
             _hover={{
               color: "red.500",
             }}
+            href="/resources"
           >
             Resources
           </Link>
           <Link
+            fontSize={20}
             _hover={{
               color: "red.500",
             }}
+            href="/contact"
           >
             Contact
           </Link>
@@ -85,6 +91,13 @@ export const HeaderMobile = () => {
             colorScheme="red"
             borderRadius={20}
             onClick={() => handleNav("programs")}
+            border="1px solid #C73131"
+            fontSize={20}
+            _hover={{
+              bg: "white",
+              color: "red.500",
+              border: "1px solid #C73131",
+            }}
           >
             Programs
           </Button>

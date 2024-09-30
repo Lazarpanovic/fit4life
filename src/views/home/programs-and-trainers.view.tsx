@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import { ProgramsView } from "./programs.view";
 import { TrainersView } from "./trainers.view";
+import { PADDING_20 } from "../../constants/layout.constants";
 
 export const ProgramsAndTrainersView = () => {
   return (
@@ -10,7 +11,7 @@ export const ProgramsAndTrainersView = () => {
       gap={20}
       fontFamily="montserrat"
       id="programs"
-      pb={10}
+      py={PADDING_20}
     >
       <ProgramsView />
       <TrainersView />

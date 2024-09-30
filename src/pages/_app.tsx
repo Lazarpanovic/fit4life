@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { theme } from "../theme/theme-config";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import "../theme/global.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

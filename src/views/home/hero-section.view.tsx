@@ -96,6 +96,12 @@ export const HeroSectionView = () => {
           mt={10}
           alignSelf={{ base: "center", lg: "auto" }}
           onClick={scrollToPrograms}
+          border="1px solid #C73131"
+          _hover={{
+            bg: "white",
+            color: "red.500",
+            border: "1px solid #C73131",
+          }}
         >
           PROGRAMS
         </Button>

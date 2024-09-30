@@ -6,6 +6,9 @@ import { Layout } from "../components/layout/layout";
 import { HeroSectionView } from "../views/home/hero-section.view";
 import { AboutUsView } from "../views/home/about-us.view";
 import { ProgramsAndTrainersView } from "../views/home/programs-and-trainers.view";
+import { ResourcesView } from "../views/home/resources.view";
+import { Footer } from "../components/footer/footer";
+import { ContactView } from "../views/home/contact.view";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
@@ -41,7 +44,10 @@ export default function Home() {
         <HeroSectionView />
         <AboutUsView />
         <ProgramsAndTrainersView />
+        <ResourcesView />
+        <ContactView />
       </Layout>
+      <Footer />
     </>
   );
 }

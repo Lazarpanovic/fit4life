@@ -25,7 +25,7 @@ export const AboutUsView = () => {
       id="about-us"
     >
       <Text
-        fontSize={{ base: 30, md: 50 }}
+        fontSize={{ base: 30, md: 48 }}
         fontWeight={700}
         color="black"
         opacity={0.8}
@@ -99,6 +99,12 @@ export const AboutUsView = () => {
         borderRadius={25}
         w={250}
         h={50}
+        border="1px solid #C73131"
+        _hover={{
+          bg: "white",
+          color: "red.500",
+          border: "1px solid #C73131",
+        }}
         onClick={scrollToPrograms}
       >
         JOIN US
