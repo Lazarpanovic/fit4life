@@ -38,7 +38,7 @@ export const ResourceCard = ({
       overflow="hidden"
       border="1px solid #ced4da"
       bg="#FFFFFF40"
-      boxShadow="0px 2px 6px rgba(0, 0, 0, 0.3)"
+      boxShadow="0px 4px 10px rgba(0, 0, 0, 0.3)"
       pos="relative"
     >
       <Box

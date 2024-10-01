@@ -27,7 +27,13 @@ export const ResourcesView = () => {
       gap={GAP_20}
       fontFamily="montserrat"
     >
-      <Text fontSize={{ base: 30, md: 48 }} fontWeight={700} textAlign="center">
+      <Text
+        fontSize={{ base: 30, md: 48 }}
+        fontWeight={700}
+        textAlign="center"
+        opacity={0.8}
+        color="black"
+      >
         EXPLORE USEFUL RESOURCES
       </Text>
       {isMobile || isTablet ? (

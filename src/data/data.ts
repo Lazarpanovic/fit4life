@@ -281,3 +281,38 @@ export const resources = [
     ),
   },
 ];
+
+export const testimonials = [
+  {
+    id: 1,
+    fullName: "Jessica Martinez",
+    title: "Wellness Member",
+    imageSrc: "/testimonial-1.jpg",
+    description:
+      "Joining Fit4Life has been a game-changer! The trainers are incredibly supportive, and the variety of programs keeps me motivated. I've never felt stronger or more confident in my fitness journey.",
+  },
+  {
+    id: 2,
+    fullName: "Michael Stevens",
+    title: "Gym Enthusiast",
+    imageSrc: "/testimonial-2.jpg",
+    description:
+      "Fit4Life's gym and fitness programs helped me achieve my goals faster than I expected. The atmosphere is welcoming, and the equipment is top-notch. I love the sense of community here!",
+  },
+  {
+    id: 3,
+    fullName: "Emily Johnson",
+    title: "Spa & Wellness Regular",
+    imageSrc: "/testimonial-3.jpg",
+    description:
+      "I’ve always struggled to find balance in my fitness routine, but Fit4Life’s personalized approach made all the difference. Their spa and sauna services are perfect for relaxation after intense workouts!",
+  },
+  {
+    id: 4,
+    fullName: "John Richards",
+    title: "Fitness & Sports Program Participant",
+    imageSrc: "/testimonial-5.jpg",
+    description:
+      "Fit4Life offers everything I need—from strength training to yoga and wellness. The coaches are always encouraging, and I feel like I’m part of a family. It’s the best decision I’ve made for my health.",
+  },
+];

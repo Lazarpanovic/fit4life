@@ -9,6 +9,7 @@ import { ProgramsAndTrainersView } from "../views/home/programs-and-trainers.vie
 import { ResourcesView } from "../views/home/resources.view";
 import { Footer } from "../components/footer/footer";
 import { ContactView } from "../views/home/contact.view";
+import { TestimonialsView } from "../views/home/testimonials.view";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
@@ -45,6 +46,7 @@ export default function Home() {
         <AboutUsView />
         <ProgramsAndTrainersView />
         <ResourcesView />
+        <TestimonialsView />
         <ContactView />
       </Layout>
       <Footer />
