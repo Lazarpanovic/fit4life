@@ -19,7 +19,7 @@ export const ContactInfoView = () => {
         loading: () => <p>A map is loading</p>,
         ssr: false,
       }),
-    []
+    [],
   );
 
   const MapMobile = useMemo(
@@ -28,7 +28,7 @@ export const ContactInfoView = () => {
         loading: () => <p>A map is loading</p>,
         ssr: false,
       }),
-    []
+    [],
   );
   return (
     <Stack

@@ -16,8 +16,8 @@ export const ProgramsView = () => {
     isMobile || isTablet || isDesktop
       ? programs
       : isLargeLaptop
-      ? programs.slice(0, 3)
-      : programs.slice(0, 2);
+        ? programs.slice(0, 3)
+        : programs.slice(0, 2);
   return (
     <>
       <Text

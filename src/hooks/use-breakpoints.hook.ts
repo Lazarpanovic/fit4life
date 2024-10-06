@@ -6,7 +6,7 @@ const DEFAULT_CONFIG: UseBreakpointOptions = {
 };
 
 export const useBreakpoints = (
-  config: string | UseBreakpointOptions | undefined = DEFAULT_CONFIG
+  config: string | UseBreakpointOptions | undefined = DEFAULT_CONFIG,
 ) => {
   const breakpoint = useBreakpoint(config);
 

@@ -6,8 +6,8 @@ export const scrollToPrograms = () => {
 };
 
 export const scrollToCoaches = () => {
-    const programsSection = document.getElementById("coaches");
-    if (programsSection) {
-      programsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const programsSection = document.getElementById("coaches");
+  if (programsSection) {
+    programsSection.scrollIntoView({ behavior: "smooth" });
+  }
+};

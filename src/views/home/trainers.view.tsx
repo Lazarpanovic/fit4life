@@ -16,8 +16,8 @@ export const TrainersView = () => {
     isMobile || isTablet || isDesktop
       ? trainers
       : isLargeLaptop
-      ? trainers.slice(0, 3)
-      : trainers.slice(0, 2);
+        ? trainers.slice(0, 3)
+        : trainers.slice(0, 2);
   return (
     <>
       <Text

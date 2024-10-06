@@ -180,7 +180,7 @@ export const resources = [
       "Engaging in sports and fitness activities brings numerous benefits including improved physical health, mental well-being, and social connections. However, the risk of injury is always present. Understanding how to prevent injuries and effectively recover when they occur is crucial for maintaining an active lifestyle. In this article, we'll explore key strategies for Sports Injury Prevention & Recovery to help you stay strong and safe.",
     image: "/resource-training.jpg",
     categories: categories.filter((category) =>
-      [1, 2, 3].includes(category.id)
+      [1, 2, 3].includes(category.id),
     ),
   },
   {
@@ -312,7 +312,7 @@ export const resources = [
       "Injuries can be a significant setback in your fitness journey. Understanding how to prevent injuries and effectively recover from them is essential for staying active and maintaining your health. This article will explore various strategies for injury prevention and recovery, ensuring you can continue to perform at your best.",
     image: "/resource-injuries.jpg",
     categories: categories.filter((category) =>
-      [1, 2, 6].includes(category.id)
+      [1, 2, 6].includes(category.id),
     ),
   },
 ];

@@ -48,10 +48,10 @@ export default function Home() {
           query: categoryName ? { category_names: categoryName } : undefined,
         },
         undefined,
-        { shallow: true }
+        { shallow: true },
       );
     },
-    [pathname, push]
+    [pathname, push],
   );
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function Home() {
       ? resources.filter((resource) =>
           resource.categories
             .map((category) => category.name)
-            .includes(activeCategory)
+            .includes(activeCategory),
         )
       : resources;
   return (

@@ -5,10 +5,7 @@ import { Layout } from "../../components/layout/layout";
 import { Footer } from "../../components/footer/footer";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { Text, VStack } from "@chakra-ui/react";
-import {
-  GAP_10,
-  PADDING_10,
-} from "../../constants/layout.constants";
+import { GAP_10, PADDING_10 } from "../../constants/layout.constants";
 import { ContactInfoView } from "../../views/contact/contact-info.view";
 import { ContactFormView } from "../../views/contact/contact-form.view";
 

@@ -14,7 +14,7 @@ export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
   const params = useParams();
   const resource = resources.find(
-    (resource) => params && resource.id === Number(params.id)
+    (resource) => params && resource.id === Number(params.id),
   );
   if (!resource) {
     return <Text>Resource not found</Text>;

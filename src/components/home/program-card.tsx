@@ -83,8 +83,8 @@ export const ProgramCard = ({
             title === "HEALTHY IN BUSINESS"
               ? -90
               : isMobile || isTablet || isLaptop || isLargeLaptop
-              ? -70
-              : -50,
+                ? -70
+                : -50,
         }}
       />
     </VStack>
