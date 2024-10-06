@@ -27,7 +27,10 @@ export default function Home() {
           property="og:title"
           content="Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness Center"
         />
-        <link rel="canonical" href="https://www.fit4lifebelgrade.com/" />
+        <link
+          rel="canonical"
+          href={`https://www.fit4lifebelgrade.com/resources/${resource.id}`}
+        />
         <meta
           name="description"
           property="og:description"
@@ -35,7 +38,10 @@ export default function Home() {
         />
         {/* Add Open Graph image for link preview */}
         <meta property="og:image" content="/hero-section.jpg" />
-        <meta property="og:url" content="https://www.fit4lifebelgrade.com/" />
+        <meta
+          property="og:url"
+          content={`https://www.fit4lifebelgrade.com/resources/${resource.id}`}
+        />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

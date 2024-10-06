@@ -18,16 +18,17 @@ import {
   PADDING_10,
   PADDING_20,
 } from "../../constants/layout.constants";
-import { ResourceCard } from "../../components/resources/resource-card";
-import { categories, resources } from "../../data/data";
+import { newPrograms, programCategories } from "../../data/data";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { Footer } from "../../components/footer/footer";
+import { NewProgramCard } from "../../components/programs/new-program-card";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
   const { query, push, pathname, isReady } = useRouter();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [visiblePrograms, setVisiblePrograms] = useState(3);
 
   const categoryNamesParam = query.category_names;
 
@@ -60,39 +61,46 @@ export default function Home() {
     }
   }, [isReady, categoryNames]);
 
-  const filteredResources =
+  const filteredPrograms =
     activeCategory && activeCategory !== "All"
-      ? resources.filter((resource) =>
-          resource.categories
+      ? newPrograms.filter((program) =>
+          program.categories
             .map((category) => category.name)
             .includes(activeCategory)
         )
-      : resources;
+      : newPrograms;
+
+  const displayedPrograms = filteredPrograms.slice(0, visiblePrograms); // Show visible programs
+
+  const handleShowMore = () => {
+    setVisiblePrograms((prev) => prev + 3); // Increase the number of visible programs by 3
+  };
+
   return (
     <>
       <Head>
         <title>
-          Fit4Life: Useful Resources - Fitness Tips, Training Guides, Wellness
-          Insights
+          Fit4Life: Programs - Fitness & Sport Classes, Personal Training, Group
+          Workouts
         </title>
         <meta
           property="og:title"
-          content="Fit4Life: Useful Resources - Fitness Tips, Training Guides, Wellness Insights"
+          content="Fit4Life: Programs - Fitness & Sport Classes, Personal Training, Group Workouts"
         />
         <link
           rel="canonical"
-          href="https://www.fit4lifebelgrade.com/resources"
+          href="https://www.fit4lifebelgrade.com/programs"
         />
         <meta
           name="description"
           property="og:description"
-          content="Discover expert fitness tips, training guides, and wellness insights to help you stay healthy and achieve your goals. Explore our resources for a balanced, active lifestyle with Fit4Life!"
+          content="Explore Fit4Life's range of fitness and sport programs, including personal training, group classes, and specialized workouts. Join us to achieve your fitness goals with expert guidance in a supportive environment."
         />
         {/* Add Open Graph image for link preview */}
         <meta property="og:image" content="/hero-section.jpg" />
         <meta
           property="og:url"
-          content="https://www.fit4lifebelgrade.com/resources"
+          content="https://www.fit4lifebelgrade.com/programs"
         />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
@@ -114,7 +122,7 @@ export default function Home() {
             textAlign="center"
             color="#1A202C"
           >
-            Welcome to FIT4Life resources
+            Welcome to FIT4Life Programs
           </Text>
           <Text
             fontSize={{ base: 16, lg: 20 }}
@@ -123,9 +131,10 @@ export default function Home() {
             w={{ base: "100%", lg: "60%" }}
             textAlign="center"
           >
-            Discover expert fitness tips, training routines, supplement advice,
-            injury prevention, wellness guides, and more to help you achieve
-            your health and fitness goals!
+            Explore our wide range of fitness and sport programs, including
+            personal training, group classes, and specialized workouts designed
+            to help you reach your fitness goals. Join us at Fit4Life to train
+            smarter, stay motivated, and live a healthier lifestyle!
           </Text>
           <HStack
             w={{ base: "100%", lg: "60%" }}
@@ -133,7 +142,7 @@ export default function Home() {
             justify="center"
             gap={{ base: GAP_5, lg: GAP_10 }}
           >
-            {categories.map((category) => (
+            {programCategories.map((category) => (
               <Tag
                 key={category.id}
                 bg={activeCategory === category.name ? "red.500" : "#EDF2F7"}
@@ -157,28 +166,26 @@ export default function Home() {
             wrap="wrap"
             justify="center"
           >
-            {filteredResources.map((resource) => (
+            {displayedPrograms.map((program) => (
               <Box
-                key={resource.id}
+                key={program.id}
                 w={{ base: "100%", md: "300px", lg: "350px", "2xl": "400px" }}
                 transition="transform 0.1s ease-in-out"
                 _hover={{
                   transform: "scale(1.1)",
                 }}
               >
-                <ResourceCard
-                  id={resource.id}
-                  imageSrc={resource.image}
-                  title={resource.title}
-                  categories={resource.categories}
-                  showDescription={true}
-                  description={resource.description}
-                  isResourcesPage
+                <NewProgramCard
+                  imageSrc={program.imageSrc}
+                  title={program.title}
+                  shortTitle={program.shortTitle}
+                  price={program.price}
+                  duration={program.duration}
                 />
               </Box>
             ))}
           </Stack>
-          {filteredResources.length > 3 && (
+          {filteredPrograms.length > 3 && (
             <Button
               colorScheme="red"
               fontSize={16}
@@ -190,6 +197,7 @@ export default function Home() {
                 color: "red.500",
                 border: "1px solid red",
               }}
+              onClick={handleShowMore}
             >
               Discover More
             </Button>

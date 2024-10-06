@@ -7,19 +7,17 @@ import {
   PADDING_20,
 } from "../../constants/layout.constants";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export const HeaderMobile = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const { push } = useRouter();
   const toggleOpenMenu = () => {
     setOpenMenu((prev) => !prev);
   };
 
-  const handleNav = (section: string) => {
-    const programsSection = document.getElementById(section);
-    if (programsSection) {
-      programsSection.scrollIntoView({ behavior: "smooth" });
-    }
-    setOpenMenu(false);
+  const handleNav = () => {
+    push("/programs");
   };
   return (
     <>
@@ -90,7 +88,7 @@ export const HeaderMobile = () => {
           <Button
             colorScheme="red"
             borderRadius={20}
-            onClick={() => handleNav("programs")}
+            onClick={() => handleNav()}
             border="1px solid #C73131"
             fontSize={20}
             _hover={{

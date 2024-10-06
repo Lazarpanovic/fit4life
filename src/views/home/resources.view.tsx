@@ -5,7 +5,7 @@ import {
   PADDING_10,
   PADDING_20,
 } from "../../constants/layout.constants";
-import { ResourceCard } from "../../components/home/resource-card";
+import { ResourceCard } from "../../components/resources/resource-card";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { useRouter } from "next/router";

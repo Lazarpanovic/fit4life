@@ -4,9 +4,13 @@ import {
   HEADER_HEIGHT,
   PADDING_20,
 } from "../../constants/layout.constants";
-import { scrollToPrograms } from "../../utils/navigation.utils";
+import { useRouter } from "next/router";
 
 export const HeaderDesktop = () => {
+  const { push } = useRouter();
+  const goToProgramsPage = () => {
+    push("/programs");
+  };
   return (
     <HStack
       px={PADDING_20}
@@ -58,7 +62,7 @@ export const HeaderDesktop = () => {
         <Button
           colorScheme="red"
           borderRadius={20}
-          onClick={scrollToPrograms}
+          onClick={goToProgramsPage}
           border="1px solid #C73131"
           _hover={{
             bg: "white",

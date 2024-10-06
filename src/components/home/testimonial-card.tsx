@@ -21,7 +21,7 @@ export const TestimonialCard = ({
 }) => {
   const { isMobile } = useBreakpoints();
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger the animation only once
+    triggerOnce: true, // Trigger the animation only once
     threshold: 0.1, // Trigger when 10% of the card is visible
   });
   return (
@@ -56,7 +56,7 @@ export const TestimonialCard = ({
           align={{ base: "center", md: "flex-start" }}
           bg="#FFFFFF99"
           w={{ base: "100%", md: "75%", lg: "80%", xl: "70%", "2xl": "50%" }}
-          borderRadius={{ base: 20, md: 5 }}
+          borderRadius={{ base: 20, md: 10 }}
           py={{ base: 10, md: 4 }}
           px={{ base: 2, md: 10 }}
           gap={{ base: GAP_5, md: "auto" }}

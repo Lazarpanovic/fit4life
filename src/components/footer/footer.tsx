@@ -41,6 +41,17 @@ export const Footer = () => {
           color="white"
           fontSize={18}
           fontWeight={500}
+          href="/programs"
+        >
+          Programs
+        </Link>
+        <Link
+          _hover={{
+            color: "red.500",
+          }}
+          color="white"
+          fontSize={18}
+          fontWeight={500}
           href="/trainers"
         >
           Trainers

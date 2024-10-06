@@ -4,9 +4,14 @@ import { TrainerCard, trainers } from "../../components/home/trainer-card";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { TrainersCarousel } from "../../components/home/trainers-carousel";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 export const TrainersView = () => {
   const { isMobile, isTablet, isLargeLaptop, isDesktop } = useBreakpoints();
+  const { push } = useRouter();
+  const goToTrainersPage = () => {
+    push("/trainers");
+  };
   const slicedTrainers =
     isMobile || isTablet || isDesktop
       ? trainers
@@ -55,6 +60,7 @@ export const TrainersView = () => {
           color: "red.500",
           border: "1px solid #C73131",
         }}
+        onClick={goToTrainersPage}
       >
         ALL TRAINERS
       </Button>

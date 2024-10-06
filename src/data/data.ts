@@ -1,3 +1,38 @@
+export const programCategories = [
+  {
+    id: 0,
+    name: "All",
+  },
+  {
+    id: 1,
+    name: "Professional Sport",
+  },
+  {
+    id: 2,
+    name: "Fitness",
+  },
+  {
+    id: 3,
+    name: "Pilates",
+  },
+  {
+    id: 4,
+    name: "Business",
+  },
+  {
+    id: 5,
+    name: "Athletic",
+  },
+  {
+    id: 6,
+    name: "Nature",
+  },
+  {
+    id: 7,
+    name: "Young Athletes",
+  },
+];
+
 export const categories = [
   {
     id: 0,
@@ -314,5 +349,100 @@ export const testimonials = [
     imageSrc: "/testimonial-5.jpg",
     description:
       "Fit4Life offers everything I need—from strength training to yoga and wellness. The coaches are always encouraging, and I feel like I’m part of a family. It’s the best decision I’ve made for my health.",
+  },
+];
+
+export const newPrograms = [
+  {
+    id: 1,
+    shortTitle: "Professional Sport",
+    title:
+      "Tailored training plans for athletes aiming to excel in competitive sports",
+    imageSrc: "/professional-sport.jpg",
+    price: "200",
+    duration: "1 MONTH",
+    categories: [programCategories[1], programCategories[5]],
+  },
+  {
+    id: 2,
+    shortTitle: "Athletes Development",
+    title:
+      "Comprehensive programs focused on developing young and aspiring athletes",
+    imageSrc: "/young-athlete.jpg",
+    price: "200",
+    duration: "1 MONTH",
+    categories: [programCategories[7], programCategories[5]],
+  },
+  {
+    id: 3,
+    shortTitle: "Healthy in Business",
+    title:
+      "Fitness solutions designed for professionals to boost productivity and wellness",
+    imageSrc: "/healthy-in-business.jpg",
+    price: "200",
+    duration: "1 MONTH",
+    categories: [programCategories[4], programCategories[2]],
+  },
+  {
+    id: 4,
+    shortTitle: "Life with Nature",
+    title:
+      "Outdoor-focused activities to promote health, balance, and connection with nature",
+    imageSrc: "/life-with-nature.jpg",
+    price: "200",
+    duration: "1 MONTH",
+    categories: [programCategories[2], programCategories[6]],
+  },
+];
+
+// trainers data
+export const newTrainers = [
+  {
+    id: 1,
+    name: "JOHN ANDERSON",
+    specialty: "STRENGTH & CONDITION",
+    imageSrc: "/trainer.png",
+    imageWidth: 300,
+    imageWidthMobile: 240,
+    marginTop: -0.5,
+    description:
+      "A specialist in Strength & Conditioning, John helps clients build power and endurance for peak performance.",
+    categories: [programCategories[1], programCategories[6]],
+  },
+  {
+    id: 2,
+    name: "RACHEL ADAMS",
+    specialty: "FITNESS",
+    imageSrc: "/trainer-4.png",
+    imageWidth: 213,
+    imageWidthMobile: 170,
+    marginTop: -0.5,
+    description:
+      "A fitness expert, Rachel focuses on helping individuals achieve their personal health and wellness goals.",
+    categories: [programCategories[2], programCategories[3]],
+  },
+  {
+    id: 3,
+    name: "CHRISTOPHER PARKER",
+    specialty: "ATHLETIC",
+    imageSrc: "/trainer-3.png",
+    imageWidth: 195,
+    imageWidthMobile: 150,
+    marginTop: -0.5,
+    description:
+      "Christopher excels in athletic training, guiding athletes to improve their speed, agility, and overall performance.",
+    categories: [programCategories[2], programCategories[4]],
+  },
+  {
+    id: 4,
+    name: "DAVID MITCHELL",
+    specialty: "BODYBUILDING",
+    imageSrc: "/trainer-2.png",
+    imageWidth: 256,
+    imageWidthMobile: 200,
+    marginTop: -0.5,
+    description:
+      "With a passion for bodybuilding, David designs customized programs to build muscle and sculpt physique.",
+    categories: [programCategories[3], programCategories[5]],
   },
 ];

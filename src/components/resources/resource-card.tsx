@@ -34,7 +34,7 @@ export const ResourceCard = ({
       align="flex-start"
       w="100%"
       h="100%"
-      borderRadius={20}
+      borderRadius={isResourcesPage ? 5 : 10}
       overflow="hidden"
       border="1px solid #ced4da"
       bg="#FFFFFF40"
@@ -49,7 +49,7 @@ export const ResourceCard = ({
             : { base: "250px", lg: "200px", "2xl": "300px" }
         }
         w="100%"
-        borderRadius={18}
+        borderRadius={isResourcesPage ? 0 : 8}
         overflow="hidden"
       >
         <Image

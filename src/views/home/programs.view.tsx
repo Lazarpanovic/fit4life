@@ -4,9 +4,14 @@ import { ProgramCard, programs } from "../../components/home/program-card";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { ProgramsCarousel } from "../../components/home/programs-carousel";
 import { GAP_20 } from "../../constants/layout.constants";
+import { useRouter } from "next/router";
 
 export const ProgramsView = () => {
   const { isMobile, isTablet, isLargeLaptop, isDesktop } = useBreakpoints();
+  const { push } = useRouter();
+  const goToProgramsPage = () => {
+    push("/programs");
+  };
   const slicedPrograms =
     isMobile || isTablet || isDesktop
       ? programs
@@ -52,6 +57,7 @@ export const ProgramsView = () => {
           color: "red.500",
           border: "1px solid #C73131",
         }}
+        onClick={goToProgramsPage}
       >
         ALL PROGRAMS
       </Button>
