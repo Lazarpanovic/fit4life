@@ -68,6 +68,7 @@ export const TestimonialCard = ({
             textAlign={{ base: "center", md: "left" }}
             opacity={0.5}
             w="80%"
+            fontSize={{ base: 14, md: 16 }}
           >
             {description}
           </Text>
