@@ -7,7 +7,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import { GAP_10, GAP_5 } from "../../constants/layout.constants";
+import { GAP_10 } from "../../constants/layout.constants";
 import { ChangeEvent, useState } from "react";
 
 export const ContactFormView = () => {
@@ -48,33 +48,40 @@ export const ContactFormView = () => {
         alignItems="center"
         w="100%"
       >
-        <HStack w={{ base: "80%", lg: "60%" }} wrap="wrap" gap={GAP_5}>
+        <HStack
+          w={{ base: "80%", lg: "90%", xl: "80%", "2xl": "65%" }}
+          wrap="wrap"
+          gap={GAP_10}
+        >
           <Input
+            isRequired
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
             bg="gray.50"
-            placeholder="First name"
-            w={{ base: "100%", lg: "49%" }}
+            placeholder="First name *"
+            w={{ base: "100%", lg: "47%" }}
             h="50px"
           />
           <Input
+            isRequired
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
             bg="gray.50"
-            placeholder="Last name"
-            w={{ base: "100%", lg: "49%" }}
+            placeholder="Last name *"
+            w={{ base: "100%", lg: "47%" }}
             h="50px"
           />
           <Input
+            isRequired
             name="email"
             value={formData.email}
             onChange={handleInputChange}
             type="email"
             bg="gray.50"
-            placeholder="Email"
-            w={{ base: "100%", lg: "49%" }}
+            placeholder="Email *"
+            w={{ base: "100%", lg: "47%" }}
             h="50px"
           />
           <Input
@@ -83,16 +90,17 @@ export const ContactFormView = () => {
             onChange={handleInputChange}
             bg="gray.50"
             placeholder="Phone"
-            w={{ base: "100%", lg: "49%" }}
+            w={{ base: "100%", lg: "47%" }}
             h="50px"
           />
           <Textarea
+            isRequired
             name="message"
             value={formData.message}
             onChange={handleInputChange}
             bg="gray.50"
-            placeholder="Write a message"
-            w="100%"
+            placeholder="Write a message *"
+            w={{ base: "100%", lg: "98%" }}
             h="250"
           />
         </HStack>

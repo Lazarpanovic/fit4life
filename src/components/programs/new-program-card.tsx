@@ -3,20 +3,27 @@ import Image from "next/image";
 import { GAP_5 } from "../../constants/layout.constants";
 import { GrMoney } from "react-icons/gr";
 import { IoCalendarOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
 
 export const NewProgramCard = ({
+  id,
   imageSrc,
   shortTitle,
   title,
   price,
   duration,
 }: {
+  id: number;
   imageSrc: string;
   shortTitle: string;
   title: string;
   price: string;
   duration: string;
 }) => {
+  const { push } = useRouter();
+  const goToProgramDetailsPage = () => {
+    push(`/programs/${id}`);
+  };
   return (
     <VStack
       align="flex-start"
@@ -27,8 +34,9 @@ export const NewProgramCard = ({
       border="1px solid #ced4da"
       bg="#FFFFFF40"
       boxShadow="0px 4px 10px rgba(0, 0, 0, 0.3)"
-      pos="relative"
       fontFamily="montserrat"
+      pos="relative"
+      onClick={goToProgramDetailsPage}
     >
       <Box
         pos="relative"

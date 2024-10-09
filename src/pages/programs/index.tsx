@@ -176,6 +176,7 @@ export default function Home() {
                 }}
               >
                 <NewProgramCard
+                  id={program.id}
                   imageSrc={program.imageSrc}
                   title={program.title}
                   shortTitle={program.shortTitle}

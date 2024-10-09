@@ -358,6 +358,8 @@ export const newPrograms = [
     shortTitle: "Professional Sport",
     title:
       "Tailored training plans for athletes aiming to excel in competitive sports",
+    longDescription:
+      "Our Professional Sport program is designed to push athletes to their limits, offering customized training regimens that focus on improving performance, endurance, strength, and agility. Whether you're a seasoned competitor or preparing for your next big challenge, this program will help you reach your peak. Each plan is tailored to the individual athlete's needs, ensuring optimal results and minimal risk of injury.",
     imageSrc: "/professional-sport.jpg",
     price: "200",
     duration: "1 MONTH",
@@ -368,6 +370,8 @@ export const newPrograms = [
     shortTitle: "Athletes Development",
     title:
       "Comprehensive programs focused on developing young and aspiring athletes",
+    longDescription:
+      "The Athletes Development program is perfect for young and emerging talents looking to hone their skills in various sports. This program emphasizes fundamental athletic abilities like speed, coordination, and strength while fostering discipline and a competitive mindset. With expert coaches and a supportive environment, participants are equipped with the tools they need to succeed on and off the field.",
     imageSrc: "/young-athlete.jpg",
     price: "200",
     duration: "1 MONTH",
@@ -378,6 +382,8 @@ export const newPrograms = [
     shortTitle: "Healthy in Business",
     title:
       "Fitness solutions designed for professionals to boost productivity and wellness",
+    longDescription:
+      "Healthy in Business is a fitness program tailored for professionals who want to improve their physical and mental health while maintaining their busy schedules. This program integrates quick, effective workouts and wellness practices to reduce stress, increase energy, and enhance productivity. Participants will learn how to maintain a healthy balance between work and life, with long-term benefits to their overall well-being.",
     imageSrc: "/healthy-in-business.jpg",
     price: "200",
     duration: "1 MONTH",
@@ -388,6 +394,8 @@ export const newPrograms = [
     shortTitle: "Life with Nature",
     title:
       "Outdoor-focused activities to promote health, balance, and connection with nature",
+    longDescription:
+      "Reconnect with nature through the Life with Nature program, which offers outdoor activities such as hiking, cycling, and mindfulness exercises in natural settings. This program promotes mental clarity, physical health, and emotional well-being by encouraging participants to escape the everyday hustle and embrace the tranquility of the outdoors. Ideal for those looking to refresh their mind and body.",
     imageSrc: "/life-with-nature.jpg",
     price: "200",
     duration: "1 MONTH",
@@ -444,5 +452,44 @@ export const newTrainers = [
     description:
       "With a passion for bodybuilding, David designs customized programs to build muscle and sculpt physique.",
     categories: [programCategories[3], programCategories[5]],
+  },
+];
+
+export const pricingPlans = [
+  {
+    id: 0,
+    type: "BASIC",
+    price: "200",
+    items: [
+      "Personalized training plan",
+      "Nutrition consultation",
+      "Performance tracking",
+      "Weekly check-ins",
+    ],
+  },
+  {
+    id: 1,
+    type: "PRO",
+    price: "250",
+    items: [
+      "Personalized training plan",
+      "Nutrition consultation",
+      "Performance tracking",
+      "Weekly check-ins",
+      "Advanced recovery techniques",
+    ],
+  },
+  {
+    id: 2,
+    type: "PREMIUM",
+    price: "300",
+    items: [
+      "Personalized training plan",
+      "Nutrition consultation",
+      "Performance tracking",
+      "Weekly check-ins",
+      "Advanced recovery techniques",
+      "One-on-one coaching sessions",
+    ],
   },
 ];
