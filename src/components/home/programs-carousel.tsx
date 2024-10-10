@@ -22,6 +22,7 @@ export const ProgramsCarousel: React.FC = () => {
         {programs.map((service, index) => (
           <ProgramCard
             key={index}
+            id={service.id}
             title={service.title}
             price={service.price}
             imageSrc={service.imageSrc}

@@ -5,28 +5,33 @@ import YOUNG_ATHLETE_IMAGE from "../../../public/young-athlete.png";
 import BUSINESS_PERSONS_IMAGE from "../../../public/business-person.png";
 import HIKING_PERSONS_IMAGE from "../../../public/hiking-person.png";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
+import { useRouter } from "next/router";
 
 // programs data
 export const programs = [
   {
+    id: 1,
     title: "PROFESSIONAL SPORT",
     price: "$200/MONTH",
     imageSrc: ATHLETE_IMAGE,
     imageWidth: 200,
   },
   {
+    id: 2,
     title: "ATHLETES DEVELOPMENT",
     price: "$200/MONTH",
     imageSrc: YOUNG_ATHLETE_IMAGE,
     imageWidth: 200,
   },
   {
+    id: 3,
     title: "HEALTHY IN BUSINESS",
     price: "$200/MONTH",
     imageSrc: BUSINESS_PERSONS_IMAGE,
     imageWidth: 220,
   },
   {
+    id: 4,
     title: "LIFE WITH NATURE",
     price: "$200/MONTH",
     imageSrc: HIKING_PERSONS_IMAGE,
@@ -35,17 +40,23 @@ export const programs = [
 ];
 
 export const ProgramCard = ({
+  id,
   title,
   price,
   imageSrc,
   imageWidth,
 }: {
+  id: number;
   title: string;
   price: string;
   imageSrc: StaticImageData;
   imageWidth: number;
 }) => {
   const { isMobile, isTablet, isLaptop, isLargeLaptop } = useBreakpoints();
+  const { push } = useRouter();
+  const navigateToProgramDetails = () => {
+    id && push(`/programs/${id}`);
+  };
   return (
     <VStack
       w={{ base: "80%", lg: "30%", xl: "25%", "2xl": "20%" }}
@@ -61,6 +72,7 @@ export const ProgramCard = ({
       pos="relative"
       overflow="hidden"
       mx={{ base: "auto", lg: 0 }}
+      onClick={navigateToProgramDetails}
     >
       <Text
         fontWeight={700}

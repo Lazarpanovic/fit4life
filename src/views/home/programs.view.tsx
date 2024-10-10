@@ -36,6 +36,7 @@ export const ProgramsView = () => {
           {slicedPrograms.map((program, index) => (
             <ProgramCard
               key={index}
+              id={program.id}
               title={program.title}
               price={program.price}
               imageSrc={program.imageSrc}

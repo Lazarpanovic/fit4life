@@ -4,6 +4,7 @@ import { CheckIcon } from "@chakra-ui/icons";
 import { GrPieChart } from "react-icons/gr";
 import { GiProgression } from "react-icons/gi";
 import { useRouter } from "next/router";
+import { GAP_5 } from "../../constants/layout.constants";
 
 export const PricingPlanCard = ({
   plan,
@@ -80,7 +81,13 @@ export const PricingPlanCard = ({
           ${plan.price}
         </Text>
         {plan.items.map((item) => (
-          <HStack key={plan.id} align="flex-start" w="100%" alignItems="center">
+          <HStack
+            key={plan.id}
+            align="flex-start"
+            w="100%"
+            alignItems="center"
+            gap={GAP_5}
+          >
             <CheckIcon />
             <Text opacity={0.7} textAlign="left">
               {item}

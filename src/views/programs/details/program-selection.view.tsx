@@ -71,11 +71,11 @@ export const ProgramSelectionView = ({
         w={{ base: "100%", lg: "60%" }}
         textAlign="center"
       >
-        You are one step away from transforming your fitness journey! Simply fill
-        out the form below with your details, and we will take care of the rest.
-        Your selected program and pricing plan are already set just hit submit,
-        and we will reach out to confirm everything. Let us get started on your
-        path to a healthier and fitter you!
+        You are one step away from transforming your fitness journey! Simply
+        fill out the form below with your details, and we will take care of the
+        rest. Your selected program and pricing plan are already set just hit
+        submit, and we will reach out to confirm everything. Let us get started
+        on your path to a healthier and fitter you!
       </Text>
       <FormControl
         as="form"
@@ -154,7 +154,9 @@ export const ProgramSelectionView = ({
             onChange={handleInputChange}
           >
             {pricingPlans.map((plan) => (
-              <option key={plan.id} value={plan.type}>{plan.type}</option>
+              <option key={plan.id} value={plan.type}>
+                {plan.type}
+              </option>
             ))}
           </Select>
         </HStack>
