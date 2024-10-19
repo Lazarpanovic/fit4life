@@ -79,7 +79,7 @@ export const ProgramSelectionView = ({
       </Text>
       <FormControl
         as="form"
-        action="https://formspree.io/f/myyokele"
+        action="https://formspree.io/f/mnnqqegr"
         method="POST"
         display="flex"
         flexDirection="column"
