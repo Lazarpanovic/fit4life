@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const handleRouteChange = (url: string) => {
       if (typeof window !== "undefined") {
         // @ts-expect-error ignore gtag error
-        window.gtag("config", "G-DDNTNCGQW6", {
+        window.gtag("config", "GTM-KHCCJH6W", {
           page_path: url,
         });
       }
