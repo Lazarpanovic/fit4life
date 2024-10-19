@@ -8,7 +8,7 @@ export default function Document() {
         {/* Google Analytics */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-9FVWK5JBFZ"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ACCOUNT_ID}`}
         />
         <Script
           id="google-analytics"
@@ -18,7 +18,7 @@ export default function Document() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-9FVWK5JBFZ');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ACCOUNT_ID}');
           `}
         </Script>
       </Head>
