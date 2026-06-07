@@ -7,19 +7,19 @@ import {
   Stack,
   Text,
   VStack,
-  chakra,
-  shouldForwardProp,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { motion, type Transition } from "framer-motion";
+import { useRouter } from "next/router";
 import HERO_SECTION_IMAGE from "../../../public/hero-section.jpg";
 import { useTranslation } from "../../i18n/use-translation";
-import { useRouter } from "next/router";
-import { isValidMotionProp, motion, Transition } from "framer-motion";
 
-const MotionBox = chakra(motion.div, {
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || shouldForwardProp(prop),
-});
+const MotionBox = motion.div;
+
+const badgeTransition: Transition = { duration: 0.45 };
+const titleTransition: Transition = { duration: 0.55, delay: 0.08 };
+const descriptionTransition: Transition = { duration: 0.55, delay: 0.16 };
+const buttonsTransition: Transition = { duration: 0.55, delay: 0.24 };
 
 export const HeroSectionView = () => {
   const { t } = useTranslation();
@@ -87,7 +87,7 @@ export const HeroSectionView = () => {
           <MotionBox
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 } as any}
+            transition={badgeTransition}
           >
             <Badge
               px={4}
@@ -107,7 +107,7 @@ export const HeroSectionView = () => {
           <MotionBox
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.08 } as any}
+            transition={titleTransition}
           >
             <Text
               as="h1"
@@ -149,68 +149,69 @@ export const HeroSectionView = () => {
           <MotionBox
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.16 } as any}
+            transition={descriptionTransition}
           >
             <Text
               maxW="660px"
               fontSize={{ base: "16px", md: "19px" }}
               lineHeight={1.8}
-              color="whiteAlpha.760"
+              color="whiteAlpha.700"
               fontWeight={500}
             >
               {t.hero.description}
             </Text>
           </MotionBox>
 
-          <MotionBox
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.24 } as any}
-            w={{ base: "100%", sm: "auto" }}
-          >
-            <HStack
-              spacing={4}
-              flexDirection={{ base: "column", sm: "row" }}
-              align={{ base: "stretch", sm: "center" }}
-              w={{ base: "100%", sm: "auto" }}
+          <Box w={{ base: "100%", sm: "auto" }}>
+            <MotionBox
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={buttonsTransition}
             >
-              <Button
-                h="58px"
-                px={9}
-                borderRadius="full"
-                bg="brand.red"
-                color="white"
-                boxShadow="0 0 44px rgba(255,42,42,0.36)"
-                _hover={{
-                  bg: "white",
-                  color: "black",
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 0 52px rgba(255,255,255,0.22)",
-                }}
-                transition="all 0.2s ease"
-                onClick={goToPrograms}
+              <HStack
+                spacing={4}
+                flexDirection={{ base: "column", sm: "row" }}
+                align={{ base: "stretch", sm: "center" }}
+                w={{ base: "100%", sm: "auto" }}
               >
-                {t.hero.primaryCta}
-              </Button>
+                <Button
+                  h="58px"
+                  px={9}
+                  borderRadius="full"
+                  bg="brand.red"
+                  color="white"
+                  boxShadow="0 0 44px rgba(255,42,42,0.36)"
+                  _hover={{
+                    bg: "white",
+                    color: "black",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 0 52px rgba(255,255,255,0.22)",
+                  }}
+                  transition="all 0.2s ease"
+                  onClick={goToPrograms}
+                >
+                  {t.hero.primaryCta}
+                </Button>
 
-              <Button
-                h="58px"
-                px={9}
-                borderRadius="full"
-                variant="outline"
-                borderColor="rgba(255,255,255,0.22)"
-                color="white"
-                bg="rgba(255,255,255,0.04)"
-                _hover={{
-                  bg: "rgba(255,255,255,0.12)",
-                  borderColor: "rgba(255,255,255,0.42)",
-                }}
-                onClick={goToContact}
-              >
-                {t.hero.secondaryCta}
-              </Button>
-            </HStack>
-          </MotionBox>
+                <Button
+                  h="58px"
+                  px={9}
+                  borderRadius="full"
+                  variant="outline"
+                  borderColor="rgba(255,255,255,0.22)"
+                  color="white"
+                  bg="rgba(255,255,255,0.04)"
+                  _hover={{
+                    bg: "rgba(255,255,255,0.12)",
+                    borderColor: "rgba(255,255,255,0.42)",
+                  }}
+                  onClick={goToContact}
+                >
+                  {t.hero.secondaryCta}
+                </Button>
+              </HStack>
+            </MotionBox>
+          </Box>
 
           <Grid
             templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
