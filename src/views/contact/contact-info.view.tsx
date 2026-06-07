@@ -47,7 +47,7 @@ export const ContactInfoView = () => {
     >
       <Box
         w={{ base: "100%", lg: "48%" }}
-        h={{ base: "320px", lg: "640px" }}
+        h={{ base: "320px", lg: "auto" }}
         overflow="hidden"
         sx={{
           ".leaflet-container": {
@@ -104,7 +104,7 @@ export const ContactInfoView = () => {
           />
         </VStack>
 
-        <HStack spacing={3} pt={2}>
+        <HStack spacing={3} pt={2} w="100%" justifyContent="center">
           <SocialIcon icon={FaFacebook} />
           <SocialIcon icon={FaInstagramSquare} />
           <SocialIcon icon={FaLinkedin} />
@@ -127,8 +127,7 @@ const ContactRow = ({
   return (
     <HStack
       spacing={4}
-      px={4}
-      py={6}
+      p={4}
       borderRadius="20px"
       bg="rgba(255,255,255,0.055)"
       border="1px solid rgba(255,255,255,0.09)"
@@ -155,7 +154,7 @@ const ContactRow = ({
         <Icon as={icon} fontSize="21px" />
       </Box>
 
-      <Text color="whiteAlpha.820" fontWeight={700}>
+      <Text color="whiteAlpha.820" fontWeight={700} fontSize="14px">
         {label}
       </Text>
     </HStack>

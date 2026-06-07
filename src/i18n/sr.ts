@@ -17,7 +17,7 @@ export const sr = {
     eyebrow: "Premium fitness & wellness klub",
     titleLine1: "Treniraj jako.",
     titleLine2: "Oporavljaj se pametno.",
-    titleLine3: "Živi bolje.",
+    titleLine3: "Budi fit.",
     description:
       "Personalizovani treninzi, wellness, spa, sauna i programi performansi kreirani da postaneš jači, zdraviji i sigurniji u sebe.",
     primaryCta: "Pogledaj programe",
