@@ -1,103 +1,128 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { Button, HStack, Link, Text, VStack } from "@chakra-ui/react";
-import {
-  GAP_10,
-  HEADER_HEIGHT,
-  PADDING_10,
-  PADDING_20,
-} from "../../constants/layout.constants";
+import { Box, Button, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { LanguageSwitcher } from "../language-switcher";
+import { useTranslation } from "../../i18n/use-translation";
+
+const navItems = [
+  { href: "/", key: "home" },
+  { href: "/programs", key: "programs" },
+  { href: "/trainers", key: "trainers" },
+  { href: "/resources", key: "resources" },
+  { href: "/contact", key: "contact" },
+] as const;
 
 export const HeaderMobile = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const { push } = useRouter();
+  const router = useRouter();
+  const { t } = useTranslation();
+
   const toggleOpenMenu = () => {
     setOpenMenu((prev) => !prev);
   };
 
-  const handleNav = () => {
-    push("/programs");
+  const goToPrograms = () => {
+    setOpenMenu(false);
+    router.push("/programs");
   };
+
   return (
     <>
       <HStack
-        px={PADDING_10}
-        h={HEADER_HEIGHT}
+        as="header"
+        position="sticky"
+        top={0}
+        zIndex={30}
+        px={5}
+        h="72px"
         justifyContent="space-between"
-        bg="rgba(255, 255, 255, 0.85)"
-        filter="drop-shadow(0px 5px 32px rgba(51, 51, 51, 0.35))"
+        bg="rgba(6, 6, 6, 0.82)"
+        backdropFilter="blur(18px)"
+        borderBottom="1px solid rgba(255,255,255,0.08)"
+        color="white"
         fontFamily="montserrat"
-        fontWeight={500}
       >
-        <Text fontSize={20} fontWeight={600}>
-          Fit4Life
+        <Text
+          fontSize="20px"
+          fontWeight={900}
+          letterSpacing="-0.04em"
+          lineHeight={1}
+        >
+          FIT
+          <Text as="span" color="brand.red">
+            4
+          </Text>
+          LIFE
         </Text>
-        {openMenu ? (
-          <CloseIcon fontSize={16} onClick={toggleOpenMenu} />
-        ) : (
-          <HamburgerIcon fontSize={24} onClick={toggleOpenMenu} />
-        )}
+
+        <HStack spacing={3}>
+          <LanguageSwitcher />
+
+          <Box
+            as="button"
+            w="42px"
+            h="42px"
+            display="grid"
+            placeItems="center"
+            borderRadius="full"
+            border="1px solid rgba(255,255,255,0.12)"
+            bg="rgba(255,255,255,0.06)"
+            onClick={toggleOpenMenu}
+          >
+            {openMenu ? (
+              <CloseIcon fontSize={13} />
+            ) : (
+              <HamburgerIcon fontSize={22} />
+            )}
+          </Box>
+        </HStack>
       </HStack>
+
       {openMenu && (
         <VStack
-          gap={GAP_10}
-          w="100%"
-          bg="white"
-          py={PADDING_20}
-          boxShadow="0px 4px 10px 0px rgba(51, 51, 51, 0.2)"
-          zIndex={1}
-          pos="absolute"
+          position="fixed"
+          inset={0}
+          top="72px"
+          zIndex={25}
+          align="stretch"
+          bg="rgba(6, 6, 6, 0.97)"
+          color="white"
+          px={6}
+          py={10}
+          spacing={8}
+          className="premium-noise"
         >
-          <Link
-            fontSize={20}
-            _hover={{
-              color: "red.500",
-            }}
-            href="/"
-          >
-            Home
-          </Link>
-          <Link
-            fontSize={20}
-            _hover={{
-              color: "red.500",
-            }}
-            href="/trainers"
-          >
-            Trainers
-          </Link>
-          <Link
-            fontSize={20}
-            _hover={{
-              color: "red.500",
-            }}
-            href="/resources"
-          >
-            Resources
-          </Link>
-          <Link
-            fontSize={20}
-            _hover={{
-              color: "red.500",
-            }}
-            href="/contact"
-          >
-            Contact
-          </Link>
+          {navItems.map((item, index) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpenMenu(false)}
+              fontSize="34px"
+              fontWeight={900}
+              lineHeight={1}
+              letterSpacing="-0.05em"
+              color="white"
+              _hover={{ color: "brand.red", textDecoration: "none" }}
+            >
+              <Text as="span" color="brand.red" fontSize="15px" mr={3}>
+                0{index + 1}
+              </Text>
+              {t.nav[item.key]}
+            </Link>
+          ))}
+
           <Button
-            colorScheme="red"
-            borderRadius={20}
-            onClick={() => handleNav()}
-            border="1px solid #C73131"
-            fontSize={20}
-            _hover={{
-              bg: "white",
-              color: "red.500",
-              border: "1px solid #C73131",
-            }}
+            mt={4}
+            h="56px"
+            borderRadius="full"
+            bg="brand.red"
+            color="white"
+            boxShadow="0 0 32px rgba(255, 42, 42, 0.34)"
+            _hover={{ bg: "white", color: "black" }}
+            onClick={goToPrograms}
           >
-            Programs
+            {t.nav.cta}
           </Button>
         </VStack>
       )}

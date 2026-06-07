@@ -1,114 +1,150 @@
-import { Box, Button, Stack, Text, VStack } from "@chakra-ui/react";
 import {
-  GAP_10,
-  GAP_20,
-  GAP_5,
-  PADDING_10,
-  PADDING_20,
-} from "../../constants/layout.constants";
+  Badge,
+  Box,
+  Button,
+  HStack,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { ServicesCarousel } from "../../components/home/services-carousel";
 import { Services } from "../../components/home/services";
-import { scrollToPrograms } from "../../utils/navigation.utils";
+import { useTranslation } from "../../i18n/use-translation";
+import { useRouter } from "next/router";
 
 export const AboutUsView = () => {
   const { isMobile, isTablet } = useBreakpoints();
+  const { t } = useTranslation();
+  const router = useRouter();
+
   return (
-    <VStack
-      w="100%"
-      bg="#e9ecef"
-      px={isMobile ? PADDING_10 : PADDING_20}
-      py={PADDING_20}
-      textAlign="center"
-      justify="center"
-      gap={{ base: GAP_10, lg: GAP_20 }}
-      id="about-us"
+    <Box
+      as="section"
+      position="relative"
+      bg="brand.black"
+      color="white"
+      px={{ base: 5, md: 10, xl: 16, "2xl": 24 }}
+      py={{ base: 20, lg: 28 }}
+      overflow="hidden"
     >
-      <Text
-        fontSize={{ base: 30, md: 48 }}
-        fontWeight={700}
-        color="black"
-        opacity={0.8}
-      >
-        FIT4Life
-      </Text>
-      {isMobile || isTablet ? <ServicesCarousel /> : <Services />}
+      <Box
+        position="absolute"
+        top="-180px"
+        right="-120px"
+        w="420px"
+        h="420px"
+        borderRadius="full"
+        bg="rgba(255,42,42,0.14)"
+        filter="blur(80px)"
+      />
+
       <Stack
-        direction={isMobile ? "column" : "row"}
-        gap={{ base: GAP_20, lg: 0 }}
-        mt={{ base: 10, lg: 0 }}
+        direction={{ base: "column", lg: "row" }}
+        spacing={{ base: 12, lg: 16 }}
+        align="flex-start"
+        position="relative"
+        zIndex={1}
       >
-        <VStack gap={{ base: 0, lg: GAP_5 }}>
-          <VStack>
-            <Box bg="red.500" width={50} height={1} borderRadius={2} />
-          </VStack>
-          <Text
-            color="rgb(0, 0, 0, 0.6)"
-            lineHeight={1.5}
-            fontSize={{ base: 16, md: 18 }}
-            w={{ base: "100%", lg: "80%" }}
-            mt={{ base: 2, lg: 0 }}
+        <VStack align="flex-start" spacing={6} flex={1}>
+          <Badge
+            px={4}
+            py={2}
+            borderRadius="full"
+            bg="rgba(255,42,42,0.12)"
+            color="brand.red"
+            border="1px solid rgba(255,42,42,0.26)"
+            fontSize="12px"
+            letterSpacing="0.16em"
+            textTransform="uppercase"
           >
-            We are a premier fitness organization located in the heart of
-            Vračar, Belgrade, dedicated to enhancing physical and mental
-            well-being. Our state-of-the-art facility is open daily, offering a
-            wide range of services, from professional sports training to
-            wellness programs for all ages. Visit us to experience a balanced
-            approach to fitness, combining physical activity, mindfulness, and
-            holistic health practices.
+            {t.about.eyebrow}
+          </Badge>
+
+          <Text
+            as="h2"
+            fontSize={{ base: "38px", md: "56px", xl: "72px" }}
+            lineHeight={0.95}
+            fontWeight={900}
+            letterSpacing="-0.07em"
+            maxW="760px"
+          >
+            {t.about.title}
           </Text>
+
+          <Text
+            fontSize={{ base: "16px", md: "18px" }}
+            lineHeight={1.8}
+            color="whiteAlpha.700"
+            maxW="680px"
+            fontWeight={500}
+          >
+            {t.about.description}
+          </Text>
+
+          <Button
+            h="56px"
+            px={8}
+            borderRadius="full"
+            bg="brand.red"
+            color="white"
+            boxShadow="0 0 36px rgba(255,42,42,0.28)"
+            _hover={{
+              bg: "white",
+              color: "black",
+              transform: "translateY(-2px)",
+            }}
+            transition="all 0.2s ease"
+            onClick={() => router.push("/programs")}
+          >
+            {t.about.cta}
+          </Button>
         </VStack>
-        <VStack gap={{ base: 0, lg: GAP_5 }}>
-          <Box bg="red.500" width={50} height={1} borderRadius={2} />
-          <Text
-            color="rgb(0, 0, 0, 0.6)"
-            lineHeight={1.5}
-            fontSize={{ base: 16, md: 18 }}
-            w={{ base: "100%", lg: "80%" }}
-            mt={{ base: 2, lg: 0 }}
-          >
-            Our fitness center offers a diverse range of programs tailored for
-            people of all ages and fitness levels. We are committed to enhancing
-            both physical and mental health while educating our members about
-            the importance of exercise, nutrition, and overall well-being. Our
-            goal is to empower individuals to lead healthier lives through
-            informed choices and personalized support.
-          </Text>
-        </VStack>
-        <VStack gap={{ base: 0, lg: GAP_5 }}>
-          <Box bg="red.500" width={50} height={1} borderRadius={2} />
-          <Text
-            color="rgb(0, 0, 0, 0.6)"
-            lineHeight={1.5}
-            fontSize={{ base: 16, md: 18 }}
-            w={{ base: "100%", lg: "80%" }}
-            mt={{ base: 2, lg: 0 }}
-          >
-            Our team of highly qualified trainers and staff are leading experts
-            in their fields, available daily to support our program
-            participants. Over the years, we have helped countless individuals
-            achieve remarkable success in their fitness and wellness journeys.
-            Our dedication to excellence and personalized attention has earned
-            us a strong reputation among satisfied clients.
-          </Text>
+
+        <VStack flex={1} spacing={4} w="100%">
+          {t.about.cards.map((card) => (
+            <HStack
+              key={card.value}
+              w="100%"
+              align="flex-start"
+              spacing={5}
+              p={{ base: 5, md: 7 }}
+              borderRadius="28px"
+              bg="rgba(255,255,255,0.055)"
+              border="1px solid rgba(255,255,255,0.1)"
+              backdropFilter="blur(16px)"
+              _hover={{
+                borderColor: "rgba(255,42,42,0.5)",
+                transform: "translateY(-3px)",
+                bg: "rgba(255,42,42,0.08)",
+              }}
+              transition="all 0.2s ease"
+            >
+              <Text
+                minW="52px"
+                fontSize="20px"
+                fontWeight={900}
+                color="brand.red"
+              >
+                {card.value}
+              </Text>
+
+              <VStack align="flex-start" spacing={2}>
+                <Text fontSize={{ base: "20px", md: "24px" }} fontWeight={900}>
+                  {card.title}
+                </Text>
+                <Text color="whiteAlpha.680" lineHeight={1.7} fontWeight={500}>
+                  {card.description}
+                </Text>
+              </VStack>
+            </HStack>
+          ))}
         </VStack>
       </Stack>
-      <Button
-        colorScheme="red"
-        fontSize={20}
-        borderRadius={25}
-        w={250}
-        h={50}
-        border="1px solid #C73131"
-        _hover={{
-          bg: "white",
-          color: "red.500",
-          border: "1px solid #C73131",
-        }}
-        onClick={scrollToPrograms}
-      >
-        JOIN US
-      </Button>
-    </VStack>
+
+      <Box mt={{ base: 14, lg: 20 }} position="relative" zIndex={1}>
+        {isMobile || isTablet ? <ServicesCarousel /> : <Services />}
+      </Box>
+    </Box>
   );
 };

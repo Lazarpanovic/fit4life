@@ -4,49 +4,59 @@ import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { HeaderMobile } from "../../components/header/header-mobile";
 import { Layout } from "../../components/layout/layout";
 import {
+  Badge,
   Box,
   Button,
   HStack,
-  Stack,
-  Tag,
+  SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import {
-  GAP_10,
-  GAP_5,
-  PADDING_10,
-  PADDING_20,
-} from "../../constants/layout.constants";
-import { newTrainers, programCategories } from "../../data/data";
+  newTrainers,
+  programCategories,
+  ProgramCategoryKey,
+} from "../../data/data";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { Footer } from "../../components/footer/footer";
 import { NewTrainerCard } from "../../components/trainers/new-trainer-card";
+import { useTranslation } from "../../i18n/use-translation";
 
-export default function Home() {
+export default function TrainersPage() {
   const { isMobile, isTablet } = useBreakpoints();
   const { query, push, pathname, isReady } = useRouter();
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [visiblePrograms, setVisiblePrograms] = useState(3);
+  const { t } = useTranslation();
 
-  const categoryNamesParam = query.category_names;
+  const [activeCategory, setActiveCategory] =
+    useState<ProgramCategoryKey>("all");
+  const [visibleTrainers, setVisibleTrainers] = useState(6);
 
-  const categoryNames = useMemo(() => {
-    return categoryNamesParam
-      ? Array.isArray(categoryNamesParam)
-        ? categoryNamesParam
-        : Array(categoryNamesParam)
-      : [];
-  }, [categoryNamesParam]);
+  const categoryParam = query.category;
+
+  const selectedCategory = useMemo(() => {
+    if (!categoryParam) {
+      return "all";
+    }
+
+    const value = Array.isArray(categoryParam)
+      ? categoryParam[0]
+      : categoryParam;
+
+    const exists = programCategories.some((category) => category.key === value);
+
+    return exists ? (value as ProgramCategoryKey) : "all";
+  }, [categoryParam]);
 
   const setCategoryFilter = useCallback(
-    (categoryName?: string) => {
-      setActiveCategory(categoryName || "All"); // Update active category state
+    (categoryKey: ProgramCategoryKey) => {
+      setActiveCategory(categoryKey);
+      setVisibleTrainers(6);
+
       push(
         {
-          pathname: pathname,
-          query: categoryName ? { category_names: categoryName } : undefined,
+          pathname,
+          query: categoryKey !== "all" ? { category: categoryKey } : undefined,
         },
         undefined,
         { shallow: true },
@@ -57,36 +67,30 @@ export default function Home() {
 
   useEffect(() => {
     if (isReady) {
-      setActiveCategory(categoryNames.length > 0 ? categoryNames[0] : "All");
+      setActiveCategory(selectedCategory);
     }
-  }, [isReady, categoryNames]);
+  }, [isReady, selectedCategory]);
 
   const filteredTrainers =
-    activeCategory && activeCategory !== "All"
-      ? newTrainers.filter((program) =>
-          program.categories
-            .map((category) => category.name)
-            .includes(activeCategory),
+    activeCategory !== "all"
+      ? newTrainers.filter((trainer) =>
+          trainer.categories.some(
+            (category) => category.key === activeCategory,
+          ),
         )
       : newTrainers;
 
-  const displayedTrainers = filteredTrainers.slice(0, visiblePrograms); // Show visible programs
+  const displayedTrainers = filteredTrainers.slice(0, visibleTrainers);
 
   const handleShowMore = () => {
-    setVisiblePrograms((prev) => prev + 3); // Increase the number of visible programs by 3
+    setVisibleTrainers((prev) => prev + 3);
   };
 
   return (
     <>
       <Head>
-        <title>
-          Fit4Life: Meet Our Trainers - Expert Personal Trainers & Fitness
-          Coaches
-        </title>
-        <meta
-          property="og:title"
-          content="Fit4Life: Meet Our Trainers - Expert Personal Trainers & Fitness Coaches"
-        />
+        <title>{t.trainersPage.metaTitle}</title>
+        <meta property="og:title" content={t.trainersPage.metaTitle} />
         <link
           rel="canonical"
           href="https://www.fit4lifebelgrade.com/trainers"
@@ -94,114 +98,167 @@ export default function Home() {
         <meta
           name="description"
           property="og:description"
-          content="Meet the expert trainers at Fit4Life who are dedicated to helping you achieve your fitness goals. Whether it's personal training or group workouts, our experienced coaches are here to guide you."
+          content={t.trainersPage.metaDescription}
         />
-        {/* Add Open Graph image for link preview */}
         <meta property="og:image" content="/hero-section.jpg" />
         <meta
           property="og:url"
-          content="https://www.fit4lifebelgrade.com/programs"
+          content="https://www.fit4lifebelgrade.com/trainers"
         />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        {/* Twitter meta tags (optional) */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/hero-section.jpg" />
       </Head>
+
       {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
+
       <Layout>
-        <VStack
-          px={{ base: PADDING_10, lg: PADDING_20 }}
-          gap={GAP_10}
-          py={{ base: 20, lg: 32 }}
+        <Box
+          as="main"
+          position="relative"
+          bg="brand.black"
+          color="white"
+          minH="100vh"
+          px={{ base: 5, md: 10, xl: 16, "2xl": 24 }}
+          py={{ base: 16, lg: 24 }}
+          overflow="hidden"
         >
-          <Text
-            fontSize={{ base: 30, lg: 48 }}
-            fontWeight={700}
-            textAlign="center"
-            color="#1A202C"
-          >
-            Meet the Fit4Life Trainers
-          </Text>
-          <Text
-            fontSize={{ base: 16, lg: 20 }}
-            fontWeight={500}
-            opacity={0.6}
-            w={{ base: "100%", lg: "60%" }}
-            textAlign="center"
-          >
-            Our team of experienced trainers is dedicated to helping you achieve
-            your fitness goals. From personal training to group sessions, they
-            are here to guide you every step of the way.
-          </Text>
-          <HStack
-            w={{ base: "100%", lg: "60%" }}
-            wrap="wrap"
-            justify="center"
-            gap={{ base: GAP_5, lg: GAP_10 }}
-          >
-            {programCategories.map((category) => (
-              <Tag
-                key={category.id}
-                bg={activeCategory === category.name ? "red.500" : "#EDF2F7"}
-                color={activeCategory === category.name ? "white" : "#1A202C"}
-                cursor="pointer"
-                _hover={{ bg: "red.500", color: "white" }}
-                size="lg"
-                px={8}
+          <Box
+            position="absolute"
+            top="-180px"
+            left="-160px"
+            w="480px"
+            h="480px"
+            borderRadius="full"
+            bg="rgba(255,42,42,0.11)"
+            filter="blur(90px)"
+          />
+
+          <Box
+            position="absolute"
+            bottom="-200px"
+            right="-180px"
+            w="520px"
+            h="520px"
+            borderRadius="full"
+            bg="rgba(255,107,0,0.08)"
+            filter="blur(100px)"
+          />
+
+          <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>
+            <VStack spacing={5} textAlign="center" maxW="920px">
+              <Badge
+                px={4}
                 py={2}
-                onClick={() => setCategoryFilter(category.name)}
+                borderRadius="full"
+                bg="rgba(255,42,42,0.12)"
+                color="brand.red"
+                border="1px solid rgba(255,42,42,0.26)"
+                fontSize="12px"
+                letterSpacing="0.16em"
+                textTransform="uppercase"
               >
-                {category.name}
-              </Tag>
-            ))}
-          </HStack>
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            w="100%"
-            gap={GAP_10}
-            mt={20}
-            wrap="wrap"
-            justify="center"
-          >
-            {displayedTrainers.map((trainer) => (
-              <Box
-                key={trainer.id}
-                w={{ base: "100%", md: "300px", lg: "350px", "2xl": "400px" }}
-                transition="transform 0.1s ease-in-out"
+                {t.trainersPage.eyebrow}
+              </Badge>
+
+              <Text
+                as="h1"
+                fontSize={{ base: "42px", md: "68px", xl: "88px" }}
+                lineHeight={0.92}
+                fontWeight={900}
+                letterSpacing="-0.08em"
+              >
+                {t.trainersPage.title}
+              </Text>
+
+              <Text
+                fontSize={{ base: "16px", md: "18px" }}
+                color="whiteAlpha.680"
+                lineHeight={1.8}
+                fontWeight={500}
+              >
+                {t.trainersPage.description}
+              </Text>
+            </VStack>
+
+            <HStack w="100%" maxW="1040px" wrap="wrap" justify="center" gap={3}>
+              {programCategories.map((category) => {
+                const categoryKey = category.key as ProgramCategoryKey;
+                const isActive = activeCategory === categoryKey;
+
+                return (
+                  <Button
+                    key={category.id}
+                    h="44px"
+                    px={5}
+                    borderRadius="full"
+                    bg={isActive ? "brand.red" : "rgba(255,255,255,0.07)"}
+                    color="white"
+                    border={
+                      isActive
+                        ? "1px solid rgba(255,42,42,0.7)"
+                        : "1px solid rgba(255,255,255,0.11)"
+                    }
+                    fontSize="13px"
+                    _hover={{
+                      bg: isActive ? "brand.red" : "rgba(255,42,42,0.12)",
+                      borderColor: "rgba(255,42,42,0.5)",
+                    }}
+                    onClick={() => setCategoryFilter(categoryKey)}
+                  >
+                    {t.programsPage.categories[categoryKey]}
+                  </Button>
+                );
+              })}
+            </HStack>
+
+            {displayedTrainers.length > 0 ? (
+              <SimpleGrid
+                columns={{ base: 1, md: 2, xl: 3 }}
+                spacing={6}
+                w="100%"
+              >
+                {displayedTrainers.map((trainer) => (
+                  <NewTrainerCard
+                    key={trainer.id}
+                    imageSrc={trainer.imageSrc}
+                    trainerKey={trainer.key}
+                    categories={trainer.categories}
+                    accent={trainer.accent}
+                  />
+                ))}
+              </SimpleGrid>
+            ) : (
+              <Text color="whiteAlpha.680" fontSize="18px" fontWeight={700}>
+                {t.trainersPage.empty}
+              </Text>
+            )}
+
+            {filteredTrainers.length > visibleTrainers && (
+              <Button
+                h="56px"
+                px={9}
+                borderRadius="full"
+                bg="brand.red"
+                color="white"
+                boxShadow="0 0 36px rgba(255,42,42,0.28)"
                 _hover={{
-                  transform: "scale(1.1)",
+                  bg: "white",
+                  color: "black",
+                  transform: "translateY(-2px)",
                 }}
+                transition="all 0.2s ease"
+                onClick={handleShowMore}
               >
-                <NewTrainerCard
-                  imageSrc={trainer.imageSrc}
-                  name={trainer.name}
-                  specialty={trainer.specialty}
-                  description={trainer.description}
-                />
-              </Box>
-            ))}
-          </Stack>
-          {filteredTrainers.length > 3 && (
-            <Button
-              colorScheme="red"
-              fontSize={16}
-              borderRadius={5}
-              mt={10}
-              px={8}
-              _hover={{
-                bg: "white",
-                color: "red.500",
-                border: "1px solid red",
-              }}
-              onClick={handleShowMore}
-            >
-              Discover More
-            </Button>
-          )}
-        </VStack>
+                {t.trainersPage.discoverMore}
+              </Button>
+            )}
+          </VStack>
+        </Box>
       </Layout>
+
       <Footer />
     </>
   );

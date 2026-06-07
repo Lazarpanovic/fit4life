@@ -1,110 +1,179 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Box, HStack, Tag, Text, VStack } from "@chakra-ui/react";
+import { Badge, Box, HStack, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-interface Category {
-  id: number;
-  name: string;
-}
+import { ResourceCategoryKey, ResourceKey } from "../../data/data";
+import { useTranslation } from "../../i18n/use-translation";
 
 export const ResourceCard = ({
   id,
   imageSrc,
-  title,
+  resourceKey,
   categories,
-  description,
-  showDescription,
+  showDescription = true,
   isResourcesPage,
 }: {
   id: number;
   imageSrc: string;
-  title: string;
-  categories: Category[];
-  description?: string;
+  resourceKey: ResourceKey;
+  categories: { id: number; key: string }[];
   showDescription?: boolean;
   isResourcesPage?: boolean;
 }) => {
   const router = useRouter();
+  const { t } = useTranslation();
+
+  const resource = t.resourcesPage.resources[resourceKey];
+
   const navigateToResourceDetails = () => {
     router.push(`/resources/${id}`);
   };
+
   return (
     <VStack
-      align="flex-start"
+      as="article"
+      role="group"
+      position="relative"
+      align="stretch"
+      justify="space-between"
       w="100%"
       h="100%"
-      borderRadius={isResourcesPage ? 5 : 10}
+      minH={isResourcesPage ? { base: "520px", lg: "560px" } : "100%"}
       overflow="hidden"
-      border="1px solid #ced4da"
-      bg="#FFFFFF40"
-      boxShadow="0px 4px 10px rgba(0, 0, 0, 0.3)"
-      pos="relative"
+      borderRadius="34px"
+      bg="rgba(255,255,255,0.055)"
+      border="1px solid rgba(255,255,255,0.11)"
+      backdropFilter="blur(18px)"
+      cursor="pointer"
+      onClick={navigateToResourceDetails}
+      _hover={{
+        transform: "translateY(-8px)",
+        borderColor: "rgba(255,42,42,0.58)",
+        boxShadow: "0 26px 80px rgba(255,42,42,0.16)",
+      }}
+      transition="all 0.25s ease"
     >
       <Box
-        pos="relative"
-        h={
-          !isResourcesPage
-            ? "100%"
-            : { base: "250px", lg: "200px", "2xl": "300px" }
-        }
-        w="100%"
-        borderRadius={isResourcesPage ? 0 : 8}
+        position="relative"
+        h={isResourcesPage ? { base: "260px", lg: "280px" } : "100%"}
+        minH={!isResourcesPage ? "260px" : undefined}
         overflow="hidden"
       >
         <Image
           src={imageSrc}
-          alt="resource-image"
+          alt={resource.title}
           fill
           style={{
             objectFit: "cover",
+            transition: "transform 0.35s ease",
+          }}
+        />
+
+        <Box
+          position="absolute"
+          inset={0}
+          bg="linear-gradient(180deg, rgba(6,6,6,0.06) 0%, rgba(6,6,6,0.88) 100%)"
+        />
+
+        <Box
+          position="absolute"
+          inset={0}
+          transition="all 0.3s ease"
+          _groupHover={{
+            bg: "rgba(255,42,42,0.12)",
           }}
         />
       </Box>
-      <HStack align="flex-end" w="100%" padding={4}>
-        <VStack align="flex-start" w="100%">
-          <Text fontWeight={700} fontSize={{ base: 16, lg: 18 }} opacity={0.8}>
-            {title}
+
+      <VStack
+        align="flex-start"
+        spacing={4}
+        p={{ base: 6, lg: 7 }}
+        position={isResourcesPage ? "relative" : "absolute"}
+        bottom={!isResourcesPage ? 0 : undefined}
+        left={!isResourcesPage ? 0 : undefined}
+        right={!isResourcesPage ? 0 : undefined}
+        zIndex={2}
+      >
+        <HStack wrap="wrap" spacing={2}>
+          {categories.map((category) => (
+            <Badge
+              key={category.id}
+              px={3}
+              py={1.5}
+              borderRadius="full"
+              bg="rgba(255,255,255,0.1)"
+              color="white"
+              border="1px solid rgba(255,255,255,0.12)"
+              fontSize="10px"
+              letterSpacing="0.12em"
+              textTransform="uppercase"
+            >
+              {t.resourcesPage.categories[category.key as ResourceCategoryKey]}
+            </Badge>
+          ))}
+        </HStack>
+
+        <Text
+          fontSize={{ base: "24px", lg: isResourcesPage ? "28px" : "32px" }}
+          lineHeight={1.08}
+          fontWeight={800}
+          letterSpacing="-0.045em"
+          color="white"
+        >
+          {resource.title}
+        </Text>
+
+        {showDescription && (
+          <Text
+            color="whiteAlpha.680"
+            lineHeight={1.7}
+            fontSize="15px"
+            fontWeight={500}
+            noOfLines={4}
+          >
+            {resource.description}
           </Text>
-          <HStack w={{ base: "90%", lg: "80%" }} wrap="wrap">
-            {categories.map((category) => (
-              <Tag
-                key={category.id}
-                fontSize={{ base: 12, lg: 14 }}
-                borderRadius="full"
-                bg="#dee2e6"
-                px={3}
-              >
-                {category.name}
-              </Tag>
-            ))}
-          </HStack>
-          {showDescription && (
-            <Text opacity={0.8} noOfLines={3} w="90%">
-              {description}
-            </Text>
-          )}
-        </VStack>
-      </HStack>
-      <ArrowForwardIcon
-        bg="black"
-        color="white"
+        )}
+
+        <HStack
+          pt={2}
+          color="brand.red"
+          fontWeight={900}
+          fontSize="14px"
+          letterSpacing="0.04em"
+        >
+          <Text>{t.resourcesPage.labels.readArticle}</Text>
+          <ArrowForwardIcon
+            transition="all 0.2s ease"
+            _groupHover={{
+              transform: "translateX(4px)",
+            }}
+          />
+        </HStack>
+      </VStack>
+
+      <Box
+        position="absolute"
+        top={5}
+        right={5}
+        w="48px"
+        h="48px"
+        display="grid"
+        placeItems="center"
         borderRadius="full"
-        w={8}
-        h={8}
-        padding={2}
-        opacity={0.8}
-        pos="absolute"
-        bottom={4}
-        right={4}
-        cursor="pointer"
-        _hover={{
-          color: "black",
-          bg: "white",
-          border: "1px solid black",
+        bg="white"
+        color="black"
+        zIndex={3}
+        transition="all 0.2s ease"
+        _groupHover={{
+          bg: "brand.red",
+          color: "white",
+          transform: "rotate(-35deg)",
         }}
-        onClick={navigateToResourceDetails}
-      />
+      >
+        <ArrowForwardIcon />
+      </Box>
     </VStack>
   );
 };

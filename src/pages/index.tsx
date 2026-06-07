@@ -10,37 +10,34 @@ import { ResourcesView } from "../views/home/resources.view";
 import { Footer } from "../components/footer/footer";
 import { ContactView } from "../views/home/contact.view";
 import { TestimonialsView } from "../views/home/testimonials.view";
+import { useTranslation } from "../i18n/use-translation";
 
 export default function Home() {
   const { isMobile, isTablet } = useBreakpoints();
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>
-          Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness
-          Center
-        </title>
-        <meta
-          property="og:title"
-          content="Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness Center"
-        />
+        <title>{t.meta.homeTitle}</title>
+        <meta property="og:title" content={t.meta.homeTitle} />
         <link rel="canonical" href="https://www.fit4lifebelgrade.com/" />
         <meta
           name="description"
           property="og:description"
-          content="Experience a full range of fitness services, including sauna, wellness, spa, gym, and personal training, tailored to help you achieve your health and wellness goals!"
+          content={t.meta.homeDescription}
         />
-        {/* Add Open Graph image for link preview */}
         <meta property="og:image" content="/hero-section.jpg" />
         <meta property="og:url" content="https://www.fit4lifebelgrade.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        {/* Twitter meta tags (optional) */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/hero-section.jpg" />
       </Head>
+
       {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
+
       <Layout>
         <HeroSectionView />
         <AboutUsView />
@@ -49,6 +46,7 @@ export default function Home() {
         <TestimonialsView />
         <ContactView />
       </Layout>
+
       <Footer />
     </>
   );

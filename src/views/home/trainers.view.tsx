@@ -1,69 +1,115 @@
-import { GAP_20 } from "../../constants/layout.constants";
-import { Button, HStack, Text } from "@chakra-ui/react";
-import { TrainerCard, trainers } from "../../components/home/trainer-card";
+import { Badge, Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { TrainerCard } from "../../components/home/trainer-card";
 import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { TrainersCarousel } from "../../components/home/trainers-carousel";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import { useTranslation } from "../../i18n/use-translation";
+import { newTrainers } from "../../data/data";
 
 export const TrainersView = () => {
   const { isMobile, isTablet, isLargeLaptop, isDesktop } = useBreakpoints();
   const { push } = useRouter();
+  const { t } = useTranslation();
+
   const goToTrainersPage = () => {
     push("/trainers");
   };
+
   const slicedTrainers =
     isMobile || isTablet || isDesktop
-      ? trainers
+      ? newTrainers
       : isLargeLaptop
-        ? trainers.slice(0, 3)
-        : trainers.slice(0, 2);
+        ? newTrainers.slice(0, 3)
+        : newTrainers.slice(0, 2);
+
   return (
-    <>
-      <Text
-        fontSize={{ base: 30, md: 48 }}
-        fontWeight={700}
-        color="white"
-        opacity={0.7}
-        id="trainers"
-        textAlign="center"
-      >
-        MEET OUR TRAINERS
-      </Text>
+    <VStack
+      id="trainers"
+      w="100%"
+      spacing={{ base: 10, lg: 14 }}
+      px={{ base: 5, md: 10, xl: 16, "2xl": 24 }}
+    >
+      <VStack spacing={5} textAlign="center" maxW="860px">
+        <Badge
+          px={4}
+          py={2}
+          borderRadius="full"
+          bg="rgba(255,42,42,0.12)"
+          color="brand.red"
+          border="1px solid rgba(255,42,42,0.26)"
+          fontSize="12px"
+          letterSpacing="0.16em"
+          textTransform="uppercase"
+        >
+          {t.trainersSection.eyebrow}
+        </Badge>
+
+        <Text
+          as="h2"
+          fontSize={{ base: "38px", md: "58px", xl: "76px" }}
+          lineHeight={0.95}
+          fontWeight={900}
+          letterSpacing="-0.075em"
+        >
+          {t.trainersSection.title}
+        </Text>
+
+        <Text
+          fontSize={{ base: "16px", md: "18px" }}
+          color="whiteAlpha.680"
+          lineHeight={1.8}
+          fontWeight={500}
+        >
+          {t.trainersSection.description}
+        </Text>
+      </VStack>
+
       {isMobile || isTablet ? (
-        <TrainersCarousel />
+        <Box w="100%">
+          <TrainersCarousel />
+        </Box>
       ) : (
-        <HStack gap={GAP_20}>
-          {slicedTrainers.map((trainer, index) => (
+        <SimpleGrid
+          columns={{
+            base: 1,
+            md: 2,
+            xl: slicedTrainers.length >= 3 ? 3 : 2,
+            "2xl": 4,
+          }}
+          spacing={6}
+          w="100%"
+        >
+          {slicedTrainers.map((trainer) => (
             <TrainerCard
-              key={index}
-              name={trainer.name}
-              specialty={trainer.specialty}
+              key={trainer.id}
               imageSrc={trainer.imageSrc}
-              imageWidth={trainer.imageWidth}
-              imageWidthMobile={trainer.imageWidthMobile}
-              marginTop={trainer.marginTop}
+              trainerKey={trainer.key}
+              categories={trainer.categories}
+              accent={trainer.accent}
             />
           ))}
-        </HStack>
+        </SimpleGrid>
       )}
+
       <Button
-        colorScheme="red"
-        fontSize={{ base: 16, lg: 20 }}
-        borderRadius={25}
-        w={{ base: 200, lg: 250 }}
-        h={50}
+        h="56px"
+        px={8}
+        borderRadius="full"
         rightIcon={<ArrowForwardIcon />}
-        border="1px solid #C73131"
+        bg="white"
+        color="black"
         _hover={{
-          bg: "white",
-          color: "red.500",
-          border: "1px solid #C73131",
+          bg: "brand.red",
+          color: "white",
+          transform: "translateY(-2px)",
+          boxShadow: "0 0 36px rgba(255,42,42,0.3)",
         }}
+        transition="all 0.2s ease"
         onClick={goToTrainersPage}
       >
-        ALL TRAINERS
+        {t.trainersSection.cta}
       </Button>
-    </>
+    </VStack>
   );
 };

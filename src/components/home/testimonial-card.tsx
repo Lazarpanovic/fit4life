@@ -1,90 +1,106 @@
-import { useInView } from "react-intersection-observer";
-import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
-import { Box, Icon, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
-import { GAP_5 } from "../../constants/layout.constants";
 import { FaQuoteRight } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 export const TestimonialCard = ({
   fullName,
   title,
   description,
   imageSrc,
-  left,
 }: {
   fullName: string;
   title: string;
   description: string;
   imageSrc: string;
-  left?: boolean;
 }) => {
-  const { isMobile } = useBreakpoints();
-  const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger the animation only once
-    threshold: 0.1, // Trigger when 10% of the card is visible
-  });
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 100 }} // Start with the card hidden and 40px lower
-      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate to full opacity and 0px Y
-      transition={{ duration: 0.5, ease: "easeOut" }} // Animation settings
+    <VStack
+      as="article"
+      align="stretch"
+      position="relative"
+      overflow="hidden"
+      minH="360px"
+      borderRadius="34px"
+      bg="rgba(255,255,255,0.055)"
+      border="1px solid rgba(255,255,255,0.11)"
+      backdropFilter="blur(18px)"
+      p={{ base: 6, md: 7 }}
+      _hover={{
+        transform: "translateY(-6px)",
+        borderColor: "rgba(255,42,42,0.45)",
+        boxShadow: "0 22px 70px rgba(255,42,42,0.12)",
+      }}
+      transition="all 0.25s ease"
     >
-      <Stack
-        gap={{ base: 0, md: 10 }}
-        direction={isMobile ? "column" : left ? "row" : "row-reverse"}
-        alignSelf={isMobile ? "center" : left ? "flex-start" : "flex-end"}
-        align="center"
+      <Box
+        position="absolute"
+        top="-80px"
+        right="-80px"
+        w="220px"
+        h="220px"
+        borderRadius="full"
+        bg="rgba(255,42,42,0.11)"
+        filter="blur(48px)"
+      />
+
+      <Icon
+        as={FaQuoteRight}
+        color="brand.red"
+        fontSize="42px"
+        position="relative"
+        zIndex={1}
+      />
+
+      <Text
+        position="relative"
+        zIndex={1}
+        color="whiteAlpha.760"
+        fontSize={{ base: "16px", md: "17px" }}
+        lineHeight={1.8}
+        fontWeight={500}
+        pt={4}
       >
+        {description}
+      </Text>
+
+      <HStack position="relative" zIndex={1} spacing={4} mt="auto" pt={8}>
         <Box
-          pos="relative"
-          w={{ base: 120, md: 100, lg: 120 }}
-          h={{ base: 120, md: 100, lg: 120 }}
-          overflow="hidden"
+          position="relative"
+          w="62px"
+          h="62px"
           borderRadius="full"
-          mb={isMobile ? -10 : 0}
+          overflow="hidden"
+          border="2px solid rgba(255,42,42,0.7)"
         >
           <Image
             src={imageSrc}
-            alt={imageSrc}
+            alt={fullName}
             fill
             style={{ objectFit: "cover" }}
           />
         </Box>
-        <VStack
-          align={{ base: "center", md: "flex-start" }}
-          bg="#FFFFFF99"
-          w={{ base: "100%", md: "75%", lg: "80%", xl: "70%", "2xl": "50%" }}
-          borderRadius={{ base: 20, md: 10 }}
-          py={{ base: 10, md: 4 }}
-          px={{ base: 2, md: 10 }}
-          gap={{ base: GAP_5, md: "auto" }}
-          pt={{ base: 16, md: 4 }}
-          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-        >
-          <Icon ml={2} color="red.500" as={FaQuoteRight} fontSize={40} />
+
+        <VStack align="flex-start" spacing={1}>
           <Text
-            textAlign={{ base: "center", md: "left" }}
-            opacity={0.5}
-            w="80%"
-            fontSize={{ base: 14, md: 16 }}
+            color="white"
+            fontSize="18px"
+            fontWeight={900}
+            letterSpacing="-0.04em"
           >
-            {description}
+            {fullName}
           </Text>
-          <VStack
-            alignSelf={{ base: "center", md: "flex-end" }}
-            align={{ base: "center", md: "flex-end" }}
-            gap={0}
-            textAlign="center"
+
+          <Text
+            color="brand.red"
+            fontSize="12px"
+            fontWeight={900}
+            textTransform="uppercase"
+            letterSpacing="0.12em"
           >
-            <Text fontWeight={700} fontSize={20}>
-              {fullName}
-            </Text>
-            <Text opacity={0.5}>{title}</Text>
-          </VStack>
+            {title}
+          </Text>
         </VStack>
-      </Stack>
-    </motion.div>
+      </HStack>
+    </VStack>
   );
 };

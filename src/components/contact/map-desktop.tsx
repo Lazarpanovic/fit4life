@@ -9,13 +9,13 @@ export default function MapDesktop() {
       center={[44.80381551062193, 20.481508993675682]}
       zoom={15}
       scrollWheelZoom={false}
-      style={{ height: "700px", width: "45%" }}
+      style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[44.80381551062193, 20.481508993675682]}></Marker>
+      <Marker position={[44.80381551062193, 20.481508993675682]} />
     </MapContainer>
   );
 }

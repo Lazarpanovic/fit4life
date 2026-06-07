@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { Box } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ProgramCard, programs } from "./program-card";
+import { ProgramCard } from "./program-card";
+import { newPrograms } from "../../data/data";
 
 export const ProgramsCarousel: React.FC = () => {
   const settings = {
@@ -17,17 +18,30 @@ export const ProgramsCarousel: React.FC = () => {
   };
 
   return (
-    <Box w="100%">
+    <Box
+      w="100%"
+      sx={{
+        ".slick-dots li button:before": {
+          color: "white",
+          opacity: 0.4,
+        },
+        ".slick-dots li.slick-active button:before": {
+          color: "#FF2A2A",
+          opacity: 1,
+        },
+      }}
+    >
       <Slider {...settings}>
-        {programs.map((service, index) => (
-          <ProgramCard
-            key={index}
-            id={service.id}
-            title={service.title}
-            price={service.price}
-            imageSrc={service.imageSrc}
-            imageWidth={service.imageWidth}
-          />
+        {newPrograms.map((program) => (
+          <Box key={program.id} px={2} pb={8}>
+            <ProgramCard
+              id={program.id}
+              imageSrc={program.imageSrc}
+              programKey={program.key}
+              price={program.price}
+              categories={program.categories}
+            />
+          </Box>
         ))}
       </Slider>
     </Box>

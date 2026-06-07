@@ -1,4 +1,6 @@
 import {
+  Badge,
+  Box,
   Button,
   FormControl,
   HStack,
@@ -7,41 +9,53 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { GAP_10 } from "../../../constants/layout.constants";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { PricingPlanKey, ProgramKey } from "../../../data/data";
+import { useTranslation } from "../../../i18n/use-translation";
 
 export const ProgramSelectionView = ({
-  programTitle,
+  programKey,
   pricingPlans,
 }: {
-  programTitle: string;
+  programKey: ProgramKey;
   pricingPlans: {
     id: number;
-    type: string;
+    key: PricingPlanKey;
     price: string;
-    items: string[];
   }[];
 }) => {
   const { query } = useRouter();
+  const { t } = useTranslation();
+
+  const translatedProgram = t.programsPage.programs[programKey];
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    program: programTitle,
-    pricingPlan: query.pricing_plan ?? "",
+    program: translatedProgram.shortTitle,
+    pricingPlan: "",
   });
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    setFormData((prevData) => ({
+      ...prevData,
+      program: translatedProgram.shortTitle,
+    }));
+  }, [translatedProgram.shortTitle]);
 
   useEffect(() => {
     if (query.pricing_plan) {
@@ -53,129 +67,229 @@ export const ProgramSelectionView = ({
   }, [query.pricing_plan]);
 
   return (
-    <VStack w="100%" gap={GAP_10} mb={20} px={{ base: 5, lg: 0 }}>
-      <Text
-        fontSize={{ base: 30, lg: 48 }}
-        fontWeight={700}
-        textAlign="center"
-        color="#1A202C"
-        mt={10}
-        opacity={0.9}
-      >
-        GET STARTED TODAY
-      </Text>
-      <Text
-        fontSize={{ base: 16, lg: 20 }}
-        fontWeight={500}
-        opacity={0.6}
-        w={{ base: "100%", lg: "60%" }}
-        textAlign="center"
-      >
-        You are one step away from transforming your fitness journey! Simply
-        fill out the form below with your details, and we will take care of the
-        rest. Your selected program and pricing plan are already set just hit
-        submit, and we will reach out to confirm everything. Let us get started
-        on your path to a healthier and fitter you!
-      </Text>
-      <FormControl
-        as="form"
-        action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`}
-        method="POST"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        w="100%"
-        id="form"
-      >
-        <HStack
-          w={{ base: "80%", lg: "90%", xl: "80%", "2xl": "65%" }}
-          wrap="wrap"
-          gap={GAP_10}
-        >
-          <Input
-            isRequired
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            bg="gray.50"
-            placeholder="First name *"
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-          />
-          <Input
-            isRequired
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            bg="gray.50"
-            placeholder="Last name *"
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-          />
-          <Input
-            isRequired
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            type="email"
-            bg="gray.50"
-            placeholder="Email *"
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-          />
-          <Input
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            bg="gray.50"
-            placeholder="Phone"
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-          />
-          <Select
-            isReadOnly
-            name="program"
-            bg="gray.50"
-            placeholder={programTitle}
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-            value={programTitle}
+    <Box
+      as="section"
+      id="form"
+      position="relative"
+      bg="brand.black"
+      color="white"
+      px={{ base: 5, md: 10, xl: 16, "2xl": 24 }}
+      pb={{ base: 20, lg: 28 }}
+      overflow="hidden"
+    >
+      <Box
+        position="absolute"
+        bottom="-180px"
+        right="-140px"
+        w="460px"
+        h="460px"
+        borderRadius="full"
+        bg="rgba(255,107,0,0.08)"
+        filter="blur(90px)"
+      />
+
+      <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>
+        <VStack spacing={5} textAlign="center" maxW="860px">
+          <Badge
+            px={4}
+            py={2}
+            borderRadius="full"
+            bg="rgba(255,42,42,0.12)"
+            color="brand.red"
+            border="1px solid rgba(255,42,42,0.26)"
+            fontSize="12px"
+            letterSpacing="0.16em"
+            textTransform="uppercase"
           >
-            <option value={programTitle}>{programTitle}</option>
-          </Select>
-          <Select
-            isRequired
-            name="pricingPlan"
-            bg="gray.50"
-            placeholder="Pricing plan *"
-            w={{ base: "100%", lg: "47%", xl: "48%" }}
-            h="50px"
-            value={formData.pricingPlan}
-            onChange={handleInputChange}
+            {t.programDetailsPage.formEyebrow}
+          </Badge>
+
+          <Text
+            as="h2"
+            fontSize={{ base: "38px", md: "58px", xl: "76px" }}
+            lineHeight={0.95}
+            fontWeight={900}
+            letterSpacing="-0.075em"
           >
-            {pricingPlans.map((plan) => (
-              <option key={plan.id} value={plan.type}>
-                {plan.type}
-              </option>
-            ))}
-          </Select>
-        </HStack>
-        <Button
-          type="submit"
-          colorScheme="red"
-          fontSize={16}
-          borderRadius={5}
-          mt={10}
-          px={8}
-          _hover={{
-            bg: "white",
-            color: "red.500",
-            border: "1px solid red",
-          }}
+            {t.programDetailsPage.formTitle}
+          </Text>
+
+          <Text
+            fontSize={{ base: "16px", md: "18px" }}
+            color="whiteAlpha.680"
+            lineHeight={1.8}
+            fontWeight={500}
+          >
+            {t.programDetailsPage.formDescription}
+          </Text>
+        </VStack>
+
+        <Box
+          w="100%"
+          maxW="980px"
+          p={{ base: 5, md: 8, lg: 10 }}
+          borderRadius="34px"
+          bg="rgba(255,255,255,0.055)"
+          border="1px solid rgba(255,255,255,0.11)"
+          backdropFilter="blur(18px)"
         >
-          SUBMIT
-        </Button>
-      </FormControl>
-    </VStack>
+          <FormControl
+            as="form"
+            action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`}
+            method="POST"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            w="100%"
+          >
+            <HStack w="100%" wrap="wrap" spacing={0} gap={5}>
+              <PremiumInput
+                isRequired
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                placeholder={t.programDetailsPage.fields.firstName}
+              />
+
+              <PremiumInput
+                isRequired
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                placeholder={t.programDetailsPage.fields.lastName}
+              />
+
+              <PremiumInput
+                isRequired
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                type="email"
+                placeholder={t.programDetailsPage.fields.email}
+              />
+
+              <PremiumInput
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder={t.programDetailsPage.fields.phone}
+              />
+
+              <Select
+                isReadOnly
+                name="program"
+                value={formData.program}
+                w={{ base: "100%", lg: "calc(50% - 10px)" }}
+                h="58px"
+                bg="rgba(255,255,255,0.055)"
+                color="white"
+                border="1px solid rgba(255,255,255,0.12)"
+                borderRadius="full"
+                _hover={{ borderColor: "rgba(255,255,255,0.22)" }}
+                _focus={{
+                  borderColor: "brand.red",
+                  boxShadow: "0 0 0 1px rgba(255,42,42,0.5)",
+                }}
+              >
+                <option value={translatedProgram.shortTitle}>
+                  {translatedProgram.shortTitle}
+                </option>
+              </Select>
+
+              <Select
+                isRequired
+                name="pricingPlan"
+                value={formData.pricingPlan}
+                onChange={handleInputChange}
+                placeholder={t.programDetailsPage.labels.pricingPlan}
+                w={{ base: "100%", lg: "calc(50% - 10px)" }}
+                h="58px"
+                bg="rgba(255,255,255,0.055)"
+                color="white"
+                border="1px solid rgba(255,255,255,0.12)"
+                borderRadius="full"
+                _placeholder={{ color: "whiteAlpha.460" }}
+                _hover={{ borderColor: "rgba(255,255,255,0.22)" }}
+                _focus={{
+                  borderColor: "brand.red",
+                  boxShadow: "0 0 0 1px rgba(255,42,42,0.5)",
+                }}
+                sx={{
+                  option: {
+                    bg: "#111111",
+                    color: "white",
+                  },
+                }}
+              >
+                {pricingPlans.map((plan) => (
+                  <option key={plan.id} value={plan.key}>
+                    {t.programDetailsPage.plans[plan.key].type} - ${plan.price}
+                  </option>
+                ))}
+              </Select>
+            </HStack>
+
+            <Button
+              type="submit"
+              h="56px"
+              px={9}
+              borderRadius="full"
+              mt={8}
+              bg="brand.red"
+              color="white"
+              boxShadow="0 0 36px rgba(255,42,42,0.28)"
+              _hover={{
+                bg: "white",
+                color: "black",
+                transform: "translateY(-2px)",
+              }}
+              transition="all 0.2s ease"
+            >
+              {t.programDetailsPage.submit}
+            </Button>
+          </FormControl>
+        </Box>
+      </VStack>
+    </Box>
+  );
+};
+
+const PremiumInput = ({
+  name,
+  value,
+  onChange,
+  placeholder,
+  type = "text",
+  isRequired,
+}: {
+  name: string;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  type?: string;
+  isRequired?: boolean;
+}) => {
+  return (
+    <Input
+      isRequired={isRequired}
+      name={name}
+      value={value}
+      onChange={onChange}
+      type={type}
+      placeholder={placeholder}
+      w={{ base: "100%", lg: "calc(50% - 10px)" }}
+      h="58px"
+      bg="rgba(255,255,255,0.055)"
+      color="white"
+      border="1px solid rgba(255,255,255,0.12)"
+      borderRadius="full"
+      px={5}
+      _placeholder={{ color: "whiteAlpha.460" }}
+      _hover={{ borderColor: "rgba(255,255,255,0.22)" }}
+      _focus={{
+        borderColor: "brand.red",
+        boxShadow: "0 0 0 1px rgba(255,42,42,0.5)",
+      }}
+    />
   );
 };

@@ -4,61 +4,76 @@ import { useBreakpoints } from "../../hooks/use-breakpoints.hook";
 import { HeaderMobile } from "../../components/header/header-mobile";
 import { Layout } from "../../components/layout/layout";
 import { useParams } from "next/navigation";
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { newPrograms, pricingPlans } from "../../data/data";
 import { Footer } from "../../components/footer/footer";
 import { ProgramSelectionView } from "../../views/programs/details/program-selection.view";
 import { ProgramImageView } from "../../views/programs/details/program-image.view";
 import { PricingPlanView } from "../../views/programs/details/pricing-plans.view";
+import { useTranslation } from "../../i18n/use-translation";
 
-export default function Home() {
+export default function ProgramDetailsPage() {
   const { isMobile, isTablet } = useBreakpoints();
   const params = useParams();
+  const { t } = useTranslation();
+
   const program = newPrograms.find(
     (program) => params && program.id === Number(params.id),
   );
+
   if (!program) {
-    return <Text>Resource not found</Text>;
+    return (
+      <Box minH="100vh" bg="brand.black" color="white">
+        {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
+        <Text p={10}>{t.programDetailsPage.notFound}</Text>
+      </Box>
+    );
   }
+
+  const translatedProgram = t.programsPage.programs[program.key];
+
   return (
     <>
       <Head>
-        <title>Fit4Life: Program - {program.title}</title>
+        <title>
+          {t.programDetailsPage.metaTitlePrefix}: {translatedProgram.shortTitle}
+        </title>
         <meta
           property="og:title"
-          content="Fit4Life: Personal Training, Gym, Spa, Wellness & Sauna – Fitness Center"
+          content={`${t.programDetailsPage.metaTitlePrefix}: ${translatedProgram.shortTitle}`}
         />
         <link
           rel="canonical"
-          href={`https://www.fit4lifebelgrade.com/resources/${program.id}`}
+          href={`https://www.fit4lifebelgrade.com/programs/${program.id}`}
         />
         <meta
           name="description"
           property="og:description"
-          content="Experience a full range of fitness services, including sauna, wellness, spa, gym, and personal training, tailored to help you achieve your health and wellness goals!"
+          content={t.programDetailsPage.metaDescription}
         />
-        {/* Add Open Graph image for link preview */}
-        <meta property="og:image" content="/hero-section.jpg" />
+        <meta property="og:image" content={program.imageSrc} />
         <meta
           property="og:url"
-          content={`https://www.fit4lifebelgrade.com/resources/${program.id}`}
+          content={`https://www.fit4lifebelgrade.com/programs/${program.id}`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        {/* Twitter meta tags (optional) */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/hero-section.jpg" />
+        <meta name="twitter:image" content={program.imageSrc} />
       </Head>
+
       {isMobile || isTablet ? <HeaderMobile /> : <HeaderDesktop />}
+
       <Layout>
         <ProgramImageView program={program} />
-        <PricingPlanView program={program} />
+        <PricingPlanView program={program} pricingPlans={pricingPlans} />
         <ProgramSelectionView
-          programTitle={program.shortTitle}
+          programKey={program.key}
           pricingPlans={pricingPlans}
         />
       </Layout>
+
       <Footer />
     </>
   );
