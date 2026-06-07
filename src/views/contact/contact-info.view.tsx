@@ -127,7 +127,8 @@ const ContactRow = ({
   return (
     <HStack
       spacing={4}
-      p={4}
+      px={4}
+      py={6}
       borderRadius="20px"
       bg="rgba(255,255,255,0.055)"
       border="1px solid rgba(255,255,255,0.09)"
