@@ -53,13 +53,11 @@ export const PricingPlanCard = ({
       minH="560px"
       p={{ base: 6, lg: 8 }}
       borderRadius="34px"
-      bg={isFeatured ? "rgba(255,42,42,0.075)" : "rgba(255,255,255,0.055)"}
       border={
         isFeatured
           ? "1px solid rgba(255,42,42,0.58)"
           : "1px solid rgba(255,255,255,0.11)"
       }
-      backdropFilter="blur(18px)"
       boxShadow={isFeatured ? "0 26px 90px rgba(255,42,42,0.14)" : "none"}
       transform={isFeatured ? "translateY(-14px)" : "none"}
       _hover={{
@@ -67,7 +65,8 @@ export const PricingPlanCard = ({
         borderColor: "rgba(255,42,42,0.58)",
         boxShadow: "0 26px 80px rgba(255,42,42,0.16)",
       }}
-      transition="all 0.25s ease"
+      bg={isFeatured ? "rgba(255,42,42,0.09)" : "rgba(255,255,255,0.075)"}
+      transition="transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease"
     >
       <Box
         position="absolute"
@@ -76,8 +75,8 @@ export const PricingPlanCard = ({
         w="260px"
         h="260px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.12)"
-        filter="blur(56px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.2) 0%, rgba(255,42,42,0.08) 42%, transparent 72%)"
+        pointerEvents="none"
       />
       {isFeatured && (
         <Box
@@ -199,7 +198,7 @@ export const PricingPlanCard = ({
           transform: "translateY(-2px)",
           boxShadow: "0 0 36px rgba(255,42,42,0.28)",
         }}
-        transition="all 0.2s ease"
+        transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease"
         onClick={navigateToForm}
       >
         {t.programDetailsPage.choosePlan}

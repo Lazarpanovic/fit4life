@@ -36,8 +36,8 @@ export const HeaderDesktop = () => {
       h="82px"
       px={{ base: 10, xl: 16, "2xl": 24 }}
       justifyContent="space-between"
-      bg="rgba(6, 6, 6, 0.76)"
-      backdropFilter="blur(20px)"
+      bg="rgba(6, 6, 6, 0.88)"
+      backdropFilter="blur(8px)"
       borderBottom="1px solid rgba(255,255,255,0.08)"
       color="white"
       fontFamily="montserrat"
@@ -115,7 +115,7 @@ export const HeaderDesktop = () => {
             boxShadow: "0 0 42px rgba(255, 255, 255, 0.22)",
           }}
           _active={{ transform: "translateY(0)" }}
-          transition="all 0.2s ease"
+          transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease"
         >
           {t.nav.cta}
         </Button>

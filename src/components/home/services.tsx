@@ -28,8 +28,7 @@ export const Services = () => {
       border="1px solid rgba(255,255,255,0.1)"
       borderRadius="32px"
       overflow="hidden"
-      bg="rgba(255,255,255,0.045)"
-      backdropFilter="blur(18px)"
+      bg="rgba(255,255,255,0.07)"
     >
       {services.map((service, index) => (
         <VStack
@@ -48,7 +47,7 @@ export const Services = () => {
           _hover={{
             bg: "rgba(255,42,42,0.1)",
           }}
-          transition="all 0.2s ease"
+          transition="background 0.2s ease"
         >
           <Box
             w="68px"

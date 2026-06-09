@@ -41,8 +41,6 @@ export const NewProgramCard = ({
       borderRadius="34px"
       overflow="hidden"
       border="1px solid rgba(255,255,255,0.11)"
-      bg="rgba(255,255,255,0.055)"
-      backdropFilter="blur(18px)"
       cursor="pointer"
       onClick={goToProgramDetailsPage}
       _hover={{
@@ -50,7 +48,8 @@ export const NewProgramCard = ({
         borderColor: "rgba(255,42,42,0.58)",
         boxShadow: "0 26px 80px rgba(255,42,42,0.16)",
       }}
-      transition="all 0.25s ease"
+      bg="rgba(255,255,255,0.075)"
+      transition="transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease"
     >
       <Box
         position="relative"
@@ -164,7 +163,7 @@ export const NewProgramCard = ({
               borderRadius="full"
               bg="white"
               color="black"
-              transition="all 0.2s ease"
+              transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
               _groupHover={{
                 bg: "brand.red",
                 color: "white",

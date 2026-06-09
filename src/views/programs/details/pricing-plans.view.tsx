@@ -43,8 +43,8 @@ export const PricingPlanView = ({
         w="440px"
         h="440px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.1)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.17) 0%, rgba(255,42,42,0.07) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>

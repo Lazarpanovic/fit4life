@@ -39,8 +39,7 @@ export const ContactInfoView = () => {
       w="100%"
       maxW="1280px"
       border="1px solid rgba(255,255,255,0.11)"
-      bg="rgba(255,255,255,0.055)"
-      backdropFilter="blur(18px)"
+      bg="rgba(255,255,255,0.075)"
       borderRadius={{ base: "30px", lg: "38px" }}
       overflow="hidden"
       boxShadow="0 30px 100px rgba(0,0,0,0.34)"
@@ -139,7 +138,7 @@ const ContactRow = ({
           ? "rgba(255,42,42,0.38)"
           : "rgba(255,255,255,0.09)",
       }}
-      transition="all 0.2s ease"
+      transition="background 0.2s ease, border-color 0.2s ease"
     >
       <Box
         w="44px"
@@ -178,7 +177,7 @@ const SocialIcon = ({ icon }: { icon: React.ElementType }) => {
         borderColor: "brand.red",
         transform: "translateY(-2px)",
       }}
-      transition="all 0.2s ease"
+      transition="background 0.2s ease, border-color 0.2s ease, transform 0.2s ease"
     >
       <Icon as={icon} fontSize="18px" />
     </Box>

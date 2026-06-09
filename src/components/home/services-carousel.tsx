@@ -56,9 +56,8 @@ export const ServicesCarousel: React.FC = () => {
               justify="center"
               spacing={6}
               borderRadius="28px"
-              bg="rgba(255,255,255,0.055)"
+              bg="rgba(255,255,255,0.075)"
               border="1px solid rgba(255,255,255,0.12)"
-              backdropFilter="blur(16px)"
             >
               <Box
                 w="86px"
@@ -74,6 +73,7 @@ export const ServicesCarousel: React.FC = () => {
                   width={48}
                   height={48}
                   alt={service.alt}
+                  draggable={false}
                 />
               </Box>
 

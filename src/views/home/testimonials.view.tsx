@@ -25,8 +25,8 @@ export const TestimonialsView = () => {
         w="460px"
         h="460px"
         borderRadius="full"
-        bg="rgba(255,107,0,0.08)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,107,0,0.14) 0%, rgba(255,107,0,0.06) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>

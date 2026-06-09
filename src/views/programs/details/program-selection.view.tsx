@@ -84,8 +84,8 @@ export const ProgramSelectionView = ({
         w="460px"
         h="460px"
         borderRadius="full"
-        bg="rgba(255,107,0,0.08)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,107,0,0.14) 0%, rgba(255,107,0,0.06) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>
@@ -129,9 +129,8 @@ export const ProgramSelectionView = ({
           maxW="980px"
           p={{ base: 5, md: 8, lg: 10 }}
           borderRadius="34px"
-          bg="rgba(255,255,255,0.055)"
+          bg="rgba(255,255,255,0.075)"
           border="1px solid rgba(255,255,255,0.11)"
-          backdropFilter="blur(18px)"
         >
           <FormControl
             as="form"
@@ -243,7 +242,7 @@ export const ProgramSelectionView = ({
                 color: "black",
                 transform: "translateY(-2px)",
               }}
-              transition="all 0.2s ease"
+              transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
             >
               {t.programDetailsPage.submit}
             </Button>

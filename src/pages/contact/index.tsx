@@ -54,8 +54,8 @@ export default function ContactPage() {
             w="480px"
             h="480px"
             borderRadius="full"
-            bg="rgba(255,42,42,0.11)"
-            filter="blur(90px)"
+            bg="radial-gradient(circle, rgba(255,42,42,0.18) 0%, rgba(255,42,42,0.08) 42%, transparent 72%)"
+            pointerEvents="none"
           />
 
           <Box
@@ -65,8 +65,8 @@ export default function ContactPage() {
             w="520px"
             h="520px"
             borderRadius="full"
-            bg="rgba(255,107,0,0.08)"
-            filter="blur(100px)"
+            bg="radial-gradient(circle, rgba(255,107,0,0.14) 0%, rgba(255,107,0,0.06) 42%, transparent 72%)"
+            pointerEvents="none"
           />
 
           <VStack
@@ -118,9 +118,8 @@ export default function ContactPage() {
               maxW="1180px"
               p={{ base: 5, md: 8, lg: 10 }}
               borderRadius="38px"
-              bg="rgba(255,255,255,0.055)"
+              bg="rgba(255,255,255,0.075)"
               border="1px solid rgba(255,255,255,0.11)"
-              backdropFilter="blur(18px)"
               boxShadow="0 30px 100px rgba(0,0,0,0.28)"
             >
               <ContactFormView />

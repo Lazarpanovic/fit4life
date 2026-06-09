@@ -187,7 +187,7 @@ export const HeroSectionView = () => {
                     transform: "translateY(-2px)",
                     boxShadow: "0 0 52px rgba(255,255,255,0.22)",
                   }}
-                  transition="all 0.2s ease"
+                  transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease"
                   onClick={goToPrograms}
                 >
                   {t.hero.primaryCta}
@@ -206,6 +206,7 @@ export const HeroSectionView = () => {
                     borderColor: "rgba(255,255,255,0.42)",
                   }}
                   onClick={goToContact}
+                  transition="background 0.2s ease, border-color 0.2s ease"
                 >
                   {t.hero.secondaryCta}
                 </Button>
@@ -237,8 +238,8 @@ export const HeroSectionView = () => {
         h="220px"
         borderRadius="full"
         border="1px solid rgba(255,255,255,0.14)"
-        bg="rgba(255,255,255,0.05)"
-        backdropFilter="blur(18px)"
+        bg="rgba(255,255,255,0.08)"
+        backdropFilter="blur(8px)"
         boxShadow="0 0 80px rgba(255,42,42,0.18)"
       >
         <VStack h="100%" justify="center" spacing={1}>
@@ -263,8 +264,7 @@ const HeroStat = ({ value, label }: { value: string; label: string }) => {
       p={{ base: 4, md: 5 }}
       borderRadius="24px"
       border="1px solid rgba(255,255,255,0.12)"
-      bg="rgba(255,255,255,0.055)"
-      backdropFilter="blur(14px)"
+      bg="rgba(255,255,255,0.075)"
     >
       <Text
         fontSize={{ base: "24px", md: "32px" }}

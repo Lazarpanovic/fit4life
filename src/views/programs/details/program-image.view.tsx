@@ -156,9 +156,8 @@ const ProgramInfoCard = ({
       minW={{ base: "100%", sm: "210px" }}
       p={5}
       borderRadius="24px"
-      bg="rgba(255,255,255,0.07)"
+      bg="rgba(255,255,255,0.09)"
       border="1px solid rgba(255,255,255,0.12)"
-      backdropFilter="blur(16px)"
       spacing={1}
     >
       <Text color="whiteAlpha.520" fontSize="12px" fontWeight={900}>

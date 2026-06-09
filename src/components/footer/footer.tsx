@@ -49,8 +49,8 @@ export const Footer = () => {
         w="520px"
         h="260px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.1)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.18) 0%, rgba(255,42,42,0.08) 35%, transparent 70%)"
+        pointerEvents="none"
       />
 
       <VStack position="relative" zIndex={1} spacing={10}>
@@ -158,7 +158,7 @@ const SocialIcon = ({ icon }: { icon: React.ElementType }) => {
         borderColor: "brand.red",
         transform: "translateY(-2px)",
       }}
-      transition="all 0.2s ease"
+      transition="background 0.2s ease, border-color 0.2s ease, transform 0.2s ease"
     >
       <Icon as={icon} fontSize="17px" />
     </Box>

@@ -40,8 +40,8 @@ export const ResourcesView = () => {
         w="420px"
         h="420px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.1)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.17) 0%, rgba(255,42,42,0.07) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>
@@ -135,7 +135,7 @@ export const ResourcesView = () => {
             transform: "translateY(-2px)",
             boxShadow: "0 0 36px rgba(255,42,42,0.3)",
           }}
-          transition="all 0.2s ease"
+          transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease"
           onClick={navigateToResourcesPage}
         >
           {t.resourcesSection.cta}

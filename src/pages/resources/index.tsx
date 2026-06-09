@@ -128,8 +128,8 @@ export default function ResourcesPage() {
             w="480px"
             h="480px"
             borderRadius="full"
-            bg="rgba(255,42,42,0.11)"
-            filter="blur(90px)"
+            bg="radial-gradient(circle, rgba(255,42,42,0.18) 0%, rgba(255,42,42,0.08) 42%, transparent 72%)"
+            pointerEvents="none"
           />
 
           <Box
@@ -139,8 +139,8 @@ export default function ResourcesPage() {
             w="520px"
             h="520px"
             borderRadius="full"
-            bg="rgba(255,107,0,0.08)"
-            filter="blur(100px)"
+            bg="radial-gradient(circle, rgba(255,107,0,0.14) 0%, rgba(255,107,0,0.06) 42%, transparent 72%)"
+            pointerEvents="none"
           />
 
           <VStack position="relative" zIndex={1} spacing={{ base: 10, lg: 14 }}>
@@ -246,7 +246,7 @@ export default function ResourcesPage() {
                   color: "black",
                   transform: "translateY(-2px)",
                 }}
-                transition="all 0.2s ease"
+                transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
                 onClick={handleShowMore}
               >
                 {t.resourcesPage.discoverMore}

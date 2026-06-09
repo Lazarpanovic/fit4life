@@ -37,8 +37,8 @@ export const HeaderMobile = () => {
         px={5}
         h="72px"
         justifyContent="space-between"
-        bg="rgba(6, 6, 6, 0.82)"
-        backdropFilter="blur(18px)"
+        bg="rgba(6, 6, 6, 0.9)"
+        backdropFilter="blur(6px)"
         borderBottom="1px solid rgba(255,255,255,0.08)"
         color="white"
         fontFamily="montserrat"

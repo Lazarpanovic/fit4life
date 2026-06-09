@@ -26,8 +26,8 @@ export const ProgramsAndTrainersView = () => {
         w="380px"
         h="380px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.12)"
-        filter="blur(80px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.2) 0%, rgba(255,42,42,0.08) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <Box
@@ -37,8 +37,8 @@ export const ProgramsAndTrainersView = () => {
         w="420px"
         h="420px"
         borderRadius="full"
-        bg="rgba(255,107,0,0.09)"
-        filter="blur(90px)"
+        bg="radial-gradient(circle, rgba(255,107,0,0.15) 0%, rgba(255,107,0,0.06) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <VStack

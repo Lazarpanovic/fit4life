@@ -31,15 +31,14 @@ export const TrainerCard = ({
       borderRadius="34px"
       overflow="hidden"
       border="1px solid rgba(255,255,255,0.11)"
-      bg="rgba(255,255,255,0.055)"
-      backdropFilter="blur(18px)"
       cursor="pointer"
       _hover={{
         transform: "translateY(-8px)",
         borderColor: "rgba(255,42,42,0.58)",
         boxShadow: "0 26px 80px rgba(255,42,42,0.16)",
       }}
-      transition="all 0.25s ease"
+      bg="rgba(255,255,255,0.075)"
+      transition="transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease"
     >
       <Box
         position="absolute"
@@ -78,8 +77,8 @@ export const TrainerCard = ({
           w="300px"
           h="300px"
           borderRadius="full"
-          bg="rgba(255,42,42,0.17)"
-          filter="blur(52px)"
+          bg="radial-gradient(circle, rgba(255,42,42,0.24) 0%, rgba(255,42,42,0.1) 42%, transparent 72%)"
+          pointerEvents="none"
         />
 
         <Box
@@ -87,7 +86,7 @@ export const TrainerCard = ({
           zIndex={2}
           w="100%"
           h="100%"
-          transition="all 0.35s ease"
+          transition="transform 0.35s ease"
           _groupHover={{
             transform: "scale(1.055) translateY(-8px)",
           }}
@@ -99,7 +98,7 @@ export const TrainerCard = ({
             style={{
               objectFit: "contain",
               objectPosition: "center bottom",
-              filter: "drop-shadow(0 32px 44px rgba(0,0,0,0.48))",
+              filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.42))",
             }}
           />
         </Box>
@@ -179,7 +178,7 @@ export const TrainerCard = ({
             borderRadius="full"
             bg="white"
             color="black"
-            transition="all 0.2s ease"
+            transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
             _groupHover={{
               bg: "brand.red",
               color: "white",
@@ -210,7 +209,7 @@ const SocialIcon = ({ icon }: { icon: React.ElementType }) => {
         borderColor: "brand.red",
         transform: "translateY(-2px)",
       }}
-      transition="all 0.2s ease"
+      transition="background 0.2s ease, border-color 0.2s ease, transform 0.2s ease"
     >
       <Icon as={icon} fontSize="17px" />
     </Box>

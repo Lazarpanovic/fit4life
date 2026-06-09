@@ -41,9 +41,6 @@ export const ResourceCard = ({
       minH={isResourcesPage ? { base: "520px", lg: "560px" } : "100%"}
       overflow="hidden"
       borderRadius="34px"
-      bg="rgba(255,255,255,0.055)"
-      border="1px solid rgba(255,255,255,0.11)"
-      backdropFilter="blur(18px)"
       cursor="pointer"
       onClick={navigateToResourceDetails}
       _hover={{
@@ -51,7 +48,9 @@ export const ResourceCard = ({
         borderColor: "rgba(255,42,42,0.58)",
         boxShadow: "0 26px 80px rgba(255,42,42,0.16)",
       }}
-      transition="all 0.25s ease"
+      bg="rgba(255,255,255,0.075)"
+      border="1px solid rgba(255,255,255,0.11)"
+      transition="transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease"
     >
       <Box
         position="relative"
@@ -78,7 +77,7 @@ export const ResourceCard = ({
         <Box
           position="absolute"
           inset={0}
-          transition="all 0.3s ease"
+          transition="background 0.3s ease"
           _groupHover={{
             bg: "rgba(255,42,42,0.12)",
           }}
@@ -145,7 +144,7 @@ export const ResourceCard = ({
         >
           <Text>{t.resourcesPage.labels.readArticle}</Text>
           <ArrowForwardIcon
-            transition="all 0.2s ease"
+            transition="transform 0.2s ease"
             _groupHover={{
               transform: "translateX(4px)",
             }}
@@ -165,7 +164,7 @@ export const ResourceCard = ({
         bg="white"
         color="black"
         zIndex={3}
-        transition="all 0.2s ease"
+        transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
         _groupHover={{
           bg: "brand.red",
           color: "white",

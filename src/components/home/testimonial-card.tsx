@@ -21,16 +21,15 @@ export const TestimonialCard = ({
       overflow="hidden"
       minH="360px"
       borderRadius="34px"
-      bg="rgba(255,255,255,0.055)"
       border="1px solid rgba(255,255,255,0.11)"
-      backdropFilter="blur(18px)"
+      bg="rgba(255,255,255,0.075)"
       p={{ base: 6, md: 7 }}
       _hover={{
         transform: "translateY(-6px)",
         borderColor: "rgba(255,42,42,0.45)",
         boxShadow: "0 22px 70px rgba(255,42,42,0.12)",
       }}
-      transition="all 0.25s ease"
+      transition="transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease"
     >
       <Box
         position="absolute"
@@ -39,8 +38,8 @@ export const TestimonialCard = ({
         w="220px"
         h="220px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.11)"
-        filter="blur(48px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.18) 0%, rgba(255,42,42,0.08) 40%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <Icon

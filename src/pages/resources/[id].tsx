@@ -227,8 +227,8 @@ export default function ResourceDetailsPage() {
               w="460px"
               h="460px"
               borderRadius="full"
-              bg="rgba(255,42,42,0.09)"
-              filter="blur(90px)"
+              bg="radial-gradient(circle, rgba(255,42,42,0.16) 0%, rgba(255,42,42,0.07) 42%, transparent 72%)"
+              pointerEvents="none"
             />
 
             <VStack
@@ -246,9 +246,8 @@ export default function ResourceDetailsPage() {
                   spacing={{ base: 4, md: 8 }}
                   p={{ base: 5, md: 8 }}
                   borderRadius="32px"
-                  bg="rgba(255,255,255,0.055)"
+                  bg="rgba(255,255,255,0.075)"
                   border="1px solid rgba(255,255,255,0.11)"
-                  backdropFilter="blur(18px)"
                   flexDirection={{ base: "column", md: "row" }}
                 >
                   <Text
@@ -319,18 +318,18 @@ export default function ResourceDetailsPage() {
               </SimpleGrid>
 
               <Button
-                rightIcon={<ArrowForwardIcon />}
-                h="56px"
-                px={8}
+                leftIcon={<ArrowBackIcon />}
+                h="46px"
+                px={5}
                 borderRadius="full"
-                bg="white"
-                color="black"
+                bg="rgba(255,255,255,0.08)"
+                color="white"
+                border="1px solid rgba(255,255,255,0.12)"
                 _hover={{
-                  bg: "brand.red",
-                  color: "white",
-                  transform: "translateY(-2px)",
+                  bg: "white",
+                  color: "black",
                 }}
-                transition="all 0.2s ease"
+                transition="background 0.2s ease, color 0.2s ease"
                 onClick={() => router.push("/resources")}
               >
                 {t.resourcesPage.details.backToResources}

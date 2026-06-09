@@ -35,8 +35,8 @@ export const AboutUsView = () => {
         w="420px"
         h="420px"
         borderRadius="full"
-        bg="rgba(255,42,42,0.14)"
-        filter="blur(80px)"
+        bg="radial-gradient(circle, rgba(255,42,42,0.22) 0%, rgba(255,42,42,0.09) 42%, transparent 72%)"
+        pointerEvents="none"
       />
 
       <Stack
@@ -94,7 +94,7 @@ export const AboutUsView = () => {
               color: "black",
               transform: "translateY(-2px)",
             }}
-            transition="all 0.2s ease"
+            transition="background 0.2s ease, color 0.2s ease, transform 0.2s ease"
             onClick={() => router.push("/programs")}
           >
             {t.about.cta}
@@ -110,15 +110,14 @@ export const AboutUsView = () => {
               spacing={5}
               p={{ base: 5, md: 7 }}
               borderRadius="28px"
-              bg="rgba(255,255,255,0.055)"
+              bg="rgba(255,255,255,0.075)"
               border="1px solid rgba(255,255,255,0.1)"
-              backdropFilter="blur(16px)"
+              transition="background 0.2s ease, border-color 0.2s ease, transform 0.2s ease"
               _hover={{
                 borderColor: "rgba(255,42,42,0.5)",
                 transform: "translateY(-3px)",
                 bg: "rgba(255,42,42,0.08)",
               }}
-              transition="all 0.2s ease"
             >
               <Text
                 minW="52px"
