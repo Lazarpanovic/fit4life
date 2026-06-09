@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Badge,
   Box,
