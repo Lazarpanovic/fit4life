@@ -50,7 +50,7 @@ export const HubContactPanel = ({
   const { t } = useTranslation();
   const Heading = headingAs;
   return (
-    <div className={styles.contactGrid}>
+    <div className={styles.contactGrid} data-reveal>
       <div
         className={styles.map}
         role="region"

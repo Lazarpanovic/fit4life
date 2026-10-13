@@ -112,9 +112,9 @@
   --hub-hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --hub-hover: var(--hub-hover-duration) var(--hub-hover-ease);
   --hub-header-duration: 300ms;
-  --hub-reveal-duration: 520ms;
-  --hub-reveal-distance: 20px;
-  --hub-reveal-distance-mobile: 12px;
+  --hub-reveal-duration: 640ms;
+  --hub-reveal-distance: 36px;
+  --hub-reveal-distance-mobile: 22px;
   --hub-stagger: 70ms;
   --hub-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --hub-transition: var(--hub-duration) var(--hub-ease);
@@ -202,6 +202,34 @@
 .hub-ui :is(a, button, input, textarea, select):focus-visible {
   outline: 3px solid var(--hub-focus);
   outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal-arm] {
+    transition:
+      opacity var(--hub-reveal-duration) var(--hub-ease),
+      transform var(--hub-reveal-duration) var(--hub-ease);
+  }
+  [data-stagger] > :nth-child(2) {
+    transition-delay: var(--hub-stagger);
+  }
+  [data-stagger] > :nth-child(3) {
+    transition-delay: calc(var(--hub-stagger) * 2);
+  }
+  [data-stagger] > :nth-child(4) {
+    transition-delay: calc(var(--hub-stagger) * 3);
+  }
+  [data-stagger] > :nth-child(n + 5) {
+    transition-delay: calc(var(--hub-stagger) * 4);
+  }
+  [data-reveal-hold] {
+    opacity: 0;
+    transform: translateY(var(--hub-reveal-distance));
+  }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  [data-reveal-hold] {
+    transform: translateY(var(--hub-reveal-distance-mobile));
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {

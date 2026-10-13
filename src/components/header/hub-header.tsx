@@ -28,6 +28,51 @@ export const hubNavItems = [
   { href: "/contact", key: "contact" },
 ] as const;
 
+const navIconPaths = {
+  home: (
+    <>
+      <path d="M4 11l8-7 8 7" />
+      <path d="M6 10.5V20h4.5v-6h3V20H18V10.5" />
+    </>
+  ),
+  programs: (
+    <>
+      <rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.4" />
+      <rect x="13" y="4.5" width="6.5" height="6.5" rx="1.4" />
+      <rect x="4.5" y="13" width="6.5" height="6.5" rx="1.4" />
+      <rect x="13" y="13" width="6.5" height="6.5" rx="1.4" />
+    </>
+  ),
+  trainers: (
+    <>
+      <circle cx="9" cy="8" r="2.6" />
+      <path d="M4.2 19c.4-3.2 2.4-4.8 4.8-4.8s4.4 1.6 4.8 4.8" />
+      <circle cx="16.6" cy="9" r="2.2" />
+      <path d="M14.4 19c.3-2.4 1.6-3.7 3.4-3.7 1.9 0 3.1 1.3 3.4 3.7" />
+    </>
+  ),
+  resources: (
+    <>
+      <path d="M6 5.5A2.5 2.5 0 0 1 8.5 3H19v16.5H8.5A2.5 2.5 0 0 0 6 22V5.5z" />
+      <path d="M6 19.2A2.5 2.5 0 0 1 8.5 16.8H19" />
+    </>
+  ),
+  contact: (
+    <>
+      <rect x="3.5" y="6" width="17" height="12.5" rx="2.2" />
+      <path d="M4 8.2l8 5.4 8-5.4" />
+    </>
+  ),
+} as const;
+
+const NavIcon = ({ name }: { name: (typeof hubNavItems)[number]["key"] }) => (
+  <span className={styles.navIcon} aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none">
+      {navIconPaths[name]}
+    </svg>
+  </span>
+);
+
 const BurgerLines = () => (
   <span aria-hidden="true">
     <i />
@@ -150,6 +195,7 @@ export const HubHeader = () => {
               : `${styles.navLink} ${secondary ? styles.secondary : ""}`
           }
         >
+          {inMenu ? <NavIcon name={item.key} /> : null}
           {t.nav[item.key]}
         </Link>
       );
@@ -237,7 +283,7 @@ export const HubHeader = () => {
           <div className={styles.actions}>
             {languages()}
             <HubLink href="/contact" variant="accent" className={styles.cta}>
-              {t.nav.contact}
+              {t.nav.cta}
             </HubLink>
             <button
               ref={toggle}
@@ -332,10 +378,11 @@ export const HubHeader = () => {
             <HubLink
               href="/contact"
               variant="accent"
+              compact
               onClick={closeMenu}
               className={styles.menuCta}
             >
-              {t.nav.contact}
+              {t.nav.cta}
             </HubLink>
           </div>
         </ModalContent>

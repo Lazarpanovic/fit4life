@@ -62,11 +62,13 @@
   }
   .carousel .track {
     display: flex;
-    gap: 14px;
+    gap: 0;
     grid-template-columns: none;
   }
   .slide {
+    box-sizing: border-box;
     flex: 0 0 min(82%, 380px);
+    padding-inline: 7px;
     scroll-snap-align: center;
   }
   .slide:first-child {

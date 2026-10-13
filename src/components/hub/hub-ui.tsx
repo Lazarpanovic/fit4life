@@ -8,6 +8,7 @@ export const HubLink = ({
   href,
   children,
   variant = "primary",
+  compact = false,
   className = "",
   onClick,
 }: {
@@ -15,12 +16,13 @@ export const HubLink = ({
   href: string;
   children: ReactNode;
   variant?: HubActionVariant;
+  compact?: boolean;
   className?: string;
 }) => (
   <Link
     href={href}
     onClick={onClick}
-    className={hubActionClass(variant, false, className)}
+    className={hubActionClass(variant, compact, className)}
     data-hub-action
   >
     {children}

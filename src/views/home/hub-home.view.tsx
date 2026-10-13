@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import HERO_SECTION_IMAGE from "../../../public/hero-section.jpg";
 import {
@@ -40,6 +41,94 @@ const testimonialKeys = ["jessica", "michael", "emily", "john"] as const;
 export const HubHomeView = () => {
   const { t } = useTranslation();
   const copy = t.hubHome;
+  const pillarsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = pillarsRef.current;
+    const motion = root?.querySelector<SVGPathElement>("#hub-hero-orbit");
+    const comet = root?.querySelector<SVGPathElement>("#hub-hero-comet");
+    const nodes = root
+      ? [...root.querySelectorAll<HTMLElement>("[data-i]")]
+      : [];
+    if (!root || !motion || !comet || nodes.length === 0) return;
+
+    const media = window.matchMedia(
+      "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
+    );
+    const length = motion.getTotalLength();
+    const half = 0.22;
+    const samples = 480;
+    const stops = nodes.map((node) => {
+      const style = getComputedStyle(node);
+      const x = Number.parseFloat(style.getPropertyValue("--x"));
+      const y = Number.parseFloat(style.getPropertyValue("--y"));
+      let best = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      for (let step = 0; step <= samples; step += 1) {
+        const point = motion.getPointAtLength((step / samples) * length);
+        const distance = Math.hypot(point.x - x, point.y - y);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = (step / samples) * length;
+        }
+      }
+      return best;
+    });
+    let nearestGap = length;
+    stops.forEach((stop, index) => {
+      stops.forEach((other, otherIndex) => {
+        if (otherIndex === index) return;
+        nearestGap = Math.min(nearestGap, Math.abs(stop - other));
+      });
+    });
+    const reach = Math.min(11, nearestGap * 0.34);
+    const cycle = length / 0.97;
+    const lap = 11000;
+    let frame = 0;
+
+    const place = (now: number) => {
+      if (!media.matches) {
+        nodes.forEach((node) => node.removeAttribute("data-active"));
+        frame = window.requestAnimationFrame(place);
+        return;
+      }
+      const distance = ((now % lap) / lap) * cycle;
+      if (distance > length) {
+        comet.setAttribute("d", "");
+        nodes.forEach((node) => node.removeAttribute("data-active"));
+        frame = window.requestAnimationFrame(place);
+        return;
+      }
+      let streak = "";
+      let started = false;
+      for (let step = 0; step <= 6; step += 1) {
+        const sample = distance - half + (half * 2 * step) / 6;
+        if (sample < 0 || sample > length) continue;
+        const point = motion.getPointAtLength(sample);
+        streak += `${started ? "L" : "M"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
+        started = true;
+      }
+      comet.setAttribute("d", streak);
+      let active = -1;
+      let closest = reach;
+      stops.forEach((stop, index) => {
+        const delta = Math.abs(distance - stop);
+        if (delta < closest) {
+          closest = delta;
+          active = index;
+        }
+      });
+      nodes.forEach((node, index) => {
+        if (index === active) node.setAttribute("data-active", "true");
+        else node.removeAttribute("data-active");
+      });
+      frame = window.requestAnimationFrame(place);
+    };
+
+    frame = window.requestAnimationFrame(place);
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <main id="page-content" tabIndex={-1} className={`hub-ui ${styles.home}`}>
       <section
@@ -74,9 +163,32 @@ export const HubHomeView = () => {
                 {t.programsSection.cta}
               </HubLink>
             </div>
-            <div className={styles.heroPillars} aria-label={copy.conceptNote}>
-              {pillars.map((pillar) => (
-                <div key={pillar.name} className={styles.heroPillar}>
+            <div
+              className={styles.heroPillars}
+              aria-label={copy.conceptNote}
+              ref={pillarsRef}
+            >
+              <svg
+                className={styles.heroOrbit}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  id="hub-hero-orbit"
+                  className={styles.heroOrbitTrack}
+                  pathLength="100"
+                  strokeDasharray="0.55 0.7"
+                  d="M -6 48 C 2 48, 6 48, 12 48 C 20 48, 22 70, 28 70 C 36 70, 38 38, 46 38 C 54 34, 66 40, 64 52 C 62 64, 52 66, 54 54 C 56 44, 60 46, 68 56 C 74 64, 74 70, 74 72 C 82 74, 84 46, 90 46 C 98 46, 106 46, 112 46"
+                />
+                <path id="hub-hero-comet" className={styles.heroOrbitComet} />
+              </svg>
+              {pillars.map((pillar, index) => (
+                <div
+                  key={pillar.name}
+                  className={styles.heroPillar}
+                  data-i={index}
+                >
                   <Image
                     className={styles.heroPillarIcon}
                     src={`/assets/fit4life/${pillar.icon}.svg`}
@@ -101,8 +213,8 @@ export const HubHomeView = () => {
         aria-labelledby="hub-about-title"
       >
         <div className={styles.container}>
-          <div className={styles.aboutGrid} data-reveal>
-            <div>
+          <div className={styles.aboutGrid}>
+            <div data-reveal>
               <p className={styles.eyebrow}>{t.about.eyebrow}</p>
               <h2 id="hub-about-title">{t.about.title}</h2>
               <p className={styles.body}>{t.about.description}</p>
@@ -110,7 +222,7 @@ export const HubHomeView = () => {
                 {t.about.cta}
               </HubLink>
             </div>
-            <div className={styles.aboutCards}>
+            <div className={styles.aboutCards} data-reveal data-stagger>
               {t.about.cards.map((card) => (
                 <article key={card.value}>
                   <span aria-hidden="true">{card.value}</span>
@@ -122,7 +234,7 @@ export const HubHomeView = () => {
               ))}
             </div>
           </div>
-          <ul className={styles.services}>
+          <ul className={styles.services} data-reveal data-stagger>
             {services.map((service) => (
               <li key={service.key}>
                 <Image
@@ -153,7 +265,10 @@ export const HubHomeView = () => {
           >
             {copy.pillarsIntro}
           </HubSectionHeading>
-          <div className={styles.pillarGrid} data-stagger>
+          <HubCarousel
+            desktopClassName={styles.pillarGrid}
+            label={copy.conceptLabel}
+          >
             {pillars.map((pillar, index) => (
               <div key={pillar.name} className={styles.pillar}>
                 <span className={styles.pillarNumber} aria-hidden="true">
@@ -170,7 +285,7 @@ export const HubHomeView = () => {
                 <p>{pillar.message}</p>
               </div>
             ))}
-          </div>
+          </HubCarousel>
         </div>
       </section>
 
@@ -194,7 +309,7 @@ export const HubHomeView = () => {
               <HubProgramCard key={program.id} program={program} home />
             ))}
           </HubCarousel>
-          <div className={styles.sectionCta}>
+          <div className={styles.sectionCta} data-reveal>
             <HubLink href="/programs" variant="outline">
               {t.programsSection.cta}
             </HubLink>
@@ -223,7 +338,7 @@ export const HubHomeView = () => {
               <HubTrainerCard key={trainer.id} trainer={trainer} home />
             ))}
           </HubCarousel>
-          <div className={styles.sectionCta}>
+          <div className={styles.sectionCta} data-reveal>
             <HubLink href="/trainers" variant="outline">
               {t.trainersSection.cta}
             </HubLink>
@@ -256,7 +371,7 @@ export const HubHomeView = () => {
               />
             ))}
           </HubCarousel>
-          <div className={styles.sectionCta}>
+          <div className={styles.sectionCta} data-reveal>
             <HubLink href="/resources" variant="outline">
               {t.resourcesSection.cta}
             </HubLink>
