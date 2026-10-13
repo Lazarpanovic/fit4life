@@ -1,0 +1,419 @@
+.program,
+.trainer,
+.resource,
+.testimonial {
+  height: 100%;
+  min-width: 0;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-card-border);
+  border-radius: var(--hub-card-radius);
+  box-shadow: var(--hub-shadow-card);
+  transition:
+    border-color var(--hub-hover),
+    box-shadow var(--hub-hover),
+    transform var(--hub-hover);
+}
+.programLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: inherit;
+}
+.programImage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: var(--hub-photo-inset) var(--hub-photo-inset) 0;
+  overflow: hidden;
+  border-radius: var(--hub-photo-radius);
+}
+.cover {
+  object-fit: cover;
+}
+.programCopy,
+.trainerCopy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 20px 22px;
+  gap: 10px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.tags > span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--hub-text-muted);
+  background: var(--hub-tag-bg);
+  padding: 1px 7px;
+  border-radius: 7px;
+}
+.program :is(h2, h3),
+.trainer :is(h2, h3),
+.resource :is(h2, h3) {
+  font-family: var(--hub-font-heading), sans-serif;
+  font-weight: var(--hub-heading-weight);
+  line-height: var(--hub-heading-leading);
+  letter-spacing: var(--hub-heading-tracking);
+}
+.program :is(h2, h3),
+.trainer :is(h2, h3) {
+  font-size: var(--hub-card-title);
+}
+.program :is(h2, h3) {
+  color: var(--hub-text);
+  margin-bottom: 0;
+}
+.programCopy .tags {
+  margin-bottom: 0;
+}
+.description {
+  color: var(--hub-text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.programBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+.price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  line-height: 1.2;
+}
+.price small {
+  color: var(--hub-text-muted);
+  font-size: 14px;
+}
+.price strong {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--hub-text);
+}
+.price > span {
+  font-size: 14px;
+  color: var(--hub-text-muted);
+}
+.linkLabel {
+  --hub-arrow-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--hub-link);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  transition: color var(--hub-hover);
+}
+.trainer {
+  display: flex;
+  flex-direction: column;
+}
+.trainerImage {
+  position: relative;
+  height: calc(clamp(180px, 14vw, 200px) - var(--hub-photo-inset));
+  margin: var(--hub-photo-inset) var(--hub-photo-inset) 0;
+  background: var(--hub-card-raised);
+  border: 1px solid var(--hub-photo-edge);
+  border-radius: var(--hub-photo-radius);
+  overflow: hidden;
+}
+.trainerImage img {
+  max-width: 280px;
+  margin-inline: auto;
+  object-fit: cover;
+  object-position: center top;
+  padding: 8px 20px 0;
+}
+.trainerCopy {
+  gap: var(--hub-card-gap);
+}
+.specialty {
+  color: var(--hub-link);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.trainerAction {
+  width: 100%;
+  margin-top: auto;
+  text-align: left;
+}
+.cardLink {
+  --hub-arrow-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: var(--hub-link);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: auto;
+  padding-top: 16px;
+  min-height: 44px;
+  transition: color var(--hub-hover);
+}
+.resource {
+  position: relative;
+  overflow: hidden;
+}
+.resourceLink {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  min-height: 340px;
+  height: 100%;
+  isolation: isolate;
+  border-radius: inherit;
+}
+.resourceImage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+.resourceLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--hub-overlay-rgb), 0) 12%,
+    rgba(var(--hub-overlay-rgb), 0.35) 36%,
+    rgba(var(--hub-overlay-rgb), 0.86) 70%,
+    rgba(var(--hub-overlay-rgb), 0.97) 100%
+  );
+}
+.resourceCopy {
+  padding: 28px;
+  width: 100%;
+}
+.resourceCopy .tags {
+  margin-bottom: 16px;
+}
+.resourceCopy :is(h2, h3) {
+  font-size: 28px;
+  max-width: 560px;
+  color: var(--hub-text);
+}
+.resourceCopy .description {
+  margin-top: 20px;
+  max-width: 540px;
+}
+.featuredResource .resourceLink {
+  min-height: 704px;
+}
+.featuredResource :is(h2, h3) {
+  font-size: clamp(30px, 3vw, 44px);
+}
+.testimonial {
+  height: 100%;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--hub-shadow-sm);
+}
+.quote {
+  font-family: Georgia, serif;
+  font-size: 80px;
+  line-height: 0.8;
+  color: var(--hub-link);
+  height: 50px;
+}
+.testimonial blockquote {
+  flex: 1;
+  margin: 12px 0 24px;
+  color: var(--hub-text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+}
+.testimonial figcaption img {
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.testimonial h3 {
+  font-family: var(--hub-font-heading), sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: var(--hub-heading-weight);
+}
+.testimonial figcaption p {
+  font-size: 14px;
+  color: var(--hub-link);
+  line-height: 1.6;
+  margin-top: 5px;
+}
+.program:focus-within,
+.trainer:focus-within,
+.resource:focus-within {
+  border-color: var(--hub-focus);
+  box-shadow: var(--hub-shadow-card-hover);
+}
+/* Photo cards clip their image. Keep the keyboard outline on the outer card. */
+.resource:focus-within {
+  outline: 3px solid var(--hub-forest);
+  outline-offset: 5px;
+}
+:is(.programImage, .resourceImage) img,
+.trainerImage img {
+  transition: transform var(--hub-header-duration) var(--hub-ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .program:hover,
+  .trainer:hover,
+  .resource:hover {
+    border-color: var(--hub-card-border-hover);
+    box-shadow: var(--hub-shadow-card-hover);
+  }
+  .programLink:hover :is(h2, h3),
+  .resourceLink:hover .cardLink {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+  .programLink:hover .linkLabel,
+  .resourceLink:hover .cardLink {
+    --hub-arrow-bg: var(--hub-button-secondary-hover-bg);
+  }
+  .programLink:hover .linkLabel > span,
+  .resourceLink:hover .cardLink > span {
+    color: var(--hub-button-secondary-hover-text);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .program:hover,
+  .trainer:hover,
+  .resource:hover {
+    transform: translateY(-2px);
+  }
+  .programLink:hover .cover,
+  .resourceLink:hover .cover,
+  .trainer:hover .trainerImage img {
+    transform: scale(1.025);
+  }
+  .programLink:hover [data-hub-arrow-glyph],
+  .resourceLink:hover [data-hub-arrow-glyph] {
+    transform: translateX(3px);
+  }
+}
+.listingResource .resourceLink {
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+  height: 100%;
+}
+.listingResource .resourceImage {
+  position: relative;
+  inset: auto;
+  aspect-ratio: 16 / 9;
+  margin: var(--hub-photo-inset) var(--hub-photo-inset) 0;
+  border-radius: var(--hub-photo-radius);
+  z-index: auto;
+  flex-shrink: 0;
+}
+.listingResource .resourceLink::after {
+  display: none;
+}
+.listingResource .resourceCopy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: var(--hub-card);
+  position: relative;
+  padding: var(--hub-card-padding);
+}
+.listingResource .resourceCopy :is(h2, h3) {
+  font-size: 22px;
+  color: var(--hub-text);
+}
+.listingResource .resourceCopy .tags {
+  margin-bottom: 8px;
+}
+.listingResource .resourceCopy .description {
+  margin-top: 8px;
+}
+.programCopy > .description,
+.listingResource .description,
+.trainerCopy .description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.program .tags {
+  gap: 4px 6px;
+}
+@media (min-width: 768px) {
+  .homeResource:not(.featuredResource) .description {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .trainerImage {
+    height: calc(190px - var(--hub-photo-inset));
+  }
+  .homeResource .resourceLink {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .homeResource .resourceImage {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 9;
+    margin: var(--hub-photo-inset) var(--hub-photo-inset) 0;
+    border-radius: var(--hub-photo-radius);
+    z-index: auto;
+    flex-shrink: 0;
+  }
+  .homeResource .resourceLink::after {
+    display: none;
+  }
+  .homeResource .resourceCopy {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--hub-card-padding);
+  }
+  .homeResource .resourceCopy :is(h2, h3) {
+    font-size: 22px;
+  }
+  .homeResource .resourceCopy .tags {
+    margin-bottom: 8px;
+  }
+  .homeResource .resourceCopy .description {
+    margin-top: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .homeResource .cardLink {
+    padding-top: 12px;
+  }
+}
+
+.resource:not(.listingResource) .tags > span {
+  background: rgba(var(--hub-overlay-rgb), 0.78);
+}

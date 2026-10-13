@@ -3,12 +3,17 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
-export default function MapDesktop() {
+export default function MapDesktop({
+  dragging = true,
+}: {
+  dragging?: boolean;
+}) {
   return (
     <MapContainer
       center={[44.80381551062193, 20.481508993675682]}
       zoom={15}
       scrollWheelZoom={false}
+      dragging={dragging}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer

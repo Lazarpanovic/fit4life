@@ -1,49 +1,27 @@
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   padding: 0;
   margin: 0;
-  background: #060606;
-  color: #ffffff;
+  background: var(--hub-background, #f4efe8);
+  color: var(--hub-text, #0b2724);
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 img {
   user-select: none;
 }
-
-.leaflet-control-attribution.leaflet-control {
-  display: none;
+:where(section[id], main[id], [id="form"]) {
+  scroll-margin-top: var(--hub-header-clearance, 132px);
 }
-
+.leaflet-control-attribution.leaflet-control {
+  display: block;
+}
+/* Old texture hooks remain neutral for any archived component using the class. */
 .premium-noise {
   position: relative;
-}
-
-.premium-noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.14;
-  background-image: radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 42, 42, 0.18),
-      transparent 26%
-    ),
-    radial-gradient(circle at 80% 0%, rgba(255, 107, 0, 0.14), transparent 30%),
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size:
-    auto,
-    auto,
-    48px 48px,
-    48px 48px;
 }

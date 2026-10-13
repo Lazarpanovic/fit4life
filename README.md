@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fit4Life Hub
 
-## Getting Started
+Next.js Pages Router + React + Chakra UI, sa SR/EN lokalizacijom i Fit4Life Hub dizajnerskim sistemom: petrol tamnozelena, ivory pesak, bele kartice i mist akcenti. Home zadržava odobrenu sportsku strukturu, originalnu fotografiju grupnog treninga i postojeće programe, tim, resurse, testimonials i kontakt mapu. Semantički svetli/tamni tokeni, landscape kartice, zajednički dialog biografija, mobilni Home carouseli i floating glass header koji se skuplja i na telefonu primenjeni su na sve korisničke stranice.
 
-First, run the development server:
+## Pokretanje
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Srpski prikaz: http://localhost:3000/sr. Engleski prikaz: http://localhost:3000/en.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`next/font` preuzima Plus Jakarta Sans i Source Sans 3 tokom builda i isporučuje ih lokalno. Prvo preuzimanje zahteva mrežni pristup; prikaz sajta ne zavisi od spoljnog font CSS servisa.
 
-## Learn More
+CTA akcije dele pill stil i semantičke bež/petrol hover boje. Kompaktne kartice koriste uvučene fotografije i centralizovane nivoe senke, bez promene poslovnih podataka ili rasporeda.
 
-To learn more about Next.js, take a look at the following resources:
+## Dokumentacija
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[Konačni dizajnerski sistem, stranice, header i provere](docs/fit4life-hub-design-system.md).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pripremljeni SVG asseti: `public/fit4life-assets/README.md`; web putanje: `public/assets/fit4life`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Poslovni podaci su u `src/data/data.ts`, a prevodi u `src/i18n/en.ts` i `src/i18n/sr.ts`. Program i kontakt forme koriste postojeće Formspree okruženje, POST metod i izvorna imena polja. Mapa koristi originalne Leaflet komponente, koordinate i OpenStreetMap tiles. Testovi ne šalju poruke spoljnim servisima.

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"src/**/*.ts{,x}\""
+    "format": "prettier --write \"src/**/*.ts{,x}\"",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test": "node --test scripts/hub.test.cjs"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -15,6 +17,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "embla-carousel-react": "8.6.0",
     "framer-motion": "^11.9.0",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",

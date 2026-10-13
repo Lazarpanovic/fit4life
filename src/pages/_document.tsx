@@ -1,9 +1,12 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
 import Script from "next/script"; // Import the Script component
 
-export default function Document() {
+export default function Document({ __NEXT_DATA__ }: DocumentProps) {
   return (
-    <Html lang="en" style={{ scrollBehavior: "smooth" }}>
+    <Html
+      lang={__NEXT_DATA__.locale || "en"}
+      style={{ scrollBehavior: "smooth" }}
+    >
       <Head>
         {/* Google Analytics */}
         <Script

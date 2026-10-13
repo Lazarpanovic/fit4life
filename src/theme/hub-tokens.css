@@ -1,0 +1,227 @@
+/* Physical palette. Logo SVG colors are intentionally independent. */
+:root {
+  --hub-forest: #123b36;
+  --hub-forest-deep: #0b2724;
+  --hub-near-black: #0b2724;
+  --hub-sand: #f4efe8;
+  --hub-sand-deep: #ebe4da;
+  --hub-paper: #fffdf9;
+  --hub-white: #fffdf9;
+  --hub-accent: #ebe4da;
+  --hub-accent-hover: #f4efe8;
+  --hub-accent-active: #ddd6c8;
+  --hub-ink: #0b2724;
+  --hub-ink-hover: #123b36;
+  --hub-overlay-rgb: 11, 39, 36;
+  --hub-glass: rgba(11, 39, 36, 0.62);
+  --hub-glass-border: rgba(255, 253, 249, 0.16);
+
+  /* Default light context: listings, reading, forms and sand Home sections. */
+  --hub-background: var(--hub-sand);
+  --hub-surface: var(--hub-paper);
+  --hub-surface-hover: #f0ece5;
+  --hub-text: var(--hub-forest-deep);
+  --hub-text-muted: #59665e;
+  --hub-border: #e3e6df;
+  --hub-control-border: #7a897e;
+  --hub-action-bg: var(--hub-forest);
+  --hub-action-hover: var(--hub-sand);
+  --hub-action-active: #08231f;
+  --hub-action-text: var(--hub-paper);
+  --hub-link: var(--hub-forest);
+  --hub-link-hover: var(--hub-forest-deep);
+  --hub-focus: var(--hub-forest);
+  --hub-field-bg: var(--hub-paper);
+  --hub-field-readonly: var(--hub-sand);
+  --hub-disabled-bg: var(--hub-sand-deep);
+  --hub-disabled-text: #59665e;
+  --hub-error: #a3392f;
+  --hub-success: #245b40;
+  --hub-color-scheme: light;
+  --hub-shadow-sm: 0 2px 6px rgba(11, 39, 36, 0.025),
+    0 8px 20px rgba(11, 39, 36, 0.04);
+  --hub-shadow-card: 0 3px 8px rgba(11, 39, 36, 0.035),
+    0 12px 28px rgba(11, 39, 36, 0.065);
+  --hub-shadow-track: 0 2px 4px rgba(11, 39, 36, 0.03),
+    0 5px 12px rgba(11, 39, 36, 0.055);
+  --hub-shadow-track-hover: 0 3px 6px rgba(11, 39, 36, 0.04),
+    0 8px 12px rgba(11, 39, 36, 0.08);
+  --hub-shadow-card-hover: 0 4px 10px rgba(11, 39, 36, 0.045),
+    0 18px 36px rgba(11, 39, 36, 0.1);
+  --hub-button-border: rgba(18, 59, 54, 0.16);
+  --hub-button-border-hover: rgba(18, 59, 54, 0.28);
+  --hub-button-secondary-bg: var(--hub-paper);
+  --hub-button-secondary-text: var(--hub-forest);
+  --hub-button-secondary-hover-bg: var(--hub-forest);
+  --hub-button-secondary-hover-text: var(--hub-paper);
+  --hub-button-arrow-tint: rgba(18, 59, 54, 0.08);
+  --hub-button-arrow-hover-tint: rgba(255, 253, 249, 0.16);
+  --hub-card-border: rgba(18, 59, 54, 0.12);
+  --hub-card-border-hover: rgba(18, 59, 54, 0.24);
+  --hub-tag-bg: rgba(18, 59, 54, 0.055);
+  --hub-photo-edge: rgba(18, 59, 54, 0.08);
+
+  /* Compatibility aliases keep Chakra and shared components on the same roles. */
+  --hub-card: var(--hub-surface);
+  --hub-card-raised: var(--hub-surface-hover);
+  --hub-muted: var(--hub-text-muted);
+  --hub-muted-light: var(--hub-text-muted);
+  --hub-line: var(--hub-border);
+  --hub-line-dark: var(--hub-border);
+  --hub-control-line: var(--hub-control-border);
+  --hub-leaf: var(--hub-link);
+  --hub-leaf-hover: var(--hub-link-hover);
+  --hub-sage: var(--hub-surface-hover);
+  --hub-photo-surface: #1c4942;
+  --hub-photo-border: #406a5f;
+  --hub-photo-fallback: var(--hub-forest);
+  --hub-content: 1400px;
+  --hub-reading: 760px;
+  --hub-gutter: clamp(20px, 4.5vw, 72px);
+  --hub-section: clamp(60px, 6vw, 88px);
+  --hub-heading-gap: clamp(28px, 3vw, 40px);
+  --hub-card-padding: 16px;
+  --hub-card-gap: 8px;
+  --hub-cta-gap: 32px;
+  --hub-header-clearance: 132px;
+  --hub-space-xs: 8px;
+  --hub-space-sm: 16px;
+  --hub-space-md: 24px;
+  --hub-space-lg: 40px;
+  --hub-space-xl: 56px;
+  --hub-radius: 12px;
+  --hub-pill-radius: 999px;
+  --hub-photo-radius: 15px;
+  --hub-photo-inset: 7px;
+  --hub-card-radius: 20px;
+  --hub-header-radius: 28px;
+  --hub-dark-title: clamp(34px, 4.2vw, 64px);
+  --hub-hero-title: clamp(42px, 6vw, 92px);
+  --hub-title: clamp(34px, 4.2vw, 64px);
+  --hub-card-title: clamp(20px, 1.6vw, 22px);
+  --hub-body: 17px;
+  --hub-small: 14px;
+  --hub-leading: 1.75;
+  --hub-heading-leading: 1.12;
+  --hub-heading-tracking: -0.022em;
+  --hub-heading-weight: 700;
+  --hub-control-height: 52px;
+  --hub-header-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  --hub-duration: 200ms;
+  --hub-hover-duration: 380ms;
+  --hub-hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --hub-hover: var(--hub-hover-duration) var(--hub-hover-ease);
+  --hub-header-duration: 300ms;
+  --hub-reveal-duration: 520ms;
+  --hub-reveal-distance: 20px;
+  --hub-reveal-distance-mobile: 12px;
+  --hub-stagger: 70ms;
+  --hub-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hub-transition: var(--hub-duration) var(--hub-ease);
+  --hub-z-map: 1;
+  --hub-z-header: 60;
+  --hub-z-skip: 70;
+}
+/* A single contextual boundary makes foregrounds, controls and states consistent. */
+[data-tone="dark"] {
+  --hub-background: var(--hub-forest);
+  --hub-surface: #1c4942;
+  --hub-surface-hover: #28594e;
+  --hub-text: var(--hub-paper);
+  --hub-text-muted: #c3d1c8;
+  --hub-border: #406a5f;
+  --hub-control-border: #8ea698;
+  --hub-action-bg: var(--hub-accent);
+  --hub-action-hover: var(--hub-sand);
+  --hub-action-active: var(--hub-accent-active);
+  --hub-action-text: var(--hub-forest-deep);
+  --hub-link: var(--hub-accent);
+  --hub-link-hover: var(--hub-accent-hover);
+  --hub-focus: var(--hub-accent-hover);
+  --hub-field-bg: #1c4942;
+  --hub-field-readonly: #28594e;
+  --hub-disabled-bg: #28594e;
+  --hub-disabled-text: #c3d1c8;
+  --hub-error: #f3b2a6;
+  --hub-success: #c5d4be;
+  --hub-color-scheme: dark;
+  --hub-shadow-sm: inset 0 1px 0 rgba(255, 253, 249, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.14);
+  --hub-shadow-card: inset 0 1px 0 rgba(255, 253, 249, 0.08),
+    0 5px 14px rgba(0, 0, 0, 0.18);
+  --hub-shadow-track: inset 0 1px 0 rgba(255, 253, 249, 0.08),
+    0 5px 12px rgba(0, 0, 0, 0.18);
+  --hub-shadow-track-hover: inset 0 1px 0 rgba(255, 253, 249, 0.12),
+    0 8px 12px rgba(0, 0, 0, 0.22);
+  --hub-shadow-card-hover: inset 0 1px 0 rgba(255, 253, 249, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.24);
+  --hub-button-border: rgba(255, 253, 249, 0.18);
+  --hub-button-border-hover: rgba(255, 253, 249, 0.32);
+  --hub-button-secondary-bg: rgba(255, 253, 249, 0.05);
+  --hub-button-secondary-text: var(--hub-paper);
+  --hub-button-secondary-hover-bg: var(--hub-sand);
+  --hub-button-secondary-hover-text: var(--hub-forest);
+  --hub-button-arrow-tint: rgba(255, 253, 249, 0.1);
+  --hub-button-arrow-hover-tint: rgba(18, 59, 54, 0.08);
+  --hub-card-border: rgba(255, 253, 249, 0.14);
+  --hub-card-border-hover: rgba(255, 253, 249, 0.24);
+  --hub-tag-bg: rgba(255, 253, 249, 0.07);
+  --hub-photo-edge: rgba(255, 253, 249, 0.12);
+  /* Rebind aliases here: inherited CSS variables resolve in their defining scope. */
+  --hub-card: var(--hub-surface);
+  --hub-card-raised: var(--hub-surface-hover);
+  --hub-muted: var(--hub-text-muted);
+  --hub-muted-light: var(--hub-text-muted);
+  --hub-line: var(--hub-border);
+  --hub-line-dark: var(--hub-border);
+  --hub-control-line: var(--hub-control-border);
+  --hub-leaf: var(--hub-link);
+  --hub-leaf-hover: var(--hub-link-hover);
+  --hub-sage: var(--hub-surface-hover);
+  color: var(--hub-text);
+}
+:root,
+[data-tone="dark"] {
+  --hub-filter-bg: var(--hub-surface);
+  --hub-filter-hover-bg: var(--hub-surface-hover);
+  --hub-filter-active-bg: var(--hub-forest);
+  --hub-filter-active-hover: var(--hub-forest-deep);
+  --hub-filter-active-text: var(--hub-paper);
+  --hub-filter-active-border: var(--hub-forest);
+  --hub-shadow: var(--hub-shadow-sm);
+  --hub-field-border: var(--hub-control-border);
+  --hub-field-focus-border: var(--hub-link);
+}
+.hub-ui {
+  font-family: var(--hub-font-body), sans-serif;
+  color: var(--hub-text);
+}
+.hub-ui :is(h1, h2) {
+  font-optical-sizing: auto;
+}
+.hub-ui :is(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid var(--hub-focus);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .hub-ui [data-hub-arrow-glyph] {
+    transform: none !important;
+  }
+  .hub-ui :is(a, button):active {
+    transform: none !important;
+  }
+  .hub-ui :is(a, button):hover > span,
+  .hub-ui a:hover [aria-hidden="true"] {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,136 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+}
+.viewport {
+  position: relative;
+  min-width: 0;
+}
+.viewport:focus-visible {
+  outline: 3px solid var(--hub-focus);
+  outline-offset: 3px;
+  border-radius: var(--hub-radius);
+}
+.slide {
+  display: flex;
+  min-width: 0;
+}
+.slide > *,
+.scale,
+.scale > * {
+  width: 100%;
+  height: 100%;
+}
+.scale {
+  min-width: 0;
+  transform-origin: center center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scale {
+    transform: none !important;
+  }
+}
+.explore {
+  display: none;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 767px) {
+  .carousel .viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding: 20px 0 36px;
+    margin: -8px 0 -24px;
+    touch-action: auto;
+  }
+  .viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel .track {
+    display: flex;
+    gap: 14px;
+    grid-template-columns: none;
+  }
+  .slide {
+    flex: 0 0 min(82%, 380px);
+    scroll-snap-align: center;
+  }
+  .slide:first-child {
+    margin-left: 9%;
+  }
+  .slide:last-child {
+    margin-right: 9%;
+  }
+  .viewport[data-enhanced="true"] {
+    overflow: hidden;
+    scroll-snap-type: none;
+    touch-action: pan-y pinch-zoom;
+  }
+  .viewport[data-enhanced="true"] .slide {
+    margin-inline: 0;
+  }
+  .slide[data-copy] {
+    display: none;
+  }
+  .viewport[data-enhanced="true"] .slide[data-copy] {
+    display: flex;
+  }
+  .carousel[data-single="true"] .track {
+    justify-content: center;
+  }
+  .carousel[data-single="true"] .slide {
+    flex-basis: min(100%, 380px);
+    margin-inline: 12px;
+  }
+  .carousel .slide > * {
+    --hub-shadow-card: var(--hub-shadow-track);
+    --hub-shadow-card-hover: var(--hub-shadow-track-hover);
+    --hub-shadow-sm: var(--hub-shadow-track);
+  }
+  .explore {
+    display: block;
+    position: relative;
+    margin-top: 12px;
+    min-height: 44px;
+  }
+  .hint {
+    text-align: center;
+    color: var(--hub-text-muted);
+    font-size: 14px;
+    line-height: 44px;
+  }
+  /* Keyboard actions exist without persistent touch arrows or a numeric indicator. */
+  .controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  .controls button {
+    min-width: 44px;
+    padding-inline: 12px;
+    font-size: 20px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .controls:focus-within button,
+  .carousel:has(.viewport:focus-visible) .controls button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

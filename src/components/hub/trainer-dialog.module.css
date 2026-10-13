@@ -1,0 +1,52 @@
+.body {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 24px;
+}
+.portrait {
+  position: relative;
+  min-height: 220px;
+  background: var(--hub-surface);
+  border-radius: var(--hub-radius);
+}
+.portrait img {
+  object-fit: contain;
+  object-position: center top;
+  padding: 12px;
+}
+.specialty {
+  color: var(--hub-link);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.biography {
+  color: var(--hub-text-muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--hub-link);
+}
+@media (max-width: 479px) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .portrait {
+    width: 160px;
+    min-height: 190px;
+    margin-inline: auto;
+  }
+}
+
+.closeAction {
+  font-size: 16px;
+}

@@ -1,0 +1,77 @@
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-family: var(--hub-font-heading), sans-serif;
+  font-size: 24px;
+  letter-spacing: var(--hub-heading-tracking);
+  font-weight: var(--hub-heading-weight);
+  text-decoration: none;
+}
+.wordmark img {
+  flex-shrink: 0;
+  width: 44px;
+  height: 38px;
+}
+.four {
+  color: var(--hub-accent);
+}
+.hub {
+  font-weight: 400;
+}
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 24px;
+  margin-bottom: var(--hub-heading-gap);
+}
+.sectionHeading h2 {
+  max-width: 980px;
+  font-family: var(--hub-font-heading), sans-serif;
+  font-size: var(--hub-title);
+  line-height: var(--hub-heading-leading);
+  font-weight: var(--hub-heading-weight);
+  letter-spacing: var(--hub-heading-tracking);
+  text-wrap: balance;
+}
+.eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: var(--hub-link);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.description {
+  max-width: 790px;
+  margin: 16px auto 0;
+  color: var(--hub-muted);
+  font-size: 18px;
+  line-height: var(--hub-leading);
+}
+@media (max-width: 767px) {
+  .sectionHeading {
+    gap: 20px;
+    margin-bottom: var(--hub-heading-gap);
+  }
+  .description {
+    font-size: 17px;
+  }
+  .wordmark {
+    font-size: 21px;
+  }
+}
+@media (max-width: 420px) {
+  .wordmark {
+    font-size: 18px;
+    gap: 6px;
+  }
+  .wordmark img {
+    width: 36px;
+    height: auto;
+  }
+}

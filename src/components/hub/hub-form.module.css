@@ -1,0 +1,187 @@
+.panel {
+  padding: clamp(24px, 4vw, 48px);
+  background: var(--hub-card);
+  border: 1px solid var(--hub-line);
+  border-radius: var(--hub-card-radius);
+  max-width: 980px;
+  margin-inline: auto;
+  box-shadow: var(--hub-shadow);
+}
+.panel h2 {
+  font-family: var(--hub-font-heading), sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: var(--hub-heading-weight);
+  line-height: var(--hub-heading-leading);
+  letter-spacing: var(--hub-heading-tracking);
+  margin-bottom: 20px;
+}
+.description {
+  color: var(--hub-muted);
+  line-height: var(--hub-leading);
+  margin-bottom: 28px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field {
+  position: relative;
+  min-width: 0;
+}
+.field label {
+  display: block;
+  font-size: 15px;
+  color: var(--hub-text);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.field label span {
+  color: var(--hub-link);
+}
+.control {
+  display: block;
+  min-height: 56px;
+  padding: 14px 16px;
+  width: 100%;
+  border: 1px solid var(--hub-field-border);
+  border-radius: var(--hub-radius);
+  color: var(--hub-text);
+  background: var(--hub-field-bg);
+  font-size: 16px;
+  line-height: 1.5;
+  transition:
+    border-color var(--hub-transition),
+    background var(--hub-transition);
+}
+.control:hover {
+  border-color: var(--hub-field-focus-border);
+}
+.control:focus {
+  border-color: var(--hub-field-focus-border);
+}
+input.control:read-only {
+  background: var(--hub-field-readonly);
+  color: var(--hub-muted);
+}
+.control::placeholder {
+  color: var(--hub-muted);
+}
+.control:disabled {
+  background: var(--hub-disabled-bg);
+  color: var(--hub-disabled-text);
+  cursor: not-allowed;
+}
+.control[aria-invalid="true"] {
+  border-color: var(--hub-error);
+}
+.wide {
+  grid-column: 1 / -1;
+}
+textarea.control {
+  min-height: 180px;
+  resize: vertical;
+}
+select.control {
+  appearance: auto;
+  color-scheme: var(--hub-color-scheme);
+}
+.submit {
+  margin-top: 32px;
+  font-size: 16px;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.embedded {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 253, 249, 0.55);
+  background: rgba(255, 253, 249, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 253, 249, 0.72),
+    0 10px 36px rgba(11, 39, 36, 0.06);
+  container-type: inline-size;
+  scroll-margin-top: calc(var(--hub-header-clearance) + 16px);
+}
+@supports (
+  (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))
+) {
+  .embedded {
+    backdrop-filter: blur(20px) saturate(1.15);
+    -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  }
+}
+.embedded h2 {
+  font-size: clamp(28px, 3vw, 36px);
+  margin-bottom: 10px;
+}
+.embedded .description {
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+.embedded .fields {
+  grid-template-columns: 1fr;
+}
+.embedded .submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+.embedded .inline .control {
+  min-height: 54px;
+  padding: 16px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--hub-pill-radius);
+  background: rgba(18, 59, 54, 0.055);
+}
+.embedded .inline textarea.control {
+  min-height: 140px;
+  border-radius: 22px;
+  padding: 16px 20px;
+}
+.embedded .inline .control:hover,
+.embedded .inline .control:focus {
+  background: rgba(18, 59, 54, 0.08);
+  border-color: rgba(18, 59, 54, 0.16);
+}
+.embedded .inline .control::placeholder {
+  color: var(--hub-text-muted);
+}
+@container (min-width: 360px) {
+  .embedded .fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .embedded {
+    padding: 20px;
+  }
+}
+@media (max-width: 639px) {
+  .fields {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .submit {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.control:user-invalid {
+  border-color: var(--hub-error);
+}

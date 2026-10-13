@@ -1,9 +1,70 @@
 export const sr = {
   meta: {
-    homeTitle:
-      "Fit4Life: Premium Fitness, Teretana, Spa, Wellness i Sauna – Beograd",
+    homeTitle: "Fit4Life Hub | Longevity – Performance Concept | Beograd",
     homeDescription:
-      "Premium fitness, wellness, spa, sauna i personalni treninzi u Beogradu, kreirani da treniraš jače, oporavljaš se pametnije i živiš bolje.",
+      "Fit4Life Hub u Beogradu povezuje zdravlje, performanse, dugovečnost, balans i testiranje kroz trening, oporavak i aktivan život. Istraži programe i upoznaj tim.",
+  },
+  hubHome: {
+    groupTrainingAlt: "Grupa sportista trenira zajedno na otvorenom",
+    heroTitle: "Živi bolje danas.",
+    heroEmphasis: "Pomeri svoje granice sutra.",
+    heroIntro:
+      "Zdravlje, performanse, dugovečnost, balans i testiranje. Povezan pristup treningu i aktivnom životu, usmeren ka tvojim ciljevima.",
+    primaryCta: "Kontaktiraj nas",
+    secondaryCta: "Upoznaj koncept",
+    heroCaption: "Pokret. Sa svrhom.",
+    conceptLabel: "Fit4Life Hub koncept",
+    conceptTitle: "Snažnije telo. Ispunjeniji život.",
+    conceptIntro:
+      "Fit4Life Hub povezuje trening, oporavak i aktivan život u jedan koncept. Od sportskih performansi do vremena u prirodi, naši postojeći programi nude različite načine da radiš na svojim ciljevima.",
+    conceptNote: "Pet stubova. Jedan zajednički pravac.",
+    pillarsIntro:
+      "Vrednosti našeg koncepta — osnova našeg razmišljanja o pokretu i životu.",
+    programsTitle: "Pronađi svoj pravac.",
+    programsIntro:
+      "Istraži programe za sportiste, profesionalce i sve koji žele aktivniji život.",
+    teamTitle: "Ljudi su pokretači napretka.",
+    teamIntro:
+      "Upoznaj trenere koji stoje iza naših programa i njihove oblasti rada.",
+    resourcesTitle: "Znanje za sledeći korak.",
+    resourcesIntro:
+      "Praktični tekstovi o treningu, oporavku i navikama koje podržavaju aktivan život.",
+    contactLabel: "Tvoj sledeći korak",
+    contactTitle: "Tvoji ciljevi. Razgovarajmo.",
+    contactIntro:
+      "Reci nam na čemu želiš da radiš. Kontaktiraj nas za više informacija o programima i timu.",
+    trainingAlt: "Sportista se priprema za trčanje na atletskoj stazi",
+    natureAlt: "Planinar na planinskoj stazi",
+    programsLabel: "Programi",
+    teamLabel: "Tim",
+    resourcesLabel: "Resursi",
+  },
+  ui: {
+    expandNavigation: "Proširi navigaciju",
+    openMenu: "Otvori meni",
+    closeMenu: "Zatvori meni",
+    mobileNavigation: "Mobilna navigacija",
+    mainNavigation: "Glavna navigacija",
+    language: "Jezik",
+    skipContent: "Pređi na sadržaj",
+    swipeExplore: "Prevuci za više",
+
+    moreAboutTrainer: "Više o treneru",
+    closeTrainerBio: "Zatvori biografiju",
+    trainerAreas: "Oblasti treninga",
+    carousel: "Karusel",
+    slide: "Slajd",
+    of: "od",
+    previousSlide: "Prethodni slajd",
+    nextSlide: "Sledeći slajd",
+    carouselKeyboard: "Koristi levu i desnu strelicu za pregled kartica",
+    filters: "Filtriraj po kategoriji",
+    results: "Rezultati",
+    selectPlan: "Izaberi cenovni paket",
+    unavailable: "Došlo je do greške. Pokušaj ponovo kasnije.",
+    notFound: "Stranica nije pronađena.",
+    backHome: "Nazad na početnu",
+    mapLoading: "Učitavanje mape…",
   },
   nav: {
     home: "Početna",
@@ -33,7 +94,7 @@ export const sr = {
     eyebrow: "Više od teretane",
     title: "Kompletno fitness, wellness i recovery iskustvo.",
     description:
-      "Fit4Life spaja profesionalni trening, moderne fitness programe, wellness, spa, saunu i usluge oporavka u jednom premium okruženju. Bilo da želiš snagu, sportske performanse, bolje zdravlje ili balansiran način života, naš tim ti pomaže da treniraš pametnije i ostaneš dosledan.",
+      "Fit4Life Hub spaja profesionalni trening, moderne fitness programe, wellness, spa, saunu i usluge oporavka u jednom premium okruženju. Bilo da želiš snagu, sportske performanse, bolje zdravlje ili balansiran način života, naš tim ti pomaže da treniraš pametnije i ostaneš dosledan.",
     cards: [
       {
         value: "01",
@@ -66,7 +127,7 @@ export const sr = {
   },
   programsSection: {
     eyebrow: "Izaberi svoj pravac",
-    title: "Programi kreirani za stvarnu transformaciju.",
+    title: "Programi za performanse i aktivan život.",
     description:
       "Od profesionalnih sportskih performansi, preko zdravijih poslovnih rutina, do programa u prirodi — izaberi put koji odgovara tvom cilju.",
     cta: "Svi programi",
@@ -131,7 +192,7 @@ export const sr = {
     eyebrow: "Iskustva članova",
     title: "Šta naši članovi kažu.",
     description:
-      "Ljudi dolaze u Fit4Life zbog treninga, wellness-a i oporavka — ali ostaju jer se osećaju podržano, snažnije i kao deo prave zajednice.",
+      "Ljudi dolaze u Fit4Life Hub zbog treninga, wellness-a i oporavka — ali ostaju jer se osećaju podržano, snažnije i kao deo prave zajednice.",
     testimonials: {
       jessica: {
         fullName: "Jessica Martinez",
@@ -160,21 +221,25 @@ export const sr = {
     },
   },
   contactSection: {
-    metaTitle: "Fit4Life: Kontakt - Fitness, Wellness i Personalni Treninzi",
+    metaTitle:
+      "Fit4Life Hub: Kontakt - Fitness, Wellness i Personalni Treninzi",
     metaDescription:
-      "Kontaktiraj Fit4Life Beograd za fitness programe, personalne treninge, wellness usluge, članarine i podršku.",
+      "Kontaktiraj Fit4Life Hub Beograd za fitness programe, personalne treninge, wellness usluge, članarine i podršku.",
     pageEyebrow: "Kontakt",
-    pageTitle: "Hajde da započnemo tvoje sledeće fitness poglavlje.",
+    pageTitle: "Tvoji ciljevi. Razgovarajmo.",
     pageDescription:
       "Bilo da želiš da se priključiš programu, pitaš za wellness usluge ili zakažeš konsultaciju za personalni trening, naš tim je tu da pomogne.",
     eyebrow: "Kreni danas",
-    title: "Spreman/na da promeniš način na koji treniraš?",
+    title: "Napravi sledeći korak uz Fit4Life Hub.",
     description:
       "Reci nam šta želiš da postigneš, a naš tim će ti pomoći da izabereš pravi program, trenera ili wellness uslugu.",
     infoTitle: "Kontaktiraj nas",
     infoDescription:
       "Imaš pitanja o programima, članarinama, personalnim treninzima ili wellness uslugama? Pošalji nam poruku i odgovorićemo ti u najkraćem roku.",
     location: "Beograd, Bulevar Kralja Aleksandra 200",
+    addressLabel: "Adresa",
+    emailLabel: "Email",
+    phoneLabel: "Telefon",
     email: "info@fit4lifebelgrade.com",
     phone: "066/200-300",
     formTitle: "Pošalji nam poruku",
@@ -193,13 +258,13 @@ export const sr = {
   },
   programsPage: {
     metaTitle:
-      "Fit4Life: Programi - Fitness, Personalni Treninzi i Wellness Programi",
+      "Fit4Life Hub: Programi - Fitness, Personalni Treninzi i Wellness Programi",
     metaDescription:
-      "Istraži Fit4Life premium programe — od sportskih performansi i razvoja mladih sportista, do corporate wellness-a i programa u prirodi.",
+      "Istraži Fit4Life Hub premium programe — od sportskih performansi i razvoja mladih sportista, do corporate wellness-a i programa u prirodi.",
     eyebrow: "Programi",
-    title: "Izaberi program koji odgovara tvom sledećem nivou.",
+    title: "Pronađi program za svoje ciljeve.",
     description:
-      "Svaki Fit4Life program je kreiran sa jasnom strukturom, stručnim vođstvom i merljivim napretkom — bilo da treniraš zbog performansi, zdravlja, samopouzdanja ili boljeg životnog balansa.",
+      "Svaki Fit4Life Hub program je kreiran sa jasnom strukturom, stručnim vođstvom i merljivim napretkom — bilo da treniraš zbog performansi, zdravlja, samopouzdanja ili boljeg životnog balansa.",
     discoverMore: "Prikaži još",
     empty: "Nema programa za izabranu kategoriju.",
     categories: {
@@ -250,9 +315,9 @@ export const sr = {
   },
   programDetailsPage: {
     mostPopular: "Najpopularnije",
-    metaTitlePrefix: "Fit4Life Program",
+    metaTitlePrefix: "Fit4Life Hub Program",
     metaDescription:
-      "Istraži Fit4Life premium program i izaberi plan koji odgovara tvojim ciljevima.",
+      "Istraži Fit4Life Hub premium program i izaberi plan koji odgovara tvojim ciljevima.",
     notFound: "Program nije pronađen",
     pricingEyebrow: "Cene",
     pricingTitle: "Izaberi nivo posvećenosti.",
@@ -309,9 +374,10 @@ export const sr = {
     perMonth: "mesec",
   },
   trainersPage: {
-    metaTitle: "Fit4Life: Treneri - Personalni Treneri i Performance Coach-evi",
+    metaTitle:
+      "Fit4Life Hub: Treneri - Personalni Treneri i Performance Coach-evi",
     metaDescription:
-      "Upoznaj Fit4Life stručne trenere i coach-eve specijalizovane za snagu, fitness, atletske performanse i bodybuilding.",
+      "Upoznaj Fit4Life Hub stručne trenere i coach-eve specijalizovane za snagu, fitness, atletske performanse i bodybuilding.",
     eyebrow: "Treneri",
     title: "Upoznaj trenere iza tvog sledećeg napretka.",
     description:
@@ -350,9 +416,9 @@ export const sr = {
   },
   resourcesPage: {
     metaTitle:
-      "Fit4Life: Resursi - Fitness Saveti, Vodiči za Trening i Wellness",
+      "Fit4Life Hub: Resursi - Fitness Saveti, Vodiči za Trening i Wellness",
     metaDescription:
-      "Istraži Fit4Life stručne resurse o treningu, suplementima, oporavku, wellness-u, ishrani i prevenciji povreda.",
+      "Istraži Fit4Life Hub stručne resurse o treningu, suplementima, oporavku, wellness-u, ishrani i prevenciji povreda.",
     eyebrow: "Resursi",
     title: "Stručno znanje za bolje odluke u treningu.",
     description:

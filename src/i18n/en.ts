@@ -1,9 +1,70 @@
 export const en = {
   meta: {
-    homeTitle:
-      "Fit4Life: Premium Fitness, Gym, Spa, Wellness & Sauna – Belgrade",
+    homeTitle: "Fit4Life Hub | Longevity – Performance Concept | Belgrade",
     homeDescription:
-      "Premium fitness, wellness, spa, sauna and personal training programs in Belgrade, designed to help you train harder, recover smarter and live better.",
+      "Fit4Life Hub in Belgrade connects health, performance, longevity, balance and testing through training, recovery and active living. Explore our programs and team.",
+  },
+  hubHome: {
+    groupTrainingAlt: "Group of athletes training together outdoors",
+    heroTitle: "Live better today.",
+    heroEmphasis: "Perform stronger tomorrow.",
+    heroIntro:
+      "Health, performance, longevity, balance and testing. A connected approach to training and active living, shaped around your goals.",
+    primaryCta: "Get in touch",
+    secondaryCta: "Explore the concept",
+    heroCaption: "Movement. With purpose.",
+    conceptLabel: "The Fit4Life Hub concept",
+    conceptTitle: "A stronger body. A fuller life.",
+    conceptIntro:
+      "Fit4Life Hub brings training, recovery and active living into one connected concept. From sports performance to time outdoors, our existing programs offer different ways to work toward your goals.",
+    conceptNote: "Five pillars. One shared direction.",
+    pillarsIntro:
+      "The values behind our concept — guiding how we think about movement and life.",
+    programsTitle: "Find your way forward.",
+    programsIntro:
+      "Explore our programs for athletes, professionals and people who want a more active life.",
+    teamTitle: "Progress starts with people.",
+    teamIntro:
+      "Meet the trainers behind our programs and explore their areas of focus.",
+    resourcesTitle: "Knowledge to move you forward.",
+    resourcesIntro:
+      "Practical reading on training, recovery and the habits that support an active life.",
+    contactLabel: "Your next step",
+    contactTitle: "Your goals. Let's talk.",
+    contactIntro:
+      "Tell us what you want to work on. Get in touch to learn more about our programs and the team.",
+    trainingAlt: "Athlete preparing to run on an athletics track",
+    natureAlt: "Hiker on a mountain trail",
+    programsLabel: "Programs",
+    teamLabel: "The team",
+    resourcesLabel: "Resources",
+  },
+  ui: {
+    expandNavigation: "Expand navigation",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    mobileNavigation: "Mobile navigation",
+    mainNavigation: "Main navigation",
+    language: "Language",
+    skipContent: "Skip to content",
+    swipeExplore: "Swipe to explore",
+
+    moreAboutTrainer: "More about the trainer",
+    closeTrainerBio: "Close biography",
+    trainerAreas: "Training areas",
+    carousel: "Carousel",
+    slide: "Slide",
+    of: "of",
+    previousSlide: "Previous slide",
+    nextSlide: "Next slide",
+    carouselKeyboard: "Use left and right arrow keys to browse cards",
+    filters: "Filter by category",
+    results: "Results",
+    selectPlan: "Select a pricing plan",
+    unavailable: "Something went wrong. Please try again later.",
+    notFound: "This page could not be found.",
+    backHome: "Back to Home",
+    mapLoading: "Loading map…",
   },
   nav: {
     home: "Home",
@@ -33,7 +94,7 @@ export const en = {
     eyebrow: "More than a gym",
     title: "A complete fitness, wellness and recovery experience.",
     description:
-      "Fit4Life combines professional training, modern fitness programs, wellness, spa, sauna and recovery services in one premium environment. Whether your goal is strength, athletic performance, better health or complete lifestyle balance, our team helps you train smarter and stay consistent.",
+      "Fit4Life Hub combines professional training, modern fitness programs, wellness, spa, sauna and recovery services in one premium environment. Whether your goal is strength, athletic performance, better health or complete lifestyle balance, our team helps you train smarter and stay consistent.",
     cards: [
       {
         value: "01",
@@ -66,7 +127,7 @@ export const en = {
   },
   programsSection: {
     eyebrow: "Choose your path",
-    title: "Programs built for real transformation.",
+    title: "Programs for performance and active living.",
     description:
       "From professional sport performance to healthier business routines and outdoor lifestyle programs, choose the path that fits your goals.",
     cta: "All programs",
@@ -131,7 +192,7 @@ export const en = {
     eyebrow: "Real stories",
     title: "What our members say.",
     description:
-      "People come to Fit4Life for training, wellness and recovery — but they stay because they feel supported, stronger and part of a real community.",
+      "People come to Fit4Life Hub for training, wellness and recovery — but they stay because they feel supported, stronger and part of a real community.",
     testimonials: {
       jessica: {
         fullName: "Jessica Martinez",
@@ -161,21 +222,24 @@ export const en = {
   },
   contactSection: {
     metaTitle:
-      "Fit4Life: Contact Us - Fitness, Wellness & Personal Training Support",
+      "Fit4Life Hub: Contact Us - Fitness, Wellness & Personal Training Support",
     metaDescription:
-      "Contact Fit4Life Belgrade for fitness programs, personal training, wellness services, memberships and support.",
+      "Contact Fit4Life Hub Belgrade for fitness programs, personal training, wellness services, memberships and support.",
     pageEyebrow: "Contact",
-    pageTitle: "Let’s build your next fitness chapter.",
+    pageTitle: "Your goals. Let’s talk.",
     pageDescription:
       "Whether you want to join a program, ask about wellness services or book a personal training consultation, our team is ready to help.",
     eyebrow: "Start today",
-    title: "Ready to transform the way you train?",
+    title: "Take your next step with Fit4Life Hub.",
     description:
       "Tell us what you want to achieve and our team will help you choose the right program, trainer or wellness service.",
     infoTitle: "Get in touch",
     infoDescription:
       "Have questions about programs, memberships, personal training or wellness services? Send us a message and we will get back to you as soon as possible.",
     location: "Belgrade, Bulevar Kralja Aleksandra 200",
+    addressLabel: "Address",
+    emailLabel: "Email",
+    phoneLabel: "Phone",
     email: "info@fit4lifebelgrade.com",
     phone: "066/200-300",
     formTitle: "Send us a message",
@@ -194,13 +258,13 @@ export const en = {
   },
   programsPage: {
     metaTitle:
-      "Fit4Life: Programs - Fitness, Personal Training & Wellness Programs",
+      "Fit4Life Hub: Programs - Fitness, Personal Training & Wellness Programs",
     metaDescription:
-      "Explore Fit4Life premium programs, from professional sport performance and young athlete development to corporate wellness and outdoor lifestyle programs.",
+      "Explore Fit4Life Hub premium programs, from professional sport performance and young athlete development to corporate wellness and outdoor lifestyle programs.",
     eyebrow: "Programs",
-    title: "Choose the program that matches your next level.",
+    title: "Find a program for your goals.",
     description:
-      "Every Fit4Life program is designed with structure, guidance and measurable progress — whether you train for performance, health, confidence or lifestyle balance.",
+      "Every Fit4Life Hub program is designed with structure, guidance and measurable progress — whether you train for performance, health, confidence or lifestyle balance.",
     discoverMore: "Discover more",
     empty: "No programs found for this category.",
     categories: {
@@ -251,9 +315,9 @@ export const en = {
   },
   programDetailsPage: {
     mostPopular: "Most popular",
-    metaTitlePrefix: "Fit4Life Program",
+    metaTitlePrefix: "Fit4Life Hub Program",
     metaDescription:
-      "Explore this Fit4Life premium program and choose the plan that matches your goals.",
+      "Explore this Fit4Life Hub premium program and choose the plan that matches your goals.",
     notFound: "Program not found",
     pricingEyebrow: "Pricing",
     pricingTitle: "Choose your level of commitment.",
@@ -311,9 +375,9 @@ export const en = {
   },
   trainersPage: {
     metaTitle:
-      "Fit4Life: Trainers - Expert Personal Trainers & Performance Coaches",
+      "Fit4Life Hub: Trainers - Expert Personal Trainers & Performance Coaches",
     metaDescription:
-      "Meet Fit4Life expert trainers and coaches specialized in strength, fitness, athletic performance and bodybuilding.",
+      "Meet Fit4Life Hub expert trainers and coaches specialized in strength, fitness, athletic performance and bodybuilding.",
     eyebrow: "Trainers",
     title: "Meet the coaches behind your next breakthrough.",
     description:
@@ -352,9 +416,9 @@ export const en = {
   },
   resourcesPage: {
     metaTitle:
-      "Fit4Life: Resources - Fitness Tips, Training Guides & Wellness Insights",
+      "Fit4Life Hub: Resources - Fitness Tips, Training Guides & Wellness Insights",
     metaDescription:
-      "Explore Fit4Life expert resources about training, supplements, recovery, wellness, nutrition and injury prevention.",
+      "Explore Fit4Life Hub expert resources about training, supplements, recovery, wellness, nutrition and injury prevention.",
     eyebrow: "Resources",
     title: "Expert knowledge for better training decisions.",
     description:
