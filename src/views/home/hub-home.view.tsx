@@ -48,7 +48,7 @@ export const HubHomeView = () => {
     const motion = root?.querySelector<SVGPathElement>("#hub-hero-orbit");
     const comet = root?.querySelector<SVGPathElement>("#hub-hero-comet");
     const nodes = root
-      ? [...root.querySelectorAll<HTMLElement>("[data-i]")]
+      ? Array.from(root.querySelectorAll<HTMLElement>("[data-i]"))
       : [];
     if (!root || !motion || !comet || nodes.length === 0) return;
 

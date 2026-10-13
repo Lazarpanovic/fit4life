@@ -7,7 +7,9 @@ export const usePageReveal = (route: string, locale?: string) => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (motion.matches) return;
 
-    const targets = [...document.querySelectorAll<HTMLElement>("[data-reveal]")];
+    const targets = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
     const arm = (element: HTMLElement) => {
       element.setAttribute("data-reveal-arm", "");
       element.setAttribute("data-reveal-hold", "");
@@ -15,7 +17,7 @@ export const usePageReveal = (route: string, locale?: string) => {
     targets.forEach((target) => {
       if (target.getBoundingClientRect().top <= window.innerHeight * 0.92) return;
       if (target.hasAttribute("data-stagger")) {
-        [...target.children].forEach((child) => {
+        Array.from(target.children).forEach((child) => {
           if (child instanceof HTMLElement) arm(child);
         });
       } else {
@@ -34,7 +36,7 @@ export const usePageReveal = (route: string, locale?: string) => {
           const target = entry.target;
           if (!(target instanceof HTMLElement)) return;
           if (target.hasAttribute("data-stagger")) {
-            [...target.children].forEach((child) => {
+            Array.from(target.children).forEach((child) => {
               if (child instanceof HTMLElement) release(child);
             });
           } else {
