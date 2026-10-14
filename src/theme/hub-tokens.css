@@ -1,32 +1,32 @@
 /* Physical palette. Logo SVG colors are intentionally independent. */
 :root {
-  --hub-forest: #123b36;
-  --hub-forest-deep: #0b2724;
-  --hub-near-black: #0b2724;
-  --hub-sand: #f4efe8;
-  --hub-sand-deep: #ebe4da;
-  --hub-paper: #fffdf9;
-  --hub-white: #fffdf9;
-  --hub-accent: #ebe4da;
-  --hub-accent-hover: #f4efe8;
-  --hub-accent-active: #ddd6c8;
-  --hub-ink: #0b2724;
-  --hub-ink-hover: #123b36;
-  --hub-overlay-rgb: 11, 39, 36;
-  --hub-glass: rgba(11, 39, 36, 0.62);
-  --hub-glass-border: rgba(255, 253, 249, 0.16);
+  --hub-forest: #1c2b25;
+  --hub-forest-deep: #121c18;
+  --hub-near-black: #121c18;
+  --hub-sand: #efede7;
+  --hub-sand-deep: #e5e2da;
+  --hub-paper: #f8f7f3;
+  --hub-white: #f8f7f3;
+  --hub-accent: #e3ddd1;
+  --hub-accent-hover: #ece8df;
+  --hub-accent-active: #d5cec0;
+  --hub-ink: #121c18;
+  --hub-ink-hover: #1c2b25;
+  --hub-overlay-rgb: 18, 28, 24;
+  --hub-glass: rgba(18, 28, 24, 0.72);
+  --hub-glass-border: rgba(248, 247, 243, 0.16);
 
   /* Default light context: listings, reading, forms and sand Home sections. */
   --hub-background: var(--hub-sand);
   --hub-surface: var(--hub-paper);
-  --hub-surface-hover: #f0ece5;
+  --hub-surface-hover: #f2f0ea;
   --hub-text: var(--hub-forest-deep);
-  --hub-text-muted: #59665e;
-  --hub-border: #e3e6df;
-  --hub-control-border: #7a897e;
+  --hub-text-muted: #5c645e;
+  --hub-border: #dedbd3;
+  --hub-control-border: #848c86;
   --hub-action-bg: var(--hub-forest);
   --hub-action-hover: var(--hub-sand);
-  --hub-action-active: #08231f;
+  --hub-action-active: #0e1613;
   --hub-action-text: var(--hub-paper);
   --hub-link: var(--hub-forest);
   --hub-link-hover: var(--hub-forest-deep);
@@ -34,32 +34,30 @@
   --hub-field-bg: var(--hub-paper);
   --hub-field-readonly: var(--hub-sand);
   --hub-disabled-bg: var(--hub-sand-deep);
-  --hub-disabled-text: #59665e;
+  --hub-disabled-text: #5c645e;
   --hub-error: #a3392f;
   --hub-success: #245b40;
   --hub-color-scheme: light;
-  --hub-shadow-sm: 0 2px 6px rgba(11, 39, 36, 0.025),
-    0 8px 20px rgba(11, 39, 36, 0.04);
-  --hub-shadow-card: 0 3px 8px rgba(11, 39, 36, 0.035),
-    0 12px 28px rgba(11, 39, 36, 0.065);
-  --hub-shadow-track: 0 2px 4px rgba(11, 39, 36, 0.03),
-    0 5px 12px rgba(11, 39, 36, 0.055);
-  --hub-shadow-track-hover: 0 3px 6px rgba(11, 39, 36, 0.04),
-    0 8px 12px rgba(11, 39, 36, 0.08);
-  --hub-shadow-card-hover: 0 4px 10px rgba(11, 39, 36, 0.045),
-    0 18px 36px rgba(11, 39, 36, 0.1);
-  --hub-button-border: rgba(18, 59, 54, 0.16);
-  --hub-button-border-hover: rgba(18, 59, 54, 0.28);
+  /* Matte depth: flat surfaces separated by borders, shadows barely present. */
+  --hub-shadow-sm: 0 1px 2px rgba(18, 28, 24, 0.04);
+  --hub-shadow-card: 0 1px 2px rgba(18, 28, 24, 0.04);
+  --hub-shadow-track: 0 2px 4px rgba(18, 28, 24, 0.03),
+    0 5px 12px rgba(18, 28, 24, 0.055);
+  --hub-shadow-track-hover: 0 3px 6px rgba(18, 28, 24, 0.04),
+    0 8px 12px rgba(18, 28, 24, 0.08);
+  --hub-shadow-card-hover: 0 2px 8px rgba(18, 28, 24, 0.06);
+  --hub-button-border: rgba(28, 43, 37, 0.16);
+  --hub-button-border-hover: rgba(28, 43, 37, 0.28);
   --hub-button-secondary-bg: var(--hub-paper);
   --hub-button-secondary-text: var(--hub-forest);
   --hub-button-secondary-hover-bg: var(--hub-forest);
   --hub-button-secondary-hover-text: var(--hub-paper);
-  --hub-button-arrow-tint: rgba(18, 59, 54, 0.08);
+  --hub-button-arrow-tint: rgba(28, 43, 37, 0.08);
   --hub-button-arrow-hover-tint: rgba(255, 253, 249, 0.16);
-  --hub-card-border: rgba(18, 59, 54, 0.12);
-  --hub-card-border-hover: rgba(18, 59, 54, 0.24);
-  --hub-tag-bg: rgba(18, 59, 54, 0.055);
-  --hub-photo-edge: rgba(18, 59, 54, 0.08);
+  --hub-card-border: rgba(28, 43, 37, 0.12);
+  --hub-card-border-hover: rgba(28, 43, 37, 0.24);
+  --hub-tag-bg: rgba(28, 43, 37, 0.055);
+  --hub-photo-edge: rgba(28, 43, 37, 0.08);
 
   /* Compatibility aliases keep Chakra and shared components on the same roles. */
   --hub-card: var(--hub-surface);
@@ -72,8 +70,8 @@
   --hub-leaf: var(--hub-link);
   --hub-leaf-hover: var(--hub-link-hover);
   --hub-sage: var(--hub-surface-hover);
-  --hub-photo-surface: #1c4942;
-  --hub-photo-border: #406a5f;
+  --hub-photo-surface: #24352e;
+  --hub-photo-border: #3a4a43;
   --hub-photo-fallback: var(--hub-forest);
   --hub-content: 1400px;
   --hub-reading: 760px;
@@ -107,6 +105,7 @@
   --hub-heading-weight: 700;
   --hub-control-height: 52px;
   --hub-header-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  --hub-grain-opacity: 0.07;
   --hub-duration: 200ms;
   --hub-hover-duration: 380ms;
   --hub-hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -125,12 +124,12 @@
 /* A single contextual boundary makes foregrounds, controls and states consistent. */
 [data-tone="dark"] {
   --hub-background: var(--hub-forest);
-  --hub-surface: #1c4942;
-  --hub-surface-hover: #28594e;
+  --hub-surface: #24352e;
+  --hub-surface-hover: #2c3e36;
   --hub-text: var(--hub-paper);
-  --hub-text-muted: #c3d1c8;
-  --hub-border: #406a5f;
-  --hub-control-border: #8ea698;
+  --hub-text-muted: #b3bcb6;
+  --hub-border: #3a4a43;
+  --hub-control-border: #86948c;
   --hub-action-bg: var(--hub-accent);
   --hub-action-hover: var(--hub-sand);
   --hub-action-active: var(--hub-accent-active);
@@ -138,23 +137,19 @@
   --hub-link: var(--hub-accent);
   --hub-link-hover: var(--hub-accent-hover);
   --hub-focus: var(--hub-accent-hover);
-  --hub-field-bg: #1c4942;
-  --hub-field-readonly: #28594e;
-  --hub-disabled-bg: #28594e;
-  --hub-disabled-text: #c3d1c8;
+  --hub-field-bg: #24352e;
+  --hub-field-readonly: #2c3e36;
+  --hub-disabled-bg: #2c3e36;
+  --hub-disabled-text: #b3bcb6;
   --hub-error: #f3b2a6;
   --hub-success: #c5d4be;
   --hub-color-scheme: dark;
-  --hub-shadow-sm: inset 0 1px 0 rgba(255, 253, 249, 0.07),
-    0 3px 10px rgba(0, 0, 0, 0.14);
-  --hub-shadow-card: inset 0 1px 0 rgba(255, 253, 249, 0.08),
-    0 5px 14px rgba(0, 0, 0, 0.18);
-  --hub-shadow-track: inset 0 1px 0 rgba(255, 253, 249, 0.08),
-    0 5px 12px rgba(0, 0, 0, 0.18);
-  --hub-shadow-track-hover: inset 0 1px 0 rgba(255, 253, 249, 0.12),
-    0 8px 12px rgba(0, 0, 0, 0.22);
-  --hub-shadow-card-hover: inset 0 1px 0 rgba(255, 253, 249, 0.12),
-    0 8px 20px rgba(0, 0, 0, 0.24);
+  /* Dark surfaces stay matte: no inner highlight or drop shadow, only tone and border. */
+  --hub-shadow-sm: none;
+  --hub-shadow-card: none;
+  --hub-shadow-track: none;
+  --hub-shadow-track-hover: none;
+  --hub-shadow-card-hover: none;
   --hub-button-border: rgba(255, 253, 249, 0.18);
   --hub-button-border-hover: rgba(255, 253, 249, 0.32);
   --hub-button-secondary-bg: rgba(255, 253, 249, 0.05);
@@ -162,9 +157,9 @@
   --hub-button-secondary-hover-bg: var(--hub-sand);
   --hub-button-secondary-hover-text: var(--hub-forest);
   --hub-button-arrow-tint: rgba(255, 253, 249, 0.1);
-  --hub-button-arrow-hover-tint: rgba(18, 59, 54, 0.08);
-  --hub-card-border: rgba(255, 253, 249, 0.14);
-  --hub-card-border-hover: rgba(255, 253, 249, 0.24);
+  --hub-button-arrow-hover-tint: rgba(28, 43, 37, 0.08);
+  --hub-card-border: rgba(248, 247, 243, 0.12);
+  --hub-card-border-hover: rgba(248, 247, 243, 0.22);
   --hub-tag-bg: rgba(255, 253, 249, 0.07);
   --hub-photo-edge: rgba(255, 253, 249, 0.12);
   /* Rebind aliases here: inherited CSS variables resolve in their defining scope. */

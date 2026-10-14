@@ -79,7 +79,7 @@ export const TrainerDialogProvider = ({
         size="xl"
       >
         <ModalOverlay
-          bg="rgba(11, 39, 36, .7)"
+          bg="rgba(18, 28, 24, .7)"
           motionProps={
             reducedMotion ? { transition: { duration: 0 } } : undefined
           }

@@ -5,8 +5,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background: var(--hub-background, #f4efe8);
-  color: var(--hub-text, #0b2724);
+  background: var(--hub-background, #efede7);
+  color: var(--hub-text, #121c18);
 }
 a {
   color: inherit;
@@ -20,6 +20,22 @@ img {
 }
 .leaflet-control-attribution.leaflet-control {
   display: block;
+}
+/* Matte paper grain over the whole page; decorative only, never intercepts input. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--hub-grain-opacity, 0.07);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media print {
+  body::after {
+    display: none;
+  }
 }
 /* Old texture hooks remain neutral for any archived component using the class. */
 .premium-noise {

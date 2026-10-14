@@ -29,7 +29,7 @@
 .accent {
   --_active-bg: var(--hub-accent-active);
   --_active-text: var(--hub-forest-deep);
-  --hub-arrow-bg: rgba(11, 39, 36, 0.1);
+  --hub-arrow-bg: rgba(18, 28, 24, 0.1);
   background: var(--hub-accent);
   color: var(--hub-forest-deep);
   border-color: transparent;
@@ -91,7 +91,7 @@
 @media (hover: hover) and (pointer: fine) {
   .primary:hover:not(:disabled):not([aria-disabled="true"]),
   .accent:hover:not(:disabled):not([aria-disabled="true"]) {
-    --hub-arrow-bg: rgba(18, 59, 54, 0.08);
+    --hub-arrow-bg: rgba(28, 43, 37, 0.08);
     background: var(--hub-sand);
     color: var(--hub-forest);
     border-color: var(--hub-button-border-hover);

@@ -113,7 +113,7 @@ select.control {
   background: rgba(255, 253, 249, 0.42);
   box-shadow:
     inset 0 1px 0 rgba(255, 253, 249, 0.72),
-    0 10px 36px rgba(11, 39, 36, 0.06);
+    0 10px 36px rgba(18, 28, 24, 0.06);
   container-type: inline-size;
   scroll-margin-top: calc(var(--hub-header-clearance) + 16px);
 }
@@ -146,7 +146,7 @@ select.control {
   padding: 16px 20px;
   border: 1px solid transparent;
   border-radius: var(--hub-pill-radius);
-  background: rgba(18, 59, 54, 0.055);
+  background: rgba(28, 43, 37, 0.055);
 }
 .embedded .inline textarea.control {
   min-height: 140px;
@@ -155,8 +155,8 @@ select.control {
 }
 .embedded .inline .control:hover,
 .embedded .inline .control:focus {
-  background: rgba(18, 59, 54, 0.08);
-  border-color: rgba(18, 59, 54, 0.16);
+  background: rgba(28, 43, 37, 0.08);
+  border-color: rgba(28, 43, 37, 0.16);
 }
 .embedded .inline .control::placeholder {
   color: var(--hub-text-muted);
