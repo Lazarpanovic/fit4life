@@ -3,26 +3,26 @@
   --hub-forest: #1c2b25;
   --hub-forest-deep: #121c18;
   --hub-near-black: #121c18;
-  --hub-sand: #efede7;
-  --hub-sand-deep: #e5e2da;
-  --hub-paper: #f8f7f3;
-  --hub-white: #f8f7f3;
-  --hub-accent: #e3ddd1;
-  --hub-accent-hover: #ece8df;
-  --hub-accent-active: #d5cec0;
+  --hub-sand: #f6f3ee;
+  --hub-sand-deep: #ede9e2;
+  --hub-paper: #fdfcfa;
+  --hub-white: #fdfcfa;
+  --hub-accent: #ebe4d8;
+  --hub-accent-hover: #f2ede5;
+  --hub-accent-active: #dfd6c7;
   --hub-ink: #121c18;
   --hub-ink-hover: #1c2b25;
   --hub-overlay-rgb: 18, 28, 24;
   --hub-glass: rgba(18, 28, 24, 0.72);
-  --hub-glass-border: rgba(248, 247, 243, 0.16);
+  --hub-glass-border: rgba(253, 252, 250, 0.16);
 
   /* Default light context: listings, reading, forms and sand Home sections. */
   --hub-background: var(--hub-sand);
   --hub-surface: var(--hub-paper);
-  --hub-surface-hover: #f2f0ea;
+  --hub-surface-hover: #f9f7f3;
   --hub-text: var(--hub-forest-deep);
   --hub-text-muted: #5c645e;
-  --hub-border: #dedbd3;
+  --hub-border: #e8e3db;
   --hub-control-border: #848c86;
   --hub-action-bg: var(--hub-forest);
   --hub-action-hover: var(--hub-sand);
@@ -158,8 +158,8 @@
   --hub-button-secondary-hover-text: var(--hub-forest);
   --hub-button-arrow-tint: rgba(255, 253, 249, 0.1);
   --hub-button-arrow-hover-tint: rgba(28, 43, 37, 0.08);
-  --hub-card-border: rgba(248, 247, 243, 0.12);
-  --hub-card-border-hover: rgba(248, 247, 243, 0.22);
+  --hub-card-border: rgba(253, 252, 250, 0.12);
+  --hub-card-border-hover: rgba(253, 252, 250, 0.22);
   --hub-tag-bg: rgba(255, 253, 249, 0.07);
   --hub-photo-edge: rgba(255, 253, 249, 0.12);
   /* Rebind aliases here: inherited CSS variables resolve in their defining scope. */

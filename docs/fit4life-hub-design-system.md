@@ -2,7 +2,7 @@
 
 ## Obuhvat
 
-Modernizovani su Home, Programs, Program Details, Trainers, Resources, Resource Details, Contact i 404/500 stanja. Sve stranice koriste jedan header/footer, Plus Jakarta Sans/Source Sans 3 tipografiju, mat sivkasto-maslinastu tamnozelenu i kamenu (stone) paletu sa greige akcentom, kompaktnije zajedničke kartice i kontrole. Backend, poslovni podaci, nazivi, ID-jevi i URL-ovi programa/resursa, cene i paketi nisu menjani.
+Modernizovani su Home, Programs, Program Details, Trainers, Resources, Resource Details, Contact i 404/500 stanja. Sve stranice koriste jedan header/footer, Plus Jakarta Sans/Source Sans 3 tipografiju, mat sivkasto-maslinastu tamnozelenu i nežnu lanenu (linen) bež paletu sa šampanj akcentom, kompaktnije zajedničke kartice i kontrole. Backend, poslovni podaci, nazivi, ID-jevi i URL-ovi programa/resursa, cene i paketi nisu menjani.
 
 Odobrena Home osnova ostaje sačuvana: originalni `hero-section.jpg` preko pune širine, tekst preko fotografije, predstavljanja i šest usluga, pet konceptualnih stubova, četiri ravnopravna programa, trenerske kartice sa punim biografijama u dialogu, Resources 1+2, postojeći testimonials, kontakt/mapa i footer. Modernizacija menja detalje, tipografiju i površine, bez nove reorganizacije.
 
@@ -20,14 +20,14 @@ Naslovi i wordmark koriste varijabilni Plus Jakarta Sans. Tekst, labele, filteri
 
 | Namena                                        | Token / vrednost                                       |
 | --------------------------------------------- | ------------------------------------------------------ |
-| Svetla osnova / alternativni pesak            | `--hub-sand`, #EFEDE7 / `--hub-sand-deep`, #E5E2DA     |
+| Svetla osnova / alternativni pesak            | `--hub-sand`, #F6F3EE / `--hub-sand-deep`, #EDE9E2     |
 | Tamna sekcija / footer                        | `--hub-forest`, #1C2B25 / `--hub-forest-deep`, #121C18 |
-| Svetla kartica / hover                        | #F8F7F3 / #F2F0EA                                      |
+| Svetla kartica / hover                        | #FDFCFA / #F9F7F3                                      |
 | Tamna kartica / podignuta površina            | #24352E / #2C3E36                                      |
 | Svetli kontekst: tekst / sekundarni tekst     | #121C18 / #5C645E                                      |
-| Tamni kontekst: tekst / sekundarni tekst      | #F8F7F3 / #B3BCB6                                      |
-| Selektivni akcenat / tamni focus / active     | #E3DDD1 / #ECE8DF / #D5CEC0                            |
-| Svetli border kartice / kontrole              | #DEDBD3 / #848C86                                      |
+| Tamni kontekst: tekst / sekundarni tekst      | #FDFCFA / #B3BCB6                                      |
+| Selektivni akcenat / tamni focus / active     | #EBE4D8 / #F2EDE5 / #DFD6C7                            |
+| Svetli border kartice / kontrole              | #E8E3DB / #848C86                                      |
 | Tamni border kartice / kontrole               | #3A4A43 / #86948C                                      |
 | Svetla error / tamna error                    | #A3392F / #F3B2A6                                      |
 | Kartice / inputi / CTA / header               | 20px / 12px / 999px / 28px radijus                     |
@@ -39,7 +39,7 @@ Naslovi i wordmark koriste varijabilni Plus Jakarta Sans. Tekst, labele, filteri
 
 Semantički tokeni `--hub-background`, `--hub-surface`, `--hub-surface-hover`, `--hub-text`, `--hub-text-muted`, `--hub-border`, `--hub-control-border`, `--hub-action-*`, `--hub-link*`, `--hub-focus`, `--hub-field-*`, `--hub-filter-*`, `--hub-disabled-*`, `--hub-error` i `--hub-success` određuju ulogu boje. Podrazumevani kontekst je svetao; `data-tone="dark"` postavlja tamni kontekst i njegove foreground/hover/active/focus/disabled boje. Kompatibilni aliasi se ponovo vezuju u tom kontekstu, kako Chakra i CSS Modules ne bi nasledili već razrešenu svetlu površinu.
 
-Paleta je u oktobru 2026. pomerena sa plavkaste petrol (#123B36) i ružičastog „oatmeal“ peska (#F4EFE8) na mat, manje zasićenu sivkasto-maslinastu zelenu (#1C2B25), kamenu podlogu (#EFEDE7), karticu koja nije jarko bela (#F8F7F3) i greige akcenat (#E3DDD1). Sekundarni tekst je #5C645E; na najtamnijem pesku (#E5E2DA) ima 4.72:1. Svetla primarna dugmad su tamnozelena sa toplim belim tekstom; greige (#E3DDD1) je za hero/header CTA, tamni kontakt panel, istaknuti paket i male akcente. Aktivni desktop nav link je frosted kapsula (`rgba(255,253,249,.16)`), ne puna bela. Aktivni filter je tamnozelen, kao hover. Hover na akcijama traje 380ms. Focus je tamnozelen na svetlom i svetlozelen na tamnom. Native select koristi odgovarajući light/dark color-scheme; readonly, invalid i disabled polja imaju zasebne uloge.
+Paleta je u oktobru 2026. pomerena sa plavkaste petrol (#123B36) i ružičastog „oatmeal“ peska (#F4EFE8) na mat, manje zasićenu sivkasto-maslinastu zelenu (#1C2B25). Bež je potom omekšan: umesto sivkaste kamene podloge (#EFEDE7) koristi se svetao, nežan lan (#F6F3EE) niske zasićenosti, kartica je skoro bela topla površina (#FDFCFA), a greige akcenat je zamenjen svetlim šampanj tonom (#EBE4D8). Nijanse drže hue oko 37–38° uz malu zasićenost: dovoljno toplo da ne deluju sivo, dovoljno čisto da izgledaju moderno, i dalje od ružičastog „oatmeal“ tona. Sekundarni tekst je #5C645E; na najtamnijem pesku (#EDE9E2) ima 5.05:1, a na akcentu 4.83:1. Svetla primarna dugmad su tamnozelena sa toplim belim tekstom; šampanj akcenat (#EBE4D8) je za hero/header CTA, tamni kontakt panel, istaknuti paket i male akcente. Aktivni desktop nav link je frosted kapsula (`rgba(255,253,249,.16)`), ne puna bela. Aktivni filter je tamnozelen, kao hover. Hover na akcijama traje 380ms. Focus je tamnozelen na svetlom i svetlozelen na tamnom. Native select koristi odgovarajući light/dark color-scheme; readonly, invalid i disabled polja imaju zasebne uloge.
 
 ### Raspored površina i kompaktnost
 
@@ -65,10 +65,10 @@ Glavni reusable elementi su `HubPage`, `HubPageMeta`, `HubPageHeading`, `HubFilt
 
 | Akcija               | Default                          | Hover na fine pointer uređaju                |
 | -------------------- | -------------------------------- | -------------------------------------------- |
-| Tamnozelena na svetlom | #1C2B25 / #F8F7F3              | #EFEDE7 / #1C2B25, mekan border i mala senka |
-| Svetla sekundarna    | #F8F7F3 / #1C2B25                | #1C2B25 / #F8F7F3                            |
-| Greige akcenat       | #E3DDD1 / #121C18                | #ECE8DF / #1C2B25                            |
-| Sekundarna na tamnom | toplo bela sa 5% alpha / #F8F7F3 | #EFEDE7 / #1C2B25                            |
+| Tamnozelena na svetlom | #1C2B25 / #FDFCFA              | #F6F3EE / #1C2B25, mekan border i mala senka |
+| Svetla sekundarna    | #FDFCFA / #1C2B25                | #1C2B25 / #FDFCFA                            |
+| Šampanj akcenat      | #EBE4D8 / #121C18                | #F2EDE5 / #1C2B25                            |
+| Sekundarna na tamnom | toplo bela sa 5% alpha / #FDFCFA | #F6F3EE / #1C2B25                            |
 
 `--hub-button-border` koristi rgba(28,43,37,.16) na svetlom i rgba(255,253,249,.18) na tamnom; hover koristi .28 / .32. To su dekorativni borderi. `--hub-control-border`, invalid i focus tokeni ostaju jači za inpute i keyboard fokus. Disabled stanje koristi svoju površinu/tekst, bez smanjivanja opacity cele akcije. Active je blagi pritisak od 1px; boje ostaju kontrastne. Default/hover ne menjaju padding, border debljinu ni veličinu kruga. Hover je ograničen na `(hover:hover) and (pointer:fine)`; pomeranje dugmeta 1px, horizontalne strelice 3px i kartice 2px dodatno zahteva `prefers-reduced-motion:no-preference`. Strelica u krugu pokazuje desno. Reduced-motion uklanja pomeraje i tranzicije. Slogan, glavni hero raspored i header logika ostaju isti.
 
@@ -76,7 +76,7 @@ Programi i listing članci imaju 7px uvučenu fotografiju, unutrašnji radijus 1
 
 Home Resources zadržava 1+2 i mobilni carousel, uz donji čitljiv gradient i svetlije gornje delove fotografije. Sitne kategorije preko slike imaju toniranu tamnu podlogu radi kontrasta. Testimonials i stubovi dobijaju samo malu dubinu, bez promene paddinga ili dimenzija. Focus-within naglašava border i senku kartice; fotografska kartica ima spoljašnji outline koji ne zavisi od clippinga slike.
 
-Senke su centralizovane: `--hub-shadow-sm`, `--hub-shadow-card`, `--hub-shadow-card-hover`, uz `--hub-shadow-track` / `--hub-shadow-track-hover` za native slajdere. Površine su mat: svetle kartice imaju jedva primetnu senku od 1–2px (hover 8px), a tamne nemaju ni senku ni svetlu unutrašnju ivicu, već se odvajaju tonom i tankim borderom (`rgba(248,247,243,.12)`, hover .22). Pet stubova su ravni paneli `--hub-surface` / hover `--hub-surface-hover`, bez staklenog gradijenta, backdrop blur-a i odsjaja na hover. Preko cele stranice je fiksni grain sloj (SVG fractal noise, `mix-blend-mode: multiply`, `--hub-grain-opacity` 0.07, bez pointer događaja, sakriven u štampi) koji daje utisak mat papira. Header zadržava svoj postojeći token. Nema glow efekata ili skaliranja cele kartice.
+Senke su centralizovane: `--hub-shadow-sm`, `--hub-shadow-card`, `--hub-shadow-card-hover`, uz `--hub-shadow-track` / `--hub-shadow-track-hover` za native slajdere. Površine su mat: svetle kartice imaju jedva primetnu senku od 1–2px (hover 8px), a tamne nemaju ni senku ni svetlu unutrašnju ivicu, već se odvajaju tonom i tankim borderom (`rgba(253,252,250,.12)`, hover .22). Pet stubova su ravni paneli `--hub-surface` / hover `--hub-surface-hover`, bez staklenog gradijenta i backdrop blur-a; na hover (fine pointer, bez reduced-motion) preko panela prelazi kosi svetli odsjaj (760ms), jedini sjaj u inače mat sistemu. Preko cele stranice je fiksni grain sloj (SVG fractal noise u toplom taupe tonu umesto crnog, `mix-blend-mode: multiply`, `--hub-grain-opacity` 0.07, bez pointer događaja, sakriven u štampi) koji daje utisak mat papira; na tamnozelenoj se ponaša isto kao ranije, a lan na svetlim sekcijama ne posivljuje. Header zadržava svoj postojeći token. Nema glow efekata ili skaliranja cele kartice.
 
 Na telefonu carousel viewport ima 20px gornjeg i 36px donjeg paddinga, uz kompenzacione vertikalne margine, da track senka (blur do 12px) ostane unutar scroll kontejnera. Horizontalni overflow stranice se ne širi negativnom marginom. Kartica je približno 82% širine. Track senke se vezuju na kartice, uključujući tamni kontekst.
 
