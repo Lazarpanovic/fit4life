@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
-import Script from "next/script"; // Import the Script component
 
 export default function Document({ __NEXT_DATA__ }: DocumentProps) {
   return (
@@ -8,22 +7,12 @@ export default function Document({ __NEXT_DATA__ }: DocumentProps) {
       style={{ scrollBehavior: "smooth" }}
     >
       <Head>
-        {/* Google Analytics */}
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ACCOUNT_ID}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive" // Ensures the script runs after the page is interactive
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ACCOUNT_ID}');
-          `}
-        </Script>
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#121c18" />
+        <meta name="format-detection" content="telephone=no" />
       </Head>
       <body>
         <Main />

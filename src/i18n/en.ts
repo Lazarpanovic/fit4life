@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    homeTitle: "Fit4Life Hub | Longevity – Performance Concept | Belgrade",
+    homeTitle: "Fit4Life Hub Belgrade | Training, Performance & Longevity",
     homeDescription:
       "Fit4Life Hub in Belgrade connects health, performance, longevity, balance and testing through training, recovery and active living. Explore our programs and team.",
   },
@@ -221,10 +221,9 @@ export const en = {
     },
   },
   contactSection: {
-    metaTitle:
-      "Fit4Life Hub: Contact Us - Fitness, Wellness & Personal Training Support",
+    metaTitle: "Contact Fit4Life Hub | Training & Wellness in Belgrade",
     metaDescription:
-      "Contact Fit4Life Hub Belgrade for fitness programs, personal training, wellness services, memberships and support.",
+      "Contact Fit4Life Hub at Bulevar Kralja Aleksandra 200, Belgrade, about training programs, personal training and wellness. Call 066/200-300 or send a message.",
     pageEyebrow: "Contact",
     pageTitle: "Your goals. Let’s talk.",
     pageDescription:
@@ -257,10 +256,9 @@ export const en = {
     rights: "All rights reserved",
   },
   programsPage: {
-    metaTitle:
-      "Fit4Life Hub: Programs - Fitness, Personal Training & Wellness Programs",
+    metaTitle: "Training Programs in Belgrade | Fit4Life Hub",
     metaDescription:
-      "Explore Fit4Life Hub premium programs, from professional sport performance and young athlete development to corporate wellness and outdoor lifestyle programs.",
+      "Training programs in Belgrade for professional and young athletes, busy professionals and outdoor lovers, with structured plans and measurable progress.",
     eyebrow: "Programs",
     title: "Find a program for your goals.",
     description:
@@ -285,6 +283,8 @@ export const en = {
     programs: {
       professionalSport: {
         shortTitle: "Professional Sport",
+        metaDescription:
+          "Tailored training plans for competitive athletes in Belgrade: strength, endurance, agility and injury prevention, built around your sport and goals.",
         title:
           "Tailored training plans for athletes aiming to excel in competitive sports",
         longDescription:
@@ -292,6 +292,8 @@ export const en = {
       },
       athletesDevelopment: {
         shortTitle: "Athletes Development",
+        metaDescription:
+          "Training for young and aspiring athletes in Belgrade, developing speed, coordination, strength and discipline with expert coaches.",
         title:
           "Comprehensive programs focused on developing young and aspiring athletes",
         longDescription:
@@ -299,6 +301,8 @@ export const en = {
       },
       healthyInBusiness: {
         shortTitle: "Healthy in Business",
+        metaDescription:
+          "Efficient training and wellness for busy professionals in Belgrade: less stress, more energy and better long-term balance.",
         title:
           "Fitness solutions designed for professionals to boost productivity and wellness",
         longDescription:
@@ -306,6 +310,8 @@ export const en = {
       },
       lifeWithNature: {
         shortTitle: "Life with Nature",
+        metaDescription:
+          "Hiking, cycling and mindfulness outdoors with Fit4Life Hub, for physical health, mental clarity and emotional balance away from the daily routine.",
         title:
           "Outdoor-focused activities to promote health, balance and connection with nature",
         longDescription:
@@ -315,9 +321,7 @@ export const en = {
   },
   programDetailsPage: {
     mostPopular: "Most popular",
-    metaTitlePrefix: "Fit4Life Hub Program",
-    metaDescription:
-      "Explore this Fit4Life Hub premium program and choose the plan that matches your goals.",
+    metaTitle: "{program} Program in Belgrade | Fit4Life Hub",
     notFound: "Program not found",
     pricingEyebrow: "Pricing",
     pricingTitle: "Choose your level of commitment.",
@@ -374,10 +378,9 @@ export const en = {
     perMonth: "month",
   },
   trainersPage: {
-    metaTitle:
-      "Fit4Life Hub: Trainers - Expert Personal Trainers & Performance Coaches",
+    metaTitle: "Personal Trainers & Coaches in Belgrade | Fit4Life Hub",
     metaDescription:
-      "Meet Fit4Life Hub expert trainers and coaches specialized in strength, fitness, athletic performance and bodybuilding.",
+      "Meet the Fit4Life Hub personal trainers and coaches in Belgrade, specialized in strength, fitness, athletic performance and bodybuilding.",
     eyebrow: "Trainers",
     title: "Meet the coaches behind your next breakthrough.",
     description:
@@ -415,8 +418,7 @@ export const en = {
     },
   },
   resourcesPage: {
-    metaTitle:
-      "Fit4Life Hub: Resources - Fitness Tips, Training Guides & Wellness Insights",
+    metaTitle: "Training, Recovery & Wellness Articles | Fit4Life Hub",
     metaDescription:
       "Explore Fit4Life Hub expert resources about training, supplements, recovery, wellness, nutrition and injury prevention.",
     eyebrow: "Resources",

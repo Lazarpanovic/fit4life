@@ -1,6 +1,6 @@
 export const sr = {
   meta: {
-    homeTitle: "Fit4Life Hub | Longevity – Performance Concept | Beograd",
+    homeTitle: "Fit4Life Hub Beograd | Trening, performanse i dugovečnost",
     homeDescription:
       "Fit4Life Hub u Beogradu povezuje zdravlje, performanse, dugovečnost, balans i testiranje kroz trening, oporavak i aktivan život. Istraži programe i upoznaj tim.",
   },
@@ -221,10 +221,9 @@ export const sr = {
     },
   },
   contactSection: {
-    metaTitle:
-      "Fit4Life Hub: Kontakt - Fitness, Wellness i Personalni Treninzi",
+    metaTitle: "Kontakt | Fit4Life Hub – trening i wellness u Beogradu",
     metaDescription:
-      "Kontaktiraj Fit4Life Hub Beograd za fitness programe, personalne treninge, wellness usluge, članarine i podršku.",
+      "Kontaktiraj Fit4Life Hub, Bulevar kralja Aleksandra 200, Beograd, za programe treninga, personalne treninge i wellness. Pozovi 066/200-300 ili pošalji poruku.",
     pageEyebrow: "Kontakt",
     pageTitle: "Tvoji ciljevi. Razgovarajmo.",
     pageDescription:
@@ -257,10 +256,9 @@ export const sr = {
     rights: "Sva prava zadržana",
   },
   programsPage: {
-    metaTitle:
-      "Fit4Life Hub: Programi - Fitness, Personalni Treninzi i Wellness Programi",
+    metaTitle: "Programi treninga u Beogradu | Fit4Life Hub",
     metaDescription:
-      "Istraži Fit4Life Hub premium programe — od sportskih performansi i razvoja mladih sportista, do corporate wellness-a i programa u prirodi.",
+      "Programi treninga u Beogradu za profesionalne i mlade sportiste, zauzete profesionalce i ljubitelje prirode, uz jasan plan i merljiv napredak.",
     eyebrow: "Programi",
     title: "Pronađi program za svoje ciljeve.",
     description:
@@ -285,6 +283,8 @@ export const sr = {
     programs: {
       professionalSport: {
         shortTitle: "Profesionalni sport",
+        metaDescription:
+          "Personalizovani treninzi za sportiste u Beogradu: snaga, izdržljivost, agilnost i prevencija povreda, prilagođeno tvom sportu i ciljevima.",
         title:
           "Personalizovani treninzi za sportiste koji žele vrhunske rezultate",
         longDescription:
@@ -292,6 +292,8 @@ export const sr = {
       },
       athletesDevelopment: {
         shortTitle: "Razvoj sportista",
+        metaDescription:
+          "Program za mlade i perspektivne sportiste u Beogradu: brzina, koordinacija, snaga i disciplina uz stručne trenere.",
         title:
           "Sveobuhvatni programi za razvoj mladih i perspektivnih sportista",
         longDescription:
@@ -299,6 +301,8 @@ export const sr = {
       },
       healthyInBusiness: {
         shortTitle: "Healthy in Business",
+        metaDescription:
+          "Efikasni treninzi i wellness za zauzete profesionalce u Beogradu: manje stresa, više energije i bolji dugoročni balans.",
         title:
           "Fitness rešenja za profesionalce koji žele više energije i bolji balans",
         longDescription:
@@ -306,6 +310,8 @@ export const sr = {
       },
       lifeWithNature: {
         shortTitle: "Život sa prirodom",
+        metaDescription:
+          "Planinarenje, biciklizam i mindfulness u prirodi sa Fit4Life Hub-om, za fizičko zdravlje, mentalnu jasnoću i emocionalni balans van svakodnevne rutine.",
         title:
           "Aktivnosti na otvorenom za zdravlje, balans i povezanost sa prirodom",
         longDescription:
@@ -315,9 +321,7 @@ export const sr = {
   },
   programDetailsPage: {
     mostPopular: "Najpopularnije",
-    metaTitlePrefix: "Fit4Life Hub Program",
-    metaDescription:
-      "Istraži Fit4Life Hub premium program i izaberi plan koji odgovara tvojim ciljevima.",
+    metaTitle: "{program} – program u Beogradu | Fit4Life Hub",
     notFound: "Program nije pronađen",
     pricingEyebrow: "Cene",
     pricingTitle: "Izaberi nivo posvećenosti.",
@@ -374,10 +378,9 @@ export const sr = {
     perMonth: "mesec",
   },
   trainersPage: {
-    metaTitle:
-      "Fit4Life Hub: Treneri - Personalni Treneri i Performance Coach-evi",
+    metaTitle: "Personalni treneri u Beogradu | Fit4Life Hub",
     metaDescription:
-      "Upoznaj Fit4Life Hub stručne trenere i coach-eve specijalizovane za snagu, fitness, atletske performanse i bodybuilding.",
+      "Upoznaj personalne trenere Fit4Life Hub-a u Beogradu, specijalizovane za snagu, fitness, atletske performanse i bodybuilding.",
     eyebrow: "Treneri",
     title: "Upoznaj trenere iza tvog sledećeg napretka.",
     description:
@@ -415,8 +418,7 @@ export const sr = {
     },
   },
   resourcesPage: {
-    metaTitle:
-      "Fit4Life Hub: Resursi - Fitness Saveti, Vodiči za Trening i Wellness",
+    metaTitle: "Saveti za trening, oporavak i wellness | Fit4Life Hub",
     metaDescription:
       "Istraži Fit4Life Hub stručne resurse o treningu, suplementima, oporavku, wellness-u, ishrani i prevenciji povreda.",
     eyebrow: "Resursi",

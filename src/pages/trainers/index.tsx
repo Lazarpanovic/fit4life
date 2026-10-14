@@ -9,8 +9,9 @@ import { HubTrainerCard } from "../../components/hub/home-cards";
 import { newTrainers, programCategories } from "../../data/data";
 import { useCatalog } from "../../hooks/use-catalog";
 import { useTranslation } from "../../i18n/use-translation";
+import { breadcrumbSchema } from "../../utils/seo";
 export default function TrainersPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const catalog = useCatalog(newTrainers, programCategories);
   return (
     <>
@@ -18,6 +19,12 @@ export default function TrainersPage() {
         title={t.trainersPage.metaTitle}
         description={t.trainersPage.metaDescription}
         path="/trainers"
+        jsonLd={[
+          breadcrumbSchema(locale, [
+            { name: t.nav.home, path: "/" },
+            { name: t.nav.trainers, path: "/trainers" },
+          ]),
+        ]}
       />
       <HubPage>
         <div className={styles.container}>

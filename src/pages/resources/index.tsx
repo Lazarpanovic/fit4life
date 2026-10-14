@@ -9,8 +9,9 @@ import { HubResourceCard } from "../../components/hub/home-cards";
 import { resources, categories } from "../../data/data";
 import { useCatalog } from "../../hooks/use-catalog";
 import { useTranslation } from "../../i18n/use-translation";
+import { breadcrumbSchema } from "../../utils/seo";
 export default function ResourcesPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const catalog = useCatalog(resources, categories);
   return (
     <>
@@ -18,6 +19,12 @@ export default function ResourcesPage() {
         title={t.resourcesPage.metaTitle}
         description={t.resourcesPage.metaDescription}
         path="/resources"
+        jsonLd={[
+          breadcrumbSchema(locale, [
+            { name: t.nav.home, path: "/" },
+            { name: t.nav.resources, path: "/resources" },
+          ]),
+        ]}
       />
       <HubPage>
         <div className={styles.container}>

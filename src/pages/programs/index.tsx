@@ -9,8 +9,9 @@ import { HubProgramCard } from "../../components/hub/home-cards";
 import { newPrograms, programCategories } from "../../data/data";
 import { useCatalog } from "../../hooks/use-catalog";
 import { useTranslation } from "../../i18n/use-translation";
+import { breadcrumbSchema } from "../../utils/seo";
 export default function ProgramsPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const catalog = useCatalog(newPrograms, programCategories);
   return (
     <>
@@ -18,6 +19,12 @@ export default function ProgramsPage() {
         title={t.programsPage.metaTitle}
         description={t.programsPage.metaDescription}
         path="/programs"
+        jsonLd={[
+          breadcrumbSchema(locale, [
+            { name: t.nav.home, path: "/" },
+            { name: t.nav.programs, path: "/programs" },
+          ]),
+        ]}
       />
       <HubPage>
         <div className={styles.container}>

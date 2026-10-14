@@ -13,6 +13,7 @@ export default function ServerErrorPage() {
         title="500 | Fit4Life Hub"
         description={t.ui.unavailable}
         path="/500"
+        noindex
       />
       <HubPage>
         <div className={styles.notFound}>

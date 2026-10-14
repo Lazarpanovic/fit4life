@@ -9,22 +9,38 @@ import { HubDetailHero, detailStyles } from "../../components/hub/detail-hero";
 import { HubSectionHeading, HubLink } from "../../components/hub/hub-ui";
 import { HubResourceCard } from "../../components/hub/home-cards";
 import { useTranslation } from "../../i18n/use-translation";
+import { articleSchema, breadcrumbSchema } from "../../utils/seo";
 export default function ResourceDetailsPage({
   resourceId,
 }: {
   resourceId: number;
 }) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const resource = resources.find((item) => item.id === resourceId)!;
   const copy = t.resourcesPage.resources[resource.key];
+  const path = `/resources/${resource.id}`;
   return (
     <>
       <HubPageMeta
-        title={`Fit4Life Hub: ${copy.title}`}
+        title={`${copy.title} | Fit4Life Hub`}
         description={copy.description}
-        path={`/resources/${resource.id}`}
+        path={path}
         image={resource.image}
         article
+        jsonLd={[
+          articleSchema({
+            locale,
+            path,
+            title: copy.title,
+            description: copy.description,
+            image: resource.image,
+          }),
+          breadcrumbSchema(locale, [
+            { name: t.nav.home, path: "/" },
+            { name: t.nav.resources, path: "/resources" },
+            { name: copy.title, path },
+          ]),
+        ]}
       />
       <HubPage bleed>
         <HubDetailHero

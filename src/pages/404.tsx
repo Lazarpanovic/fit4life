@@ -13,6 +13,7 @@ export default function NotFoundPage() {
         title="404 | Fit4Life Hub"
         description={t.ui.notFound}
         path="/404"
+        noindex
       />
       <HubPage>
         <div className={styles.notFound}>

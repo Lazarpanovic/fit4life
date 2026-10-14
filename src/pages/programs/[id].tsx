@@ -5,21 +5,42 @@ import { ProgramImageView } from "../../views/programs/details/program-image.vie
 import { PricingPlanView } from "../../views/programs/details/pricing-plans.view";
 import { ProgramSelectionView } from "../../views/programs/details/program-selection.view";
 import { useTranslation } from "../../i18n/use-translation";
+import { breadcrumbSchema, serviceSchema } from "../../utils/seo";
 export default function ProgramDetailsPage({
   programId,
 }: {
   programId: number;
 }) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const program = newPrograms.find((item) => item.id === programId)!;
   const copy = t.programsPage.programs[program.key];
+  const path = `/programs/${program.id}`;
   return (
     <>
       <HubPageMeta
-        title={`${t.programDetailsPage.metaTitlePrefix}: ${copy.shortTitle}`}
-        description={t.programDetailsPage.metaDescription}
-        path={`/programs/${program.id}`}
+        title={t.programDetailsPage.metaTitle.replace(
+          "{program}",
+          copy.shortTitle,
+        )}
+        description={copy.metaDescription}
+        path={path}
         image={program.imageSrc}
+        imageAlt={copy.title}
+        jsonLd={[
+          serviceSchema({
+            locale,
+            path,
+            name: copy.shortTitle,
+            description: copy.longDescription,
+            image: program.imageSrc,
+            price: program.price,
+          }),
+          breadcrumbSchema(locale, [
+            { name: t.nav.home, path: "/" },
+            { name: t.nav.programs, path: "/programs" },
+            { name: copy.shortTitle, path },
+          ]),
+        ]}
       />
       <HubPage bleed>
         <ProgramImageView program={program} />
